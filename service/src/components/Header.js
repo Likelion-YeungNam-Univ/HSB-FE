@@ -23,7 +23,7 @@ const Header = () =>{
     return(
         <>
             <StyledHeader>
-                <HeaderLink to="/">말문희막힘</HeaderLink>
+                <HeaderLink to="/MainPage">말문희막힘</HeaderLink>
                 <StyledSearch type="text" value={text} onChange={(e)=>{
                     setText(e.target.value);
                 }}></StyledSearch>

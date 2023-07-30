@@ -3,17 +3,19 @@ import styled from "styled-components"
 
 const Nav = () =>{
     const StyledLink = styled(Link)`
-        font-size: 2rem;
+        font-size: 1.3rem;
         color: blue;
-        margin: 0px 30px 0px 0px;
+        line-height:7;
+        margin: 0px 20px 0px 0px;
         text-decoration: none;
     `;
 
     return(
         <>
-            <StyledLink to="/"> 홈</StyledLink>
-            <StyledLink to="/EstimatePage"> 견적 요청</StyledLink>
-            <StyledLink to="/GuestBookPage"> 방명록</StyledLink>
+            <StyledLink to="/">서비스 이름 이란?</StyledLink>
+            <StyledLink to="/EstimatePage">견적 요청</StyledLink>
+            <StyledLink to="/GuestBookPage">커뮤니티</StyledLink>
+            <StyledLink to="/GuestBookPage">FAQ</StyledLink>
         </>
     )
 }
