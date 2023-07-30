@@ -1,17 +1,31 @@
 import styled from "styled-components"
 import Nav from "../components/Nav";
+import EstimateHead from "../components/Estimates/EstimateHead";
+import EstimateBody from "../components/Estimates/EstimateBody";
+import BidList from "../components/Estimates/BidList";
+import OfferBid from "../components/Estimates/OfferBid";
 
 
 const EstimatePage = () =>{
-    const StyledBody = styled.div`
+    const StyledEstimatePage = styled.div`
+        display: flex;
+        flex-direction: column;
+    `;
+    const StyledNav = styled.div`
         display: flex;
         flex-direction: row;
     `;
+    const StyledBody = styled.div`
+        display: flex;
+        justify-content: center;
+    `;
 
     return(
-        <>
-            <Nav/>
-{/* 
+        <StyledEstimatePage>
+            <StyledNav>
+                <Nav/>
+            </StyledNav>
+
             <StyledBody>
                 <EstimateHead/>
                 <EstimateBody/>
@@ -20,8 +34,8 @@ const EstimatePage = () =>{
             <BidList/>
             <OfferBid/>
 
-            <Footer/>*/}
-        </>
+            
+        </StyledEstimatePage>
     )
 }
 
