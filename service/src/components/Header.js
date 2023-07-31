@@ -59,8 +59,8 @@ const Header = () => {
 
             <StyledSearch>
                 <StyledIcon><AiOutlineSearch/></StyledIcon>
-                <StyledInput type="text" value={search} placeholder="검색어를 입력해주세요" onChange={onChange}></StyledInput>
-            </StyledSearch> 
+                <StyledInput type="text" placeholder="검색어를 입력해주세요">{/*value={search} onChange={onChange}*/}</StyledInput>
+            </StyledSearch>
 
             <StyledIconButtons>
                 <StyledIcons buttonName={<AiOutlineBell/>}></StyledIcons>

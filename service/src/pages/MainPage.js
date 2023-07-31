@@ -1,8 +1,5 @@
 import {Link, useNavigate} from 'react-router-dom';
 import React, {useState} from 'react';
-import Header from "../components/Header";
-import Nav from "../components/Nav";
-import Footer from "../components/Footer";
 import CardNews from '../components/Main/CardNews';
 import styled from "styled-components"
 

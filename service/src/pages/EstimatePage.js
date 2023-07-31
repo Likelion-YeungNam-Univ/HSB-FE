@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import Nav from "../components/Nav";
 import EstimateHead from "../components/Estimates/EstimateHead";
 import EstimateBody from "../components/Estimates/EstimateBody";
 import BidList from "../components/Estimates/BidList";
@@ -22,9 +21,6 @@ const EstimatePage = () =>{
 
     return(
         <StyledEstimatePage>
-            <StyledNav>
-                <Nav/>
-            </StyledNav>
 
             <StyledBody>
                 <EstimateHead/>
