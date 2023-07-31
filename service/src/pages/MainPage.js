@@ -2,6 +2,8 @@ import {Link, useNavigate} from 'react-router-dom';
 import React, {useState} from 'react';
 import CardNews from '../components/Main/CardNews';
 import styled from "styled-components"
+import App from '../App';
+import { Cardlist } from 'react-icons/fa';
 
 const MainPage = () => {
 
@@ -30,6 +32,14 @@ const MainPage = () => {
         border-radius: 3px;
     `;
 
+    const ApplicationContainer = styled.div`
+        
+        padding: 10px 16px;
+        border: 1px solid grey;
+        border-radius: 3px;
+    `;
+
+
     const CardNewsContainer = styled.div`
         padding: 10px 16px;
         border: 0px solid grey;
@@ -41,6 +51,13 @@ const MainPage = () => {
         font-size:28px;
         font-weight: 500;
     `;
+
+    const Vline = styled.p`
+        border-right: solid black;
+        height: 25vh;
+        
+    `;
+
 
     const ContentText = styled.p`
         font-size: 20px;
@@ -60,6 +77,17 @@ const MainPage = () => {
                         공지사항
                     </TitleText>
                 </NoticeContainer>
+                <br></br>
+                <ApplicationContainer>
+                    <Vline>
+                        <p>견적신청서</p><hr></hr>
+                        <p>온라인 방송 통역 구합니다!</p>
+                        <i class="bi bi-card-list"></i> {/* 수정해볼것 */}
+                        <p>2시간 가량의 다큐멘터리 자막 의뢰합니다.</p>
+                        <p>녹취록 의뢰합니다.</p>
+                    </Vline>
+                    
+                </ApplicationContainer>
                 <br></br>
                 <CardNewsContainer>
                     <TitleText>
