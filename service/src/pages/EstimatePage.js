@@ -1,18 +1,14 @@
 import styled from "styled-components"
-import EstimateHead from "../components/estimates/EstimateHead";
-import EstimateBody from "../components/estimates/EstimateBody";
-import BidList from "../components/estimates/BidList";
-import OfferBid from "../components/estimates/OfferBid";
+import EstimateHead from "../components/Estimates/EstimateHead";
+import EstimateBody from "../components/Estimates/EstimateBody";
+import BidList from "../components/Estimates/BidList";
+import OfferBid from "../components/Estimates/OfferBid";
 
 
 const EstimatePage = () =>{
     const StyledEstimatePage = styled.div`
         display: flex;
         flex-direction: column;
-    `;
-    const StyledNav = styled.div`
-        display: flex;
-        flex-direction: row;
     `;
     const StyledBody = styled.div`
         display: flex;
@@ -29,7 +25,6 @@ const EstimatePage = () =>{
 
             <BidList/>
             <OfferBid/>
-
             
         </StyledEstimatePage>
     )

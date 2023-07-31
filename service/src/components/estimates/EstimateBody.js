@@ -6,11 +6,13 @@ import styled from "styled-components"
 
 const EstimateBody = () => {
     const StyledBody = styled.div`
-        border: line;
+        border: 1px solid;
         border-radius: 3px;
         display: flex;
         flex-direction: column;
-        padding: 0px 0px 0px 50px;
+        margin: 0px 0px 0px 50px;
+        padding: 20px;
+        width: 300px;
     `;
 
     const [bookmark, setBookmark] = useState(false);
