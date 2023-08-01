@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Nav from "../components/Nav";
-import Head from "../components/Head";
+import Header from "../components/Header";
 import Profile from "../components/Profile";
 import OngoingContracts from "../components/OngoingContracts";
 import CompletedContracts from "../components/CompletedContracts";
