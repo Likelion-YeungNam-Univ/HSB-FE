@@ -12,7 +12,7 @@ const Nav = () =>{
 
     return(
         <>
-            <StyledLink to="/">서비스 이름 이란?</StyledLink>
+            <StyledLink to="/ServiceNamePage">서비스 이름 이란?</StyledLink>
             <StyledLink to="/EstimatePage">견적 요청</StyledLink>
             <StyledLink to="/GuestBookPage">커뮤니티</StyledLink>
             <StyledLink to="/GuestBookPage">FAQ</StyledLink>
