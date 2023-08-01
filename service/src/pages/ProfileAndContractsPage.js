@@ -1,29 +1,25 @@
 import styled from "styled-components";
-import Nav from "../components/Nav";
-import Header from "../components/Header";
-import Profile from "../components/Profile";
+import MyProfile from "../components/MyProfile";
 import OngoingContracts from "../components/OngoingContracts";
 import CompletedContracts from "../components/CompletedContracts";
-import Footer from "../components/Footer";
 
 const StyledBody = styled.div`
   display: flex;
   flex-direction: row;
+  margin-top: 20px;
+  font-size: 24px;
+  font-weight: bold;
 `;
 
 const ProfileAndContractsPage = () => {
   return (
     <>
-      <Nav />
-      <Head />
-
       <StyledBody>
-        <Profile />
-        <OngoingContracts />
-        <CompletedContracts />
+        <div>마이페이지</div> {/* "마이페이지" 글씨 추가 */}
       </StyledBody>
-
-      <Footer />
+      <MyProfile />
+      <OngoingContracts />
+      <CompletedContracts />
     </>
   );
 };
