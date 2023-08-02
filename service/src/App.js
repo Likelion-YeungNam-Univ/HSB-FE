@@ -4,6 +4,7 @@ import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import MainPage from "./pages/MainPage";
 import EstimatePage from "./pages/EstimatePage";
+import ProfileAndContractsPage from "./pages/ProfileAndContractsPage";
 import styled from "styled-components";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -24,8 +25,8 @@ function App() {
         <Nav/>
         <Routes>
           <Route path="/" element={<MainPage/>}></Route>
-          {/*<Route path="/MainPage" element={<MainPage/>}></Route>*/}
           <Route path="/EstimatePage" element={<EstimatePage/>}></Route>
+          <Route path="/ProfileAndContractsPage" element={<ProfileAndContractsPage/>}></Route> 
         </Routes>
         <Footer/>
       </BrowserRouter>

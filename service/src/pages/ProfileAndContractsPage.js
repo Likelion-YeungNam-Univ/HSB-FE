@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import MyProfile from "../components/MyProfile";
-import OngoingContracts from "../components/OngoingContracts";
-import CompletedContracts from "../components/CompletedContracts";
+import MyProfile from "../components/ProfileAndContracts/MyProfile";
+import OngoingContracts from "../components/ProfileAndContracts/OngoingContracts";
+import CompletedContracts from "../components/ProfileAndContracts/CompletedContracts";
 
 const StyledBody = styled.div`
   display: flex;
