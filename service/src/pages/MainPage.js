@@ -1,73 +1,14 @@
 import {Link, useNavigate} from 'react-router-dom';
 import React, {useState} from 'react';
-import CardNews from '../components/Main/CardNews';
-import styled from "styled-components"
+import styled from "styled-components";
+import { Wrapper, Container, NoticeContainer, ApplicationContainer,TitleText, Vline, CardNewsContainer, MyPage } from '../styles/Login.styled';
 import App from '../App';
-import { Cardlist } from 'react-icons/fa';
 
 const MainPage = () => {
-
-    const Wrapper = styled.div`
-        padding: 16px;
-        width: calc(100% - 32px);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    `;
-
-    const Container = styled.div`
-        width: 100%;
-        max-width: 720px;
-        & > * {
-            :not(:last-child) {
-                margin-bottom: 16px;
-            }
-        }
-    `;
-
-    const NoticeContainer = styled.div`
-        padding: 10px 16px;
-        border: 1px solid grey;
-        border-radius: 3px;
-    `;
-
-    const ApplicationContainer = styled.div`
-        
-        padding: 10px 16px;
-        border: 1px solid grey;
-        border-radius: 3px;
-    `;
-
-
-    const CardNewsContainer = styled.div`
-        padding: 10px 16px;
-        border: 0px solid grey;
-        border-radius: 3px;
-        background-color: lightgrey;
-    `;
-
-    const TitleText = styled.p`
-        font-size:28px;
-        font-weight: 500;
-    `;
-
-    const Vline = styled.p`
-        border-right: solid black;
-        height: 25vh;
-        
-    `;
-
-
-    const ContentText = styled.p`
-        font-size: 20px;
-        line-height: 32px;
-        white-space: pre-wrap;
-    `;
     
-
     const navigate = useNavigate();
-    
+
+
     const [comment, setComment] = useState("");
     return (
         <Wrapper>
@@ -88,6 +29,25 @@ const MainPage = () => {
                     </Vline>
                     
                 </ApplicationContainer>
+                <br></br>
+
+                <MyPage>
+                    <NoticeContainer>
+                    <p>000을 통해서 원하는 영상의 소리를 볼 수 있습니다.</p>
+                    
+                    <div className="bottom-signup">
+                        <button className="LoginBtn" onClick={() => navigate("/LoginPage")}>로그인하기</button> 
+                        <button className="FindIdBtn" onClick={() => navigate("/SearchIdPage")}>아이디 찾기</button>
+                        <button className="FindPwBtn" onClick={() => navigate("/SearchPwPage")}>비밀번호 찾기</button>
+                        <button className="registerBtn" onClick={()=>navigate("/JoinPage")}>회원가입</button>
+                    </div>
+                    <hr></hr>
+                    </NoticeContainer>
+                    
+
+                    
+                </MyPage>
+
                 <br></br>
                 <CardNewsContainer>
                     <TitleText>

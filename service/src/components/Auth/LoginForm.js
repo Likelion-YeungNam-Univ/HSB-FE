@@ -2,16 +2,16 @@ import React, {useState} from "react";
 import { useEffect } from "react";
 import styled from "styled-components";
 
-const SearchPwForm = () => {
+const LoginForm = () => {
     const initData = Object.freeze({// freeze-객체를 동결하기 위해서
         nickname: '',
-        email: '',
+        password: '',
     });
     const [data, updataData] = useState(initData);
     const [color, updataColor] = useState("#4ac2f3");
 
     useEffect(() => {
-        if(data.nickname.length > 0 && data.email.length > 0) {
+        if(data.nickname.length > 0 && data.password.length > 0) {
             updataColor("#87e0ff");
         } else {
             updataColor("#94dbf8");
@@ -69,15 +69,15 @@ const SearchPwForm = () => {
              required 
              onChange={handleChange}/>
             <input
-             type="email" 
-             name="email" 
-             placeholder="이메일" 
+             type="password" 
+             name="password" 
+             placeholder="비밀번호" 
              required 
              onChange={handleChange}/>
-            <button className="submitBtn" type="submit" onClick={handleSubmit}>다음</button>
+            <button className="submitBtn" type="submit" onClick={handleSubmit}>로그인하기</button>
         </SignInForm>
     );
 }
 
-export default SearchPwForm;
+export default LoginForm;
 
