@@ -13,8 +13,8 @@ const LoginPage = () => {
             <LoginForm/>
 
             <MyPage>
-                <button className="FindIdBtn" onClick={() => navigate("/FingIdPage")}>아이디 찾기</button>
-                <button className="FindPwBtn" onClick={() => navigate("/FingPwPage")}>비밀번호 찾기</button>
+                <button className="FindIdBtn" onClick={() => navigate("/SearchIdPage")}>아이디 찾기</button>
+                <button className="FindPwBtn" onClick={() => navigate("/SearchPwPage")}>비밀번호 찾기</button>
                 <button className="registerBtn" onClick={()=>navigate("/JoinPage")}>회원가입</button>
             </MyPage>
                  

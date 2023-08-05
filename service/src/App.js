@@ -10,6 +10,8 @@ import styled from "styled-components";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import SearchIdPage from "./pages/SearchIdPage";
 import SearchPwPage from "./pages/SearchPwPage";
+import ResetPwPage from "./pages/ResetPwPage";
+import JoinPage from "./pages/JoinPage";
 
 function App() {
   
@@ -31,6 +33,8 @@ function App() {
           <Route path="/LoginPage" element={<LoginPage/>}></Route>
           <Route path="/SearchIdPage" element={<SearchIdPage/>}></Route>
           <Route path="/SearchPwPage" element={<SearchPwPage/>}></Route>
+          <Route path="/ResetPwPage" element={<ResetPwPage/>}></Route>
+          <Route path="/JoinPage" element={<JoinPage/>}></Route>
           <Route path="/EstimatePage" element={<EstimatePage/>}></Route>
           <Route path="/ProfileAndContractsPage" element={<ProfileAndContractsPage/>}></Route> 
         </Routes>
