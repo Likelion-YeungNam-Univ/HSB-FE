@@ -1,19 +1,20 @@
 import React from "react";
 import {useNavigate} from 'react-router-dom';
+import FindIdForm from "../components/Auth/SearchIdForm";
 import { SignInBox} from "../styles/Login.styled";
-import JoinForm from "../components/Auth/JoinForm";
 
-const JoinPage = () => {
+const FindIdPage = () => {
     const navigate = useNavigate();
 
     return (
         <SignInBox>
             <h2>HEAR AND SCRIBE</h2>
-            <h3>회원가입</h3>
-            <JoinForm/>
+            <h3>아이디 찾기</h3>
+            <p>고객님의 정보와 일치하는 아이디 입니다.</p>
+            <FindIdForm/>
                  
         </SignInBox>
     );
 }
 
-export default JoinPage;
+export default FindIdPage;

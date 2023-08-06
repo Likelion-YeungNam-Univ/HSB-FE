@@ -3,19 +3,18 @@ import { useEffect } from "react";
 import { SignInForm } from "../../styles/Login.styled";
 import { useNavigate } from "react-router-dom";
 
-const SearchIdForm = () => {
+const ResetPwForm = () => {
 
     const navigate = useNavigate();
-    
     const initData = Object.freeze({// freeze-객체를 동결하기 위해서
-        id: '',
-
+        password1: '',
+        password2: '',
     });
     const [data, updataData] = useState(initData);
     const [color, updataColor] = useState("#b8e8ff")
 
     useEffect(() => {
-        if(data.id.length > 0 ) {
+        if(data.password1.length > 0 && data.password2.length > 0) {
             updataColor("95DDFF");
         } else {
             updataColor("#b8e8ff");
@@ -36,17 +35,23 @@ const SearchIdForm = () => {
 
     return (
         <SignInForm color={color}>
-            <input
-             type="text" 
-             name="id" 
-             placeholder="아이디" 
-             value={data.id}
+            <input 
+             type="password" 
+             name="password1" 
+             placeholder="새 비밀번호" 
+             value={data.password1}
              required 
              onChange={handleChange}/>
-            <button className="submitBtn" type="submit" onClick={handleSubmit => navigate("/LoginPage")}>로그인하기</button>
+            <input
+             type="password" 
+             name="password2" 
+             placeholder="비밀번호" 
+             value={data.password2}
+             required 
+             onChange={handleChange}/>
+            <button className="submitBtn" type="submit" onClick={(_handleSubmit) => navigate("/LoginPage")}>로그인하기</button>
         </SignInForm>
     );
 }
 
-export default SearchIdForm;
-
+export default ResetPwForm;

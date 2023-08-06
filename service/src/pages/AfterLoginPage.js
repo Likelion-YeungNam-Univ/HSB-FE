@@ -1,16 +1,14 @@
 import {Link, useNavigate} from 'react-router-dom';
 import React, {useState} from 'react';
-import styled from "styled-components";
 import { Wrapper, Container, NoticeContainer,TitleText, CardNewsContainer, MyPage } from '../styles/Login.styled';
-import App from '../App';
-import MainPageLoginForm from '../components/Auth/MainPageLoginForm';
 import { MyPageLogin, SideBarContatiner, ApplicationContainer } from '../styles/MainPageLoginForm.style';
 import ApplicationForm from '../components/Auth/ApplicationForm';
+import AfterLoginForm from '../components/Auth/AfterLoginForm';
+import Alarm from '../components/Auth/Alarm';
 
-const MainPage = () => {
+const AfterLoginPage = () => {
     
     const navigate = useNavigate();
-
 
     const [comment, setComment] = useState("");
     return (
@@ -29,8 +27,9 @@ const MainPage = () => {
                 <br></br>
 
                 <MyPageLogin>
-                    <MainPageLoginForm/>                    
+                    <AfterLoginForm/>  
                     <hr></hr>
+                    <Alarm/>       
                 </MyPageLogin>
                 
             </SideBarContatiner>
@@ -48,4 +47,4 @@ const MainPage = () => {
     );
 };
 
-export default MainPage;
+export default AfterLoginPage;
