@@ -1,5 +1,9 @@
 import React from "react";
+<<<<<<< HEAD
 import styled from "styled-components";
+=======
+import OngoingContracts from "./OngoingContracts";
+>>>>>>> ddf72271c8fe59edefb4517d19ef15a18d4ef79f
 
 const CompletedContracts = () => {
   // 여기에 현재 진행 중인 계약 목록, API 호출할 예정
@@ -14,14 +18,14 @@ const CompletedContracts = () => {
     <div>
       <h2>종료된 계약</h2>
       <hr style={{marginBottom: "20px" }} />
-      <div style={{ maxHeight: "200px", overflowY: "auto" }}>
-      {ongoingContracts.map((contract) => (
+      {/*<div style={{ maxHeight: "200px", overflowY: "auto" }}>
+      {OngoingContracts.map((contract) => (
         <div key={contract.id}>
           <h3>{contract.title}</h3>
           <p>{contract.description}</p>
       </div>
-       ))}
-     </div>
+      ))}
+      </div>*/}
     </div>
   );
 };

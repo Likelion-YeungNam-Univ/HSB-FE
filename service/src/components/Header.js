@@ -54,7 +54,7 @@ const Header = () => {
     return(
         <StyledHeader>
             <div>
-                <HeaderLink to="/">말문희막힘</HeaderLink>
+                <HeaderLink to="/">HEAR AND SCRIBE</HeaderLink>
             </div>
 
             <StyledSearch>

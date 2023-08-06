@@ -11,7 +11,6 @@ const Footer = () =>{
         font-size: 1.3rem;
     `;
 
-
     return(
         <StyledFooter>
             <StyledTerms>이용약관         개인정보처리방침        사업자정보확인</StyledTerms>

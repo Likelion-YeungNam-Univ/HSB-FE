@@ -4,7 +4,7 @@ import styled from "styled-components"
 const Nav = () =>{
     const StyledLink = styled(Link)`
         font-size: 1.3rem;
-        color: blue;
+        color: black;
         line-height:7;
         margin: 0px 20px 0px 0px;
         text-decoration: none;
@@ -12,8 +12,8 @@ const Nav = () =>{
 
     return(
         <>
-            <StyledLink to="/ServiceNamePage">서비스 이름 이란?</StyledLink>
-            <StyledLink to="/EstimatePage">견적 요청</StyledLink>
+            <StyledLink to="/ServiceNamePage">HSB란?</StyledLink>
+            <StyledLink to="/EstimatePage">견적요청</StyledLink>
             <StyledLink to="/GuestBookPage">커뮤니티</StyledLink>
             <StyledLink to="/GuestBookPage">FAQ</StyledLink>
         </>
