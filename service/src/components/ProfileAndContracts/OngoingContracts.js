@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 
 const OngoingContracts = () => {
   // 여기에 현재 진행 중인 계약 목록, API 호출할 예정
