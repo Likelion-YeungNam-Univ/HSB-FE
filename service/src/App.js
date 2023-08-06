@@ -4,7 +4,7 @@ import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import MainPage from "./pages/MainPage";
 import LoginPage from "./pages/LoginPage";
-import EstimatePage from "./pages/EstimatePage";s
+import EstimatePage from "./pages/EstimatePage";
 import BidProposalMemberInfoPage from "./pages/BidProposalMemberInfoPage";
 import ProfileAndContractsPage from "./pages/ProfileAndContractsPage";
 import InformationModificationPage from "./pages/InformationModificationPage";
@@ -14,6 +14,7 @@ import SearchIdPage from "./pages/SearchIdPage";
 import SearchPwPage from "./pages/SearchPwPage";
 import ResetPwPage from "./pages/ResetPwPage";
 import JoinPage from "./pages/JoinPage";
+import SendNotePage from "./pages/SendNotePage";
 
 function App() {
   
@@ -41,6 +42,7 @@ function App() {
           <Route path="/BidProposalMemberInfoPage" element={<BidProposalMemberInfoPage/>}></Route>
           <Route path="/ProfileAndContractsPage" element={<ProfileAndContractsPage/>}></Route> 
           <Route path="/InformationModificationPage" element={<InformationModificationPage/>}></Route>
+          <Route path="/SendNotePage" element={<SendNotePage/>}></Route>
         </Routes>
         <Footer/>
       </BrowserRouter>
