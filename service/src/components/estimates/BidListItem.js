@@ -6,7 +6,7 @@ import {Link} from "react-router-dom"
 const BidListItem = () => {
     const StyledList = styled.div`
         border: 1px solid;
-        width: 700px;   
+        width: 720px;   
         display: flex;
         flex-direction: column;
     `;

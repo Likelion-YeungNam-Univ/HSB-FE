@@ -6,6 +6,7 @@ const BidList = () => {
     const StyledTitle = styled.p`
         font-size: 1.35rem;
         padding-left:395px;
+        margin: 20px 0px 0px 0px;
     `;
     const StyledBidList = styled.div`
         display: flex;

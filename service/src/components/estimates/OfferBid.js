@@ -5,6 +5,7 @@ const OfferBid = () => {
     const StyledTitle = styled.p`
         font-size: 1.35rem;
         padding-left:395px;
+        margin: 20px 0px 0px 0px;
     `;
     const StyledBodys = styled.div`   
         display: flex;
@@ -13,7 +14,7 @@ const OfferBid = () => {
     `;
     const StyledBody = styled.div`
         border: 1px solid;
-        width: 660px;   
+        width: 720px;   
         display: flex;
         flex-direction: column;
         padding: 15px 20px 20px 20px;

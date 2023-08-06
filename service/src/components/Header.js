@@ -1,7 +1,6 @@
 import { useState } from "react";
 import {Link} from "react-router-dom"
 import styled from "styled-components"
-import IconButton from "../../node_modules/@mui/material/IconButton"
 import {AiOutlineSearch, AiOutlineBell, AiOutlineSend, AiOutlineDown} from "react-icons/ai"
 
 const Header = () => {
@@ -37,9 +36,11 @@ const Header = () => {
         width: 40px;
         color: #95DDFF;
     `;
-    const StyledIcons = styled(IconButton)`
+    const StyledIcons = styled.button`
         height: 80px;
         width: 80px;
+        font-size: 2rem;
+        border-radius: 50%;
     `;
 
 
@@ -63,9 +64,9 @@ const Header = () => {
             </StyledSearch>
 
             <StyledIconButtons>
-                <StyledIcons buttonName={<AiOutlineBell/>}></StyledIcons>
-                <StyledIcons buttonName={<AiOutlineSend/>}></StyledIcons>
-                <StyledIcons buttonName={<AiOutlineDown/>}></StyledIcons>
+                <StyledIcons><AiOutlineBell/></StyledIcons>
+                <StyledIcons><AiOutlineSend/></StyledIcons>
+                <StyledIcons><AiOutlineDown/></StyledIcons>
             </StyledIconButtons>
             
         </StyledHeader>

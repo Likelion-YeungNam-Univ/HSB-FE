@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 const EstimateHead = () => {
-    const StyledHead = styled.div`
+    const StyledHead = styled.div` 
         display: flex;
         flex-direction: column;
-        padding: 0px 50px 0px 0px;
+        margin-right: 50px;
     `;
     const StyledTitle = styled.div`
         font-size: 1.5rem;
