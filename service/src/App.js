@@ -15,6 +15,7 @@ import SearchPwPage from "./pages/SearchPwPage";
 import ResetPwPage from "./pages/ResetPwPage";
 import JoinPage from "./pages/JoinPage";
 import SendNotePage from "./pages/SendNotePage";
+import AfterLoginPage from "./pages/AfterLoginPage";
 
 function App() {
   
@@ -33,6 +34,7 @@ function App() {
         <Nav/>
         <Routes>
           <Route path="/" element={<MainPage/>}></Route>
+          <Route path="/AfterLoginPage" element={<AfterLoginPage/>}></Route>
           <Route path="/LoginPage" element={<LoginPage/>}></Route>
           <Route path="/SearchIdPage" element={<SearchIdPage/>}></Route>
           <Route path="/SearchPwPage" element={<SearchPwPage/>}></Route>

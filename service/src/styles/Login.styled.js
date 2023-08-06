@@ -18,6 +18,12 @@ const SignInBox = styled.div`
 `;
 
 const MyPage = styled.div`
+    .ApplicationBtn {
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+    }
+
     .bottom-signup {
         font-size :14px;
         gap: 10px;
@@ -71,19 +77,11 @@ const Container = styled.div`
 const NoticeContainer = styled.div`
     padding: 10px 16px;
     border: 1px solid grey;
-    border-radius: 3px;
-`;
-
-const ApplicationContainer = styled.div`
-    padding: 10px 16px;
-    border: 1px solid grey;
-    border-radius: 3px;
 `;
 
 const CardNewsContainer = styled.div`
     padding: 10px 16px;
     border: 0px solid grey;
-    border-radius: 3px;
     background-color: lightgrey;
 `;
 
@@ -92,15 +90,10 @@ const TitleText = styled.p`
     font-weight: 500;
 `;
 
-const Vline = styled.p`
-    border-right: solid black;
-    height: 25vh;
-`;
-
 
 const ContentText = styled.p`
-    font-size: 20px;
-    line-height: 32px;
+    font-size: 17px;
+    line-height: normal;
     white-space: pre-wrap;
 `;
 
@@ -135,4 +128,4 @@ const SignInForm = styled.form`
         }
     `;
 
-export {Wrapper, Container, NoticeContainer, ApplicationContainer, CardNewsContainer, TitleText,Vline, ContentText, SignInBox, MyPage, SignInForm};
+export {Wrapper, Container, NoticeContainer, CardNewsContainer, TitleText, ContentText, SignInBox, MyPage, SignInForm};
