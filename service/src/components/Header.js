@@ -9,6 +9,7 @@ const Header = () => {
         justify-content: space-evenly;
         align-items: center;
         margin: 20px 0px 0px 0px;
+        font-weight:bold;
     `;
     const HeaderLink = styled(Link)`
         font-size: 3rem;

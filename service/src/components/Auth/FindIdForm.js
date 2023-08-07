@@ -3,20 +3,19 @@ import { useEffect } from "react";
 import { SignInForm } from "../../styles/Login.styled";
 import { useNavigate } from "react-router-dom";
 
-const SearchPwForm = () => {
+const FindIdForm = () => {
 
     const navigate = useNavigate();
-    
+
     const initData = Object.freeze({// freeze-객체를 동결하기 위해서
         nickname: '',
-        email: '',
     });
     const [data, updataData] = useState(initData);
     const [color, updataColor] = useState("#b8e8ff")
 
     useEffect(() => {
-        if(data.nickname.length > 0 && data.email.length > 0) {
-            updataColor("#94ddff");
+        if(data.nickname.length > 0) {
+            updataColor("#95ddff");
         } else {
             updataColor("#b8e8ff");
         }
@@ -43,17 +42,12 @@ const SearchPwForm = () => {
              value={data.nickname}
              required 
              onChange={handleChange}/>
-            <input
-             type="email" 
-             name="email" 
-             placeholder="이메일" 
-             value={data.email}
-             required 
-             onChange={handleChange}/>
-            <button className="submitBtn" type="submit" onClick={handleSubmit => navigate("/ResetPwPage")}>다음</button>
+             
+            <button className="submitBtn" type="submit" onClick={handleSubmit => navigate("/LoginPage")}>
+                로그인하기</button> {/*비밀번호 일치할 경우 메인페이지로 이동하도록 수정*/}
         </SignInForm>
     );
 }
 
-export default SearchPwForm;
+export default FindIdForm;
 

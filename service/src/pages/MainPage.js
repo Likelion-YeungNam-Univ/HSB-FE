@@ -2,7 +2,9 @@ import {Link, useNavigate} from 'react-router-dom';
 import React, {useState} from 'react';
 import styled from "styled-components";
 import { Wrapper, Container, NoticeContainer,TitleText, CardNewsContainer, MyPage } from '../styles/Login.styled';
-import App from '../App';
+import Header from '../components/Header';
+import Nav from '../components/Nav';
+import Footer from '../components/Footer';
 import MainPageLoginForm from '../components/Auth/MainPageLoginForm';
 import { MyPageLogin, SideBarContatiner, ApplicationContainer } from '../styles/MainPageLoginForm.style';
 import ApplicationForm from '../components/Auth/ApplicationForm';
@@ -16,6 +18,8 @@ const MainPage = () => {
     return (
         <Wrapper>
             <Container>
+                <Header/>
+                <Nav/>
                 <NoticeContainer>
                     <TitleText>
                         공지사항
@@ -41,8 +45,10 @@ const MainPage = () => {
                     배너광고 및 장애인 광고
                     </TitleText>
                 </CardNewsContainer>
-            
+                <br/>
+                <Footer/>
             </Container>
+            
         </Wrapper>
 
     );

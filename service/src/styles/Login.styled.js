@@ -13,7 +13,11 @@ const SignInBox = styled.div`
         font-size: 14px;
         display: flex;
         gap: 10px;
-        margin-top: 130px;
+        margin-top: 90px;
+    }
+    .title {
+        color: #95ddff;
+        font-weight: bold;
     }
 `;
 
@@ -32,7 +36,7 @@ const MyPage = styled.div`
     .LoginBtn {
         display: flex;
         backgroundcolor: #94dbf8;
-        fontcolor: white;
+        fontcolor: black;
     }
 
     .FindIdBtn {
@@ -52,6 +56,14 @@ const MyPage = styled.div`
         border: none;
         background-color: transparent;
         cursor: pointer;
+    }
+    .MainContent {
+        font-weight: bold;
+        font-size:15px;
+    }
+
+    .SubContent {
+        font-size:10px;
     }
 `;
 
@@ -106,7 +118,7 @@ const SignInForm = styled.form`
         gap: 16px;
 
         input {
-            border: none;
+            border: 1px solid black;
             width: 275px;
             height: 48px;
             border-radius: 3px;
@@ -117,8 +129,8 @@ const SignInForm = styled.form`
             width: 295px;
             height: 56px;
             font-size: 16px;
-            font-weight: 700;
-            color: #ffffff;
+            font-weight: 500;
+            color: black;
             border: none;
             border-radius: 3px;
             background-color: ${(props) => props.color  || "#C9C9C9"};
