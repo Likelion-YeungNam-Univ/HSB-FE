@@ -19,9 +19,10 @@ const BidList = ({requests}) => {
             <StyledTitle>입찰 제안 목록</StyledTitle>
             
             <StyledBidList>
-                {requests.map((request) => (
-                    <BidListItem request={request}/>
-                ))}
+                {requests.map((request) => {
+                    return (
+                    <BidListItem id={request.id}/>
+                )})}
             </StyledBidList>
         </>
     )

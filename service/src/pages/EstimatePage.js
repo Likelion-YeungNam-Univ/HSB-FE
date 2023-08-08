@@ -4,6 +4,9 @@ import EstimateHead from "../components/Estimates/EstimateHead";
 import EstimateBody from "../components/Estimates/EstimateBody";
 import BidList from "../components/Estimates/BidList";
 import OfferBid from "../components/Estimates/OfferBid";
+import Header from "../components/Header";
+import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 
 const StyledEstimatePage = styled.div`
     display: flex;
@@ -40,6 +43,9 @@ const EstimatePage = () =>{
     );
 
     return(
+        <>
+            <Header/>
+            <Nav/>
         <StyledEstimatePage>
 
             <StyledBody>
@@ -47,11 +53,13 @@ const EstimatePage = () =>{
                 <EstimateBody/>
             </StyledBody>
 
-            <OfferBid onInsert={onInsert}/>
             <BidList requests={requests}/>
+            <OfferBid onInsert={onInsert}/>
 
             
         </StyledEstimatePage>
+            <Footer/>
+        </>
     )
 }
 

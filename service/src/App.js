@@ -18,6 +18,7 @@ import SendNotePage from "./pages/SendNotePage";
 import AfterLoginPage from "./pages/AfterLoginPage";
 import FindIdPage from "./pages/FindIdPage";
 import MyProfile from "./components/ProfileAndContracts/MyProfile";
+import EstimateRequestListPage from "./pages/EstimateRequestListPage";
 
 function App() {
   
@@ -41,6 +42,7 @@ function App() {
           <Route path="/SearchPwPage" element={<SearchPwPage/>}></Route>
           <Route path="/ResetPwPage" element={<ResetPwPage/>}></Route>
           <Route path="/JoinPage" element={<JoinPage/>}></Route>
+          <Route path="/EstimateRequestListPage" element={<EstimateRequestListPage/>}></Route>
           <Route path="/EstimatePage" element={<EstimatePage/>}></Route>
           <Route path="FindIdPage" element={<FindIdPage/>}></Route>
           <Route path="/BidProposalMemberInfoPage" element={<BidProposalMemberInfoPage/>}></Route>
