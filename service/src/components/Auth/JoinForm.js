@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useCallback, useState} from "react";
 import { useEffect } from "react";
 import { SignInForm } from "../../styles/Login.styled";
 import { useNavigate } from "react-router-dom";
@@ -14,6 +14,11 @@ const JoinForm = () => {
         password2: '',
     });
     const [data, updataData] = useState(initData);
+    const [email, updataEmail] = useState(initData);
+    const [nickname, updataNickname] = useState(initData);
+    const [password1, updataPassWord] = useState(initData);
+    const [password2, setPassWordConfirm] = useState(initData);
+    //const[isPasswordConfirm, setIsPasswordConfirm] = useState<boolean>(false) //유효성 검사
     const [color, updataColor] = useState("#b8e8ff")
 
     useEffect(() => {
@@ -26,6 +31,44 @@ const JoinForm = () => {
         }
     }, [data])
 
+    /*const onSubmit = useCallback(
+        async () => {
+            e.preventDefault();
+            try {
+                await axios
+                    .post(REGISTER_USERS_URL ,{
+                        "user_name": "string",
+                        "email": "useaar@example.com",
+                        "id": "string",
+                        "password": "string",
+                    })
+                    .then( (res)=> {
+                        console.log('response:', res)
+                        if(res.status === 200) {
+                            Router.push('/LoginPage');
+                        }
+                    })
+            } catch (err) {
+                console.error(err)
+            }
+        }, [email, nickname, password1, password2]
+    )
+
+    const onChangePasswordConfirm = useCallback(
+        () => {
+            const PassWordConfirmCurrent = e.target.value
+            setPassWordConfirm(PassWordConfirmCurrent)
+
+            if(password1 === PassWordConfirmCurrent) {
+                setPasswordConfirm("비밀번호가 일치합니다.")
+                setIsPasswordConfirm(true)
+                } else {
+                    setPassWordConfirm('비밀번호가 일치하지 않습니다.')
+                    setIsPasswordConfirm(false)
+                }
+        }, [password1]
+    )*/
+
     const handleChange = e => {
         console.log(e.target.value);
         updataData({
@@ -37,6 +80,8 @@ const JoinForm = () => {
         e.preventDefault(); //새로고침방지
         console.log(e.target.value);
     }
+
+
 
     return (
         <SignInForm color={color}>
@@ -68,13 +113,19 @@ const JoinForm = () => {
              value={data.password1}
              required 
              onChange={handleChange}/>
+             
              <input
              type="password" 
              name="password2" 
              placeholder="비밀번호 확인" 
              value={data.password2}
              required 
-             onChange={handleChange}/>
+             onChange={handleChange}
+            />
+             {/*{password2.length > 0 && (
+            <span className={`message ${isPasswordConfirm ? 'success' : 'error'}`}>{passwordConfirmMessage}</span>
+                )}
+             */}
             <button className="submitBtn" type="submit" onClick={handleSubmit => navigate("/")}>회원가입</button>
         </SignInForm>
     );

@@ -9,13 +9,6 @@ const CompletedContractsContainer = styled.div`
   flex-direction: column;
 
   overflow-y: auto;
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
-  ::-webkit-scrollbar-thumb {
-    background-color: #B8E8FF; 
-    border-radius: 5px;
-  }
 
 `;
 
@@ -84,7 +77,7 @@ const CompletedContracts = () => {
         ))}
       </ContractsListContainer>
     </CompletedContractsContainer>
-  );
-};
+  )
+}
 
 export default CompletedContracts;
