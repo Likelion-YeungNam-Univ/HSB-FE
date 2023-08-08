@@ -8,16 +8,8 @@ const OngoingContractsContainer = styled.div`
  display: flex;
  flex-direction: column;
 
- overflow-y: auto;
- ::-webkit-scrollbar {
-   width: 8px;
- }
- ::-webkit-scrollbar-thumb {
-   background-color: #B8E8FF; 
-   border-radius: 5px;
- }
-`;
-//이게 제 스크롤바 꾸미기 최선입니다... overflow--   border-radius: 5px;}까지 지우시면 기본 스크롤바인데 저는 개인적으로 그게 더 나은 것 같아요 
+ overflow-y: auto; 
+ `;
 
 const TitleContainer = styled.div`
  padding: 32px;
