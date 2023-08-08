@@ -1,39 +1,83 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
-const InformationModification = () => {
+const InformationModification = ({ userAvatar, onAvatarChange }) => {
+  // 이렇게 만들어도 괜찮은 걸까요
+  const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [bio, setBio] = useState("");
+
+  const handleNameChange = (event) => {
+    setName(event.target.value);
+  };
+
+  const handleUsernameChange = (event) => {
+    setUsername(event.target.value);
+  };
+
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+  };
+
+  const handleConfirmPasswordChange = (event) => {
+    setConfirmPassword(event.target.value);
+  };
+
+  const handleBioChange = (event) => {
+    setBio(event.target.value);
+  };
+
+  const handleSaveChanges = () => {
+     // API 호출
+  };
+
+  const handleAvatarClick = () => {
+    
+    document.getElementById("profilePictureInput").click();
+  };
+
   return (
     <Container>
       <Form>
         <Row>
-          <Label htmlFor="profilePictureInput"></Label>
-          <Input type="file" id="profilePictureInput" />
+          
+          <ProfilePictureBox onClick={handleAvatarClick}>
+            <ProfilePicture src={userAvatar} alt="Profile Picture" />
+            <input type="file" id="profilePictureInput" onChange={onAvatarChange} />
+          </ProfilePictureBox>
         </Row>
         <Row>
           <Label htmlFor="name">이름</Label>
-          <Input type="text" id="name"  />
+          <Input type="text" id="name" value={name} onChange={handleNameChange} />
         </Row>
         <Row>
           <Label htmlFor="username">아이디</Label>
-          <Input type="text" id="username"  />
+          <Input type="text" id="username" value={username} onChange={handleUsernameChange} />
         </Row>
         <Row>
           <Label htmlFor="password">비밀번호</Label>
-          <Input type="password" id="password"  />
+          <Input type="password" id="password" value={password} onChange={handlePasswordChange} />
         </Row>
         <Row>
           <Label htmlFor="confirmPassword">비밀번호 확인</Label>
-          <Input type="password" id="confirmPassword"  />
+          <Input
+            type="password"
+            id="confirmPassword"
+            value={confirmPassword}
+            onChange={handleConfirmPasswordChange}
+          />
         </Row>
         <Row>
           <Label htmlFor="bio">자기소개</Label>
-          <Textarea id="bio"></Textarea>
+          <Textarea id="bio" value={bio} onChange={handleBioChange} />
         </Row>
-        </Form>
-        <SaveButton>변경사항 저장</SaveButton>
+      </Form>
+      <SaveButton onClick={handleSaveChanges}>변경사항 저장</SaveButton>
     </Container>
-  );
-};
+  )
+}
 
 const Container = styled.div`
   max-width: 1199px;
@@ -89,6 +133,31 @@ const Label = styled.label`
  font-size: 15px;
  text-align: left;
  margin-bottom: 5px;
+`;
+
+const ProfilePictureBox = styled.div`
+  width: 150px;
+  height: 150px;
+  border: 1px solid #AEAEAE;
+  border-radius: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 10px;
+
+  &:hover {
+    border-color: #95DDFF;
+  }
+`;
+
+const ProfilePicture = styled.img`
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
 `;
 
 const SaveButton = styled.button`

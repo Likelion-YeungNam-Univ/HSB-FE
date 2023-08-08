@@ -5,7 +5,7 @@ const Nav = () =>{
     const StyledLink = styled(Link)`
         font-size: 1.3rem;
         color: black;
-        line-height:7;
+        line-height: 7;
         margin: 0px 20px 0px 0px;
         text-decoration: none;
     `;
