@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios"
-import {AiOutlineSend, AiOutlineCheckSquare} from "react-icons/ai"
+import {AiOutlineSend} from "react-icons/ai"
+import {BsBookmark, BsBookmarkFill} from "react-icons/bs"
 import styled from "styled-components"
 
 const EstimateBody = () => {
@@ -21,11 +22,12 @@ const EstimateBody = () => {
     const StyledTerms = styled.div`
         display: flex;
         justify-content: space-between;
+        font-size: 1.1rem;
     `;
 
     const [bookmark, setBookmark] = useState(false);
 
-    const onClick = () => {
+    const handleBookmark = () => {
         setBookmark(!bookmark);
     }
 
@@ -52,8 +54,8 @@ const EstimateBody = () => {
             </div>
 
             <StyledTerms>
-                <div>
-                    <button onClick={setBookmark}><AiOutlineCheckSquare/></button> 3{bookmark}
+                <div onClick={handleBookmark}>
+                    {bookmark ? ( <BsBookmarkFill/>) : ( <BsBookmark/>)} 3
                 </div>
                 <div>
                     <p>기한: 2023-12-01까지</p>
