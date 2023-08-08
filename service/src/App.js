@@ -17,6 +17,7 @@ import JoinPage from "./pages/JoinPage";
 import SendNotePage from "./pages/SendNotePage";
 import AfterLoginPage from "./pages/AfterLoginPage";
 import FindIdPage from "./pages/FindIdPage";
+import EstimateRequestListPage from "./pages/EstimateRequestListPage";
 
 function App() {
   
@@ -32,13 +33,14 @@ function App() {
     <StyledApp>
       <BrowserRouter>
         <Routes>
-          <Route path="/MainPage" element={<MainPage/>}></Route>
+          <Route path="/" element={<MainPage/>}></Route>
           <Route path="/AfterLoginPage" element={<AfterLoginPage/>}></Route>
           <Route path="/LoginPage" element={<LoginPage/>}></Route>
           <Route path="/SearchIdPage" element={<SearchIdPage/>}></Route>
           <Route path="/SearchPwPage" element={<SearchPwPage/>}></Route>
           <Route path="/ResetPwPage" element={<ResetPwPage/>}></Route>
           <Route path="/JoinPage" element={<JoinPage/>}></Route>
+          <Route path="/EstimateRequestListPage" element={<EstimateRequestListPage/>}></Route>
           <Route path="/EstimatePage" element={<EstimatePage/>}></Route>
           <Route path="/FindIdPage" element={<FindIdPage/>}></Route>
           <Route path="/BidProposalMemberInfoPage" element={<BidProposalMemberInfoPage/>}></Route>

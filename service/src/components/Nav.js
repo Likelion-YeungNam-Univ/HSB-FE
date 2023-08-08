@@ -13,9 +13,9 @@ const Nav = () =>{
     return(
         <>
             <StyledLink to="/ServiceNamePage">HSB란?</StyledLink>
-            <StyledLink to="/EstimatePage">견적요청</StyledLink>
+            <StyledLink to="/EstimateRequestListPage">견적요청</StyledLink>
             <StyledLink to="/GuestBookPage">커뮤니티</StyledLink>
-            <StyledLink to="/GuestBookPage">FAQ</StyledLink>
+            <StyledLink to="/EstimatePage">FAQ</StyledLink>
         </>
     )
 }
