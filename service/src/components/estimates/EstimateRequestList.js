@@ -85,6 +85,69 @@ const EstimateRequestList = ({posts, loading}) => {
                 <StyledListDate>2023-08-25</StyledListDate>
             </StyledListLine>
             </StyledCenter>
+
+            <StyledCenter>
+            <StyledListLine>
+                <StyledListNum>1</StyledListNum>
+                <StyledListLink to="/EstimatePage">온라인 방송 통역 구합니다!</StyledListLink>
+                <StyledListAuthor>나문희</StyledListAuthor>
+                <StyledListDate>2023-08-25</StyledListDate>
+            </StyledListLine>
+            </StyledCenter>
+
+            <StyledCenter>
+            <StyledListLine>
+                <StyledListNum>1</StyledListNum>
+                <StyledListLink to="/EstimatePage">온라인 방송 통역 구합니다!</StyledListLink>
+                <StyledListAuthor>나문희</StyledListAuthor>
+                <StyledListDate>2023-08-25</StyledListDate>
+            </StyledListLine>
+            </StyledCenter>
+
+            <StyledCenter>
+            <StyledListLine>
+                <StyledListNum>1</StyledListNum>
+                <StyledListLink to="/EstimatePage">온라인 방송 통역 구합니다!</StyledListLink>
+                <StyledListAuthor>나문희</StyledListAuthor>
+                <StyledListDate>2023-08-25</StyledListDate>
+            </StyledListLine>
+            </StyledCenter>
+
+            <StyledCenter>
+            <StyledListLine>
+                <StyledListNum>1</StyledListNum>
+                <StyledListLink to="/EstimatePage">온라인 방송 통역 구합니다!</StyledListLink>
+                <StyledListAuthor>나문희</StyledListAuthor>
+                <StyledListDate>2023-08-25</StyledListDate>
+            </StyledListLine>
+            </StyledCenter>
+
+            <StyledCenter>
+            <StyledListLine>
+                <StyledListNum>1</StyledListNum>
+                <StyledListLink to="/EstimatePage">온라인 방송 통역 구합니다!</StyledListLink>
+                <StyledListAuthor>나문희</StyledListAuthor>
+                <StyledListDate>2023-08-25</StyledListDate>
+            </StyledListLine>
+            </StyledCenter>
+
+            <StyledCenter>
+            <StyledListLine>
+                <StyledListNum>1</StyledListNum>
+                <StyledListLink to="/EstimatePage">온라인 방송 통역 구합니다!</StyledListLink>
+                <StyledListAuthor>나문희</StyledListAuthor>
+                <StyledListDate>2023-08-25</StyledListDate>
+            </StyledListLine>
+            </StyledCenter>
+
+            <StyledCenter>
+            <StyledListLine>
+                <StyledListNum>1</StyledListNum>
+                <StyledListLink to="/EstimatePage">온라인 방송 통역 구합니다!</StyledListLink>
+                <StyledListAuthor>나문희</StyledListAuthor>
+                <StyledListDate>2023-08-25</StyledListDate>
+            </StyledListLine>
+            </StyledCenter>
             
         </>
     )

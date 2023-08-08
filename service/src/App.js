@@ -33,7 +33,7 @@ function App() {
     <StyledApp>
       <BrowserRouter>
         <Routes>
-          <Route path="/MainPage" element={<MainPage/>}></Route>
+          <Route path="/" element={<MainPage/>}></Route>
           <Route path="/AfterLoginPage" element={<AfterLoginPage/>}></Route>
           <Route path="/LoginPage" element={<LoginPage/>}></Route>
           <Route path="/SearchIdPage" element={<SearchIdPage/>}></Route>
