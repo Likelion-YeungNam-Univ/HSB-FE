@@ -16,10 +16,13 @@ const MainPage = () => {
 
     const [comment, setComment] = useState("");
     return (
+        <>
+        <Header/>
+        <Nav/>
+
         <Wrapper>
             <Container>
-                <Header/>
-                <Nav/>
+                
                 <NoticeContainer>
                     <TitleText>
                         공지사항
@@ -46,11 +49,12 @@ const MainPage = () => {
                     </TitleText>
                 </CardNewsContainer>
                 <br/>
-                <Footer/>
+
             </Container>
-            
         </Wrapper>
 
+        <Footer/>
+        </>
     );
 };
 

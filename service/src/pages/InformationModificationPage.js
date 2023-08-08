@@ -44,16 +44,20 @@ const InformationModificationPage = () => {
   };
 
   return (
+    <>
+    <Header/>
+
     <Container>
-      <Header/>
       <Title>내 정보 수정</Title>
       <InformationModification
         userAvatar={userAvatar}
         onAvatarChange={handleAvatarChange}
         onUserInfoChange={handleUserInfoChange}
       />
-      <Footer/>
     </Container>
+    
+    <Footer/>
+    </>
   )
 }
 

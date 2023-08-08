@@ -34,8 +34,10 @@ const TitleContainer = styled.div`
 const ProfileAndContractsPage = () =>{
  
     return (
+      <>
+      <Header/>
+
       <ProfilePageContainer>
-        <Header/>
         <TitleContainer>
         <Title>마이페이지</Title>
         </TitleContainer>
@@ -49,8 +51,10 @@ const ProfileAndContractsPage = () =>{
         {/* CompletedContracts 컴포넌트를 여기에 렌더링 */}
         <CompletedContracts />
         </ContractsContainer>
-        <Footer/>
       </ProfilePageContainer>
+      
+      <Footer/>
+      </>
     )
 }
 

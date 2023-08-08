@@ -7,7 +7,11 @@ import Header from "../components/Header";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 
-const StyledCenter = styled.div`
+const StyledEstimateRequestListPage = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
+const StyledTitle = styled.div`
     display: flex;
     justify-content: center;
 `;
@@ -53,12 +57,12 @@ const EstimateRequestListPage = () => {
             <div> {/* display: flex, justify-content: center */}
                 <div> {/* 안에 있는거 다 묶은 하나의 아이템, 사이즈 조절 시도해보기 || <span>사용해보기
                             display: flex, flex-direction: column */}
-                    <StyledCenter>
+                    <StyledTitle>
                         <StyledLine>
                             드롭다운메뉴
                             <button>견적 작성</button>
                         </StyledLine>
-                    </StyledCenter>
+                    </StyledTitle>
                     <EstimateRequestList posts={posts} loading={loading}/>
                     <EstimateRequestListNumbers postsPerPage={postsPerPage} totalPosts={posts.length} paginate={setCurrentPage}/>
                 </div>

@@ -15,10 +15,13 @@ const AfterLoginPage = () => {
 
     const [comment, setComment] = useState("");
     return (
+        <>
+        <Header/>
+        <Nav/>
+
         <Wrapper>
             <Container>
-                <Header/>
-                <Nav/>
+                
                 <NoticeContainer>
                     <TitleText>
                         공지사항
@@ -45,10 +48,12 @@ const AfterLoginPage = () => {
                     배너광고 및 장애인 광고
                     </TitleText>
                 </CardNewsContainer>
-                <Footer/>
+                
             </Container>
         </Wrapper>
-
+        
+        <Footer/>
+        </>
     );
 };
 
