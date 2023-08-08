@@ -30,7 +30,7 @@ const InformationModification = ({ userAvatar, onAvatarChange }) => {
   };
 
   const handleSaveChanges = () => {
-     // API 호출
+     // API 호출 (이 부분에 백엔드 통신 코드 추가)
   };
 
   const handleAvatarClick = () => {
@@ -42,11 +42,15 @@ const InformationModification = ({ userAvatar, onAvatarChange }) => {
     <Container>
       <Form>
         <Row>
-          
-          <ProfilePictureBox onClick={handleAvatarClick}>
-            <ProfilePicture src={userAvatar} alt="Profile Picture" />
-            <input type="file" id="profilePictureInput" onChange={onAvatarChange} />
-          </ProfilePictureBox>
+        <ProfilePictureBox onClick={handleAvatarClick}>
+          <ProfilePicture src={userAvatar} />
+          <input
+            type="file"
+            id="profilePictureInput"
+            onChange={onAvatarChange}
+            style={{ display: "none" }} // input을 숨기기 위한 스타일
+          />
+        </ProfilePictureBox>
         </Row>
         <Row>
           <Label htmlFor="name">이름</Label>
@@ -74,7 +78,7 @@ const InformationModification = ({ userAvatar, onAvatarChange }) => {
           <Textarea id="bio" value={bio} onChange={handleBioChange} />
         </Row>
       </Form>
-      <SaveButton onClick={handleSaveChanges}>변경사항 저장</SaveButton>
+      <FloatingSaveButton onClick={handleSaveChanges}>변경사항 저장</FloatingSaveButton>
     </Container>
   )
 }
@@ -160,29 +164,29 @@ const ProfilePicture = styled.img`
   object-fit: cover;
 `;
 
-const SaveButton = styled.button`
-  display: block;
-  width: 100%;
-  padding: 10px;
-  background-color: #95DDFF;
-  color: #212121;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  max-width: 170px;
-  max-height: 40px;
-  margin-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  float: right;
-  position: absolute;
-  right: 200px; 
-  bottom: 7px;
+const FloatingSaveButton = styled.button`
+ display: block;
+ width: 100%;
+ padding: 10px;
+ background-color: #95DDFF;
+ color: #212121;
+ border: none;
+ border-radius: 5px;
+ cursor: pointer;
+ max-width: 170px;
+ max-height: 40px;
+ margin-top: 10px;
+ margin-left: auto;
+ margin-right: auto;
+ display: block;
+ float: right;
+ position: absolute;
+ right: 200px; 
+ bottom: 7px;
 
   &:hover {
-    background-color: #0056b3;
-  }
+  background-color: #0056b3;
+ }
 
 `;
 

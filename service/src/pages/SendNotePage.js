@@ -28,5 +28,3 @@ const SendNotePage = () => {
 }
 
 export default SendNotePage;
-
-
