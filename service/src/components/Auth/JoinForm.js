@@ -1,8 +1,11 @@
 import React, {useState} from "react";
 import { useEffect } from "react";
 import { SignInForm } from "../../styles/Login.styled";
+import { useNavigate } from "react-router-dom";
 
 const JoinForm = () => {
+
+    const navigate = useNavigate();
     const initData = Object.freeze({// freeze-객체를 동결하기 위해서
         name:'',
         email: '',
@@ -45,7 +48,7 @@ const JoinForm = () => {
              required 
              onChange={handleChange}/>
             <input
-             type="text" 
+             type="email" 
              name="email" 
              placeholder="이메일" 
              value={data.email}
@@ -72,7 +75,7 @@ const JoinForm = () => {
              value={data.password2}
              required 
              onChange={handleChange}/>
-            <button className="submitBtn" type="submit" onClick={handleSubmit}>회원가입</button>
+            <button className="submitBtn" type="submit" onClick={handleSubmit => navigate("/")}>회원가입</button>
         </SignInForm>
     );
 }

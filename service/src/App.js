@@ -16,6 +16,8 @@ import ResetPwPage from "./pages/ResetPwPage";
 import JoinPage from "./pages/JoinPage";
 import SendNotePage from "./pages/SendNotePage";
 import AfterLoginPage from "./pages/AfterLoginPage";
+import FindIdPage from "./pages/FindIdPage";
+import MyProfile from "./components/ProfileAndContracts/MyProfile";
 
 function App() {
   
@@ -30,23 +32,22 @@ function App() {
   return (
     <StyledApp>
       <BrowserRouter>
-        <Header/>
-        <Nav/>
         <Routes>
           <Route path="/" element={<MainPage/>}></Route>
           <Route path="/AfterLoginPage" element={<AfterLoginPage/>}></Route>
           <Route path="/LoginPage" element={<LoginPage/>}></Route>
+          <Route path="/MyProfile" element={<MyProfile/>}></Route>
           <Route path="/SearchIdPage" element={<SearchIdPage/>}></Route>
           <Route path="/SearchPwPage" element={<SearchPwPage/>}></Route>
           <Route path="/ResetPwPage" element={<ResetPwPage/>}></Route>
           <Route path="/JoinPage" element={<JoinPage/>}></Route>
           <Route path="/EstimatePage" element={<EstimatePage/>}></Route>
+          <Route path="FindIdPage" element={<FindIdPage/>}></Route>
           <Route path="/BidProposalMemberInfoPage" element={<BidProposalMemberInfoPage/>}></Route>
           <Route path="/ProfileAndContractsPage" element={<ProfileAndContractsPage/>}></Route> 
           <Route path="/InformationModificationPage" element={<InformationModificationPage/>}></Route>
           <Route path="/SendNotePage" element={<SendNotePage/>}></Route>
         </Routes>
-        <Footer/>
       </BrowserRouter>
     </StyledApp>
   );

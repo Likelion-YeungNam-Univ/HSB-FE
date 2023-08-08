@@ -14,7 +14,7 @@ const ProfileImage = styled.img`
   margin-bottom: 20px;
 `;
 
-const Profile = () => {
+const MyProfile = () => {
  
   const [user, setUser] = useState({
     profileImage: "https://example.com/profile-image.jpg", // 사용자 프로필 이미지 URL
@@ -53,7 +53,7 @@ const Profile = () => {
       
     </StyledProfile>
   );
-};
+}
 
-export default Profile;
+export default MyProfile;
 
