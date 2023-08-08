@@ -48,7 +48,7 @@ const InformationModification = ({ userAvatar, onAvatarChange }) => {
             type="file"
             id="profilePictureInput"
             onChange={onAvatarChange}
-            style={{ display: "none" }} // input을 숨기기 위한 스타일
+            style={{ display: "none" }}
           />
         </ProfilePictureBox>
         </Row>

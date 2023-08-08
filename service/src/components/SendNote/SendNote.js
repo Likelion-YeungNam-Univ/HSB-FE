@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import NoteSentConfirmation from "../SendNote/NoteSentConfirmation";
 
 const SendNoteContainer = styled.div`
   width: 100%;
@@ -48,19 +49,27 @@ const SearchInput = styled.input`
 
 const SendNote = () => {
   const [receiver, setReceiver] = useState("");
-  const [content, setContent] = useState(""); 
+  const [content, setContent] = useState("");
+  const [showConfirmation, setShowConfirmation] = useState(false); // 추가
 
   const handleSubmit = (event) => {
     event.preventDefault();
     // 쪽지 보내기 로직 구현
     console.log("Sending note to:", receiver);
     console.log("Content:", content);
+
+    // 보내기 완료 후 안내창 보이기
+    setShowConfirmation(true);
   };
 
   const handleSearchClick = () => {
     // 검색 버튼 클릭 시 아이디로 받는 사람 설정
     // 여기서는 예시로 간단하게 받는 사람을 설정해둠.
     setReceiver("검색한_아이디");
+  };
+
+  const handleCloseConfirmation = () => {
+    setShowConfirmation(false);
   };
 
   return (
@@ -83,11 +92,11 @@ const SendNote = () => {
         />
         <SendButton type="submit">보내기</SendButton>
       </NoteForm>
+      {showConfirmation && (
+        <NoteSentConfirmation onClose={handleCloseConfirmation} />
+      )}
     </SendNoteContainer>
-  )
+  );
 }
 
 export default SendNote;
-
-
-
