@@ -29,7 +29,7 @@ const EstimatePage = () =>{
     const onInsert = useCallback(
         (price, content) => {
             const request = {
-                id: nextId.current,
+                id: nextId.current + 1,
                 price,
                 content,
             };
@@ -37,7 +37,6 @@ const EstimatePage = () =>{
             console.log(content);
 
             setrequests(requests => requests.concat(request));
-            nextId.current+=1;
         },
         [requests],
     );

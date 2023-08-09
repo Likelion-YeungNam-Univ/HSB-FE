@@ -5,8 +5,8 @@ import Footer from "../components/Footer";
 import SendNote from "../components/SendNote/SendNote"; 
 
 const SendNotePageContainer = styled.div`
-  max-width: 1200px;
-  margin: 354px auto 0;
+  max-width: 1000px;
+  margin: 20px auto 0;
 `;
 
 const PageTitle = styled.h1`
@@ -18,12 +18,16 @@ const PageTitle = styled.h1`
 
 const SendNotePage = () => {
   return (
+    <>
+    <Header />
+
     <SendNotePageContainer>
-      <Header />
       <PageTitle>쪽지쓰기</PageTitle>
       <SendNote /> 
-      <Footer />
     </SendNotePageContainer>
+
+    <Footer />
+    </>
   )
 }
 

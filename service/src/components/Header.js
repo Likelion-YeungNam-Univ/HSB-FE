@@ -15,26 +15,40 @@ const StyledHeader = styled.div`
     margin-top: 20px;
     width: 1100px;
 `;
-const StyledLogo = styled.img`
+const StyledLogo = styled.div`
+    display: flex;
     margin-top: 15px;
-    height: 50px;
-    width: 210px;
+`;
+const StyledImg = styled.img`
+    height: 40px;
+    width: 40px;
     background-size: contain;
+    margin-right: 3px;
+`;
+const StyledLogoName = styled.h5`
+    font-weight: bold;
+    font-size: 1.7rem;
+    color: #95DDFF;
+    letter-spacing: -1px;
 `;
 const StyledSearch = styled.div`
     display: flex;
-    flex-direction: row;
     align-items: center;
     font-size: 2rem;
     display: inline;
 `;
-const StyledIcon = styled.div`
-    display: inline;
-    color: #95DDFF;
+const StyledSearchButton = styled.button`
+    padding-left: 1px;
+    background-color: #95DDFF;
+    border: none;
+    width: 50px;
+    height: 35px;
+    font-size: 15px;
+    font-weight: bold;
 `;
 const StyledInput = styled.input`
     font-size: 1.3rem;
-    width: 350px;
+    width: 330px;
     border-color: #95DDFF;
     outline: none;
 `;
@@ -69,11 +83,14 @@ const Header = () => {
         <StyledCenter>
             <StyledHeader>
                 
-                <StyledLogo src={logo} alt="로고" onClick={navigateToMain}/>
+                <StyledLogo onClick={navigateToMain}>
+                    <StyledImg src={logo} alt="로고"/>
+                    <StyledLogoName>HEAR AND SCRIBE</StyledLogoName>
+                </StyledLogo>
                 
                 <StyledSearch>
-                    <StyledIcon><AiOutlineSearch/></StyledIcon>
                     <StyledInput type="text" placeholder="검색어를 입력해주세요">{/*value={search} onChange={onChange}*/}</StyledInput>
+                    <StyledSearchButton>검색</StyledSearchButton>
                 </StyledSearch>
 
                 <StyledIconButtons>
