@@ -28,6 +28,14 @@ const MyPage = styled.div`
         cursor: pointer;
     }
 
+    .ApplicationAddBtn {
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        font-size: 15px;
+        color: #595959;
+    }
+
     .bottom-signup {
         font-size :14px;
         gap: 10px;
@@ -74,10 +82,15 @@ const Container = styled.div`
 `;
 
 const NoticeContainer = styled.div`
-    padding: 10px 16px;
-    border: 1px solid grey;
+    padding: 10px 0px;
     width: 913px;
     height: 193px;
+    .img {
+        width: 913px;
+        height: 193px;
+        background-size: contain;
+        margin:-10px 0px 10px 0px;
+    }
 `;
 
 const CardNewsContainer = styled.div`

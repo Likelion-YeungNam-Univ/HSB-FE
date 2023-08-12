@@ -8,6 +8,7 @@ import Footer from '../components/Footer';
 import ApplicationForm from '../components/Auth/ApplicationForm';
 import AfterLoginForm from '../components/Auth/AfterLoginForm';
 import Alarm from '../components/Auth/AlarmForm';
+import Banner from '../img/Banner.png';
 
 const AfterLoginPage = () => {
     
@@ -21,11 +22,8 @@ const AfterLoginPage = () => {
 
         <Wrapper>
             <Container>
-                
                 <NoticeContainer>
-                    <TitleText>
-                        공지사항
-                    </TitleText>
+                <img className="img" src={Banner} alt="Banner"></img>
                 </NoticeContainer>
                 <br></br>
             <SideBarContatiner>

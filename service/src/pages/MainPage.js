@@ -25,7 +25,7 @@ const MainPage = () => {
         <Wrapper>
             <Container>
                 <NoticeContainer>
-                    {/*<img className="img" src={Banner} alt="Banner"></img>*/}
+                    <img className="img" src={Banner} alt="Banner"></img>
                 </NoticeContainer>
                 <br></br>
             <SideBarContatiner>

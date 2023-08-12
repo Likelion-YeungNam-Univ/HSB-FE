@@ -3,14 +3,11 @@ import { LoginBox } from "../../styles/MainPageLoginForm.style";
 import { useNavigate } from "react-router-dom";
 import { MyPage } from "../../styles/Login.styled";
 import User from "../../img/User.png";
-import { img } from "../../styles/Img.styled";
-
 const AfterLoginForm = () => {
     const navigate = useNavigate();
 
     return (
         <LoginBox>
-             
             <MyPage>   
             
             <h3>나문희님</h3>
