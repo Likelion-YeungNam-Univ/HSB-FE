@@ -39,13 +39,7 @@ const MyPage = styled.div`
         fontcolor: black;
     }
 
-    .FindIdBtn {
-        border: none;
-        background-color: transparent;
-        cursor: pointer;
-    }
-
-    .FindPwBtn {
+    .textBtn {
         border: none;
         background-color: transparent;
         cursor: pointer;
@@ -57,14 +51,7 @@ const MyPage = styled.div`
         background-color: transparent;
         cursor: pointer;
     }
-    .MainContent {
-        font-weight: bold;
-        font-size:15px;
-    }
-
-    .SubContent {
-        font-size:10px;
-    }
+    
 `;
 
 const Wrapper = styled.div`
@@ -77,18 +64,20 @@ const Wrapper = styled.div`
 `;
 
 const Container = styled.div`
-    width: 100%;
-    max-width: 720px;
+    width: 915px;
     & > * {
         :not(:last-child) {
-            margin-bottom: 16px;
+            margin-top: 16px;
         }
     }
+
 `;
 
 const NoticeContainer = styled.div`
     padding: 10px 16px;
     border: 1px solid grey;
+    width: 913px;
+    height: 193px;
 `;
 
 const CardNewsContainer = styled.div`

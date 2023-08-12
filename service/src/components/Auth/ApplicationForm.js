@@ -27,6 +27,10 @@ const ApplicationForm = () => {
                 <button className="ApplicationBtn" onClick={() => navigate("/EstimatePage")}>
                     녹취록 의뢰합니다.
                 </button>
+                <br/>
+                <br/>
+                <button className="ApplicationBtn" onClick={() => navigate("/EstimateRequestListPage")}>더보기...</button>
+
                 
                 <br/>
             </ContentText>  

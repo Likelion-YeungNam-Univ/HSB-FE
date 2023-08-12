@@ -7,7 +7,7 @@ import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import ApplicationForm from '../components/Auth/ApplicationForm';
 import AfterLoginForm from '../components/Auth/AfterLoginForm';
-import Alarm from '../components/Auth/Alarm';
+import Alarm from '../components/Auth/AlarmForm';
 
 const AfterLoginPage = () => {
     
@@ -35,19 +35,12 @@ const AfterLoginPage = () => {
                 <br></br>
 
                 <MyPageLogin>
-                    <AfterLoginForm/>  
-                    <hr></hr>
+                    <AfterLoginForm/> 
                     <Alarm/>       
                 </MyPageLogin>
                 
             </SideBarContatiner>
             <br></br>
-           
-                <CardNewsContainer>
-                    <TitleText>
-                    배너광고 및 장애인 광고
-                    </TitleText>
-                </CardNewsContainer>
                 
             </Container>
         </Wrapper>

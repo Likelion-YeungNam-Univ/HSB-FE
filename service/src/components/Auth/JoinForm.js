@@ -2,6 +2,7 @@ import React, {useCallback, useState} from "react";
 import { useEffect } from "react";
 import { SignInForm } from "../../styles/Login.styled";
 import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 
 const JoinForm = () => {
 
@@ -31,22 +32,22 @@ const JoinForm = () => {
         }
     }, [data])
 
-    /*const onSubmit = useCallback(
-        async () => {
+    const onSubmit = useCallback(
+        async (e) => {
             e.preventDefault();
             try {
                 await axios
-                    .post(REGISTER_USERS_URL ,{
-                        "user_name": "string",
-                        "email": "useaar@example.com",
-                        "id": "string",
-                        "password": "string",
+                    .post('/users',{
+                        user_name: data.name,
+                        email: data.email,
+                        id: data.nickname,
+                        password: data.password1
                     })
-                    .then( (res)=> {
+                    .then((res)=> {
                         console.log('response:', res)
-                        if(res.status === 200) {
-                            Router.push('/LoginPage');
-                        }
+                        // if(res.status === 200) {
+                        //     Router.push('/LoginPage');
+                        // }
                     })
             } catch (err) {
                 console.error(err)
@@ -54,6 +55,7 @@ const JoinForm = () => {
         }, [email, nickname, password1, password2]
     )
 
+/*
     const onChangePasswordConfirm = useCallback(
         () => {
             const PassWordConfirmCurrent = e.target.value
@@ -126,7 +128,8 @@ const JoinForm = () => {
             <span className={`message ${isPasswordConfirm ? 'success' : 'error'}`}>{passwordConfirmMessage}</span>
                 )}
              */}
-            <button className="submitBtn" type="submit" onClick={handleSubmit => navigate("/")}>회원가입</button>
+            <button className="submitBtn" type="submit" onClick={onSubmit}>회원가입</button>
+            {/* handleSubmit => navigate("/") */}
         </SignInForm>
     );
 }
