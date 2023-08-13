@@ -14,11 +14,13 @@ const JoinForm = () => {
         pswd: '',
         checkPswd: '',
     });
+    
     const [data, updataData] = useState(initData);
-    const [email, updataEmail] = useState(initData);
-    const [nickname, updataNickname] = useState(initData);
-    const [pswd, setPswd] = useState(initData);//비밀번호
-    const [checkPswd, setCheckPswd] = useState(initData);
+
+    const [email, updataEmail] = useState(initData.email);
+    const [nickname, updataNickname] = useState(initData.nickname);
+    const [pswd, setPswd] = useState(initData.pswd);//비밀번호
+    const [checkPswd, setCheckPswd] = useState(initData.setCheckPswd);
 
     const [pswdMessage, setPswdMessage] = useState("");
     const [checkPswdMessage, setCheckPswdMessage] = useState("");//비밀번호오류메세지 상태
@@ -41,16 +43,24 @@ const JoinForm = () => {
         const currentPw = e.target.value;
         setCheckPswd(currentPw);
 
-        if(pswd !== currentPw) {
-            setCheckPswdMessage("비밀번호가 일치하지 않습니다.");
-            setIsCheckPswd(false);
-        } else {
-            setCheckPswdMessage("비밀번호 일치");
-            setIsCheckPswd(true);
-        }
-
-    };
-
+        //checkPswd에 값 넣어주기
+        updataData({
+            ...data, "checkPswd" : e.target.value
+        })
+        
+        console.log("pswd : " + data.pswd)
+        console.log("curretPw: " + currentPw)
+        if(currentPw.length >= 1){
+            if(data.pswd !== currentPw) {
+                setCheckPswdMessage("비밀번호가 일치하지 않습니다.");
+                setIsCheckPswd(false);
+                console.log(isCheckPswd)
+            } else {
+                setCheckPswdMessage("비밀번호가 일치합니다.");
+                setIsCheckPswd(true);
+            }
+        }       
+    }
     {/*const onSubmit = useCallback(
         async (e) => {
             e.preventDefault();
@@ -72,66 +82,18 @@ const JoinForm = () => {
                 console.error(err)
             }
         }, [email, nickname, checkPswd, pswd]
-    )
-
-    const onChangePswd = (e) => {
-        setPswd(e.target.value);
-      };
-
-      useEffect(() => {
-        // pswd의 길이가 0을 넘어갔을 때부터 실행되게 함
-        // 그렇지 않으면 첫 랜더링때부터 pswdMessage가 보이게됨.
-        if (pswd.length > 0) {
-          // onChangePwsd에서 나왔으므로 e.target.value로 state를 업데이트할 수 없음
-          // 따라서 다음과 같은 방식으로 state를 업데이트 함
-          setPswd((currentValue) => currentValue);
-    
-          const pswdRegEx = '/^(?=.*[a-zA-Z])(?=.*[!@#$%^])(?=.*[0-9]).{8,25}$/';
-    
-          if (!pswdRegEx.test(pswd)) {
-            setPswdMessage(
-              "숫자+영문+특수문자(!,@,#,$,%,^) 조합으로 입력해주세요."
-            );
-            setIsPswd(false);
-          } else {
-            setPswdMessage("비밀번호가 정상적으로 입력되었습니다.");
-            setIsPswd(true);
-          }
-        }
-      }, [pswd]);
-
-    const onChangeCheckPswd = (e) => {
-        setCheckPswd(e.target.value);
-    };
-
-    useEffect(() => {
-        // checkPswd의 길이가 0을 넘어갔을 때부터 실행되게 함
-        // 그렇지 않으면 첫 랜더링때부터 checkPswdMessage가 보이게됨.
-        if (checkPswd.length > 0) {
-          // onChangePwsd에서 나왔으므로 e.target.value로 state를 업데이트할 수 없음
-          // 따라서 다음과 같은 방식으로 state를 업데이트 함
-          setCheckPswd((currentValue) => currentValue);
-    
-          if (pswd !== checkPswd) {
-            setCheckPswdMessage("맞게 입력했는지 다시 확인해주세요.");
-            setIsCheckPswd(false);
-          } else {
-            setCheckPswdMessage("비밀번호 확인이 완료되었습니다.");
-            setIsCheckPswd(true);
-          }
-        }
-      }, [checkPswd]);*/}
+    )*/}
 
     
-
-
     const handleChange = (e) => {
         console.log(e.target.value);
+        
         updataData({
-            ...data, [e.target.name]: e.target.value.trim()
+            ...data, [e.target.name] : e.target.value
         })
+ 
     }
-
+    
     const handleSubmit = e => {
         e.preventDefault(); //새로고침방지
         console.log(e.target.value);
@@ -188,4 +150,3 @@ const JoinForm = () => {
 }
 
 export default JoinForm;
-
