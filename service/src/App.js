@@ -22,11 +22,13 @@ import EstimateRequestListPage from "./pages/EstimateRequestListPage";
 function App() {
   
   const StyledApp = styled.div`
-  {/*
+{/*
     display: flex;
     flex-direction: column;
-    justify-contents: space-between;*/}
-
+    justify-contents: center;
+    align-items: center;
+*/}
+    width: max-content;
   `;
 
   return (

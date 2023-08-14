@@ -10,6 +10,11 @@ const StyledCenter = styled.div`
 `;
 const StyledHeader = styled.div`
     display: flex;
+    justify-content: center;
+    width: 1519px;
+`;
+const StyledWidth = styled.div`
+    display: flex;
     justify-content: space-evenly;
     align-items: center;
     margin-top: 20px;
@@ -17,7 +22,7 @@ const StyledHeader = styled.div`
 `;
 const StyledLogo = styled.div`
     display: flex;
-    margin-top: 15px;
+    margin-top: 5px;
 `;
 const StyledImg = styled.img`
     height: 40px;
@@ -60,6 +65,7 @@ const StyledIcons = styled.button`
     background-color: transparent;
     border: none;
     margin-right: 10px;
+    padding-bottom: 10px;
 `;
 
 const Header = () => {
@@ -80,6 +86,7 @@ const Header = () => {
     return(
         <StyledCenter>
             <StyledHeader>
+                <StyledWidth>
                 
                 <StyledLogo onClick={navigateToMain}>
                     <StyledImg src={logo} alt="로고"/>
@@ -97,6 +104,7 @@ const Header = () => {
                     <StyledIcons><AiOutlineDown/></StyledIcons>
                 </StyledIconButtons>
                 
+                </StyledWidth>
             </StyledHeader>
         </StyledCenter>
     )

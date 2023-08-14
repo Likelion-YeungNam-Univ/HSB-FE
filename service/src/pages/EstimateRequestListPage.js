@@ -29,18 +29,26 @@ const EstimateRequestListPage = () => {
     const [postsPerPage, setPostsPerPage] = useState(10);
     
     
+    axios.get("/estimates/")
+    .then((res) => {
+        console.log(res);
+    })
+    .catch((err)=>{
+        console.log(err);
+    })
 
-    {/* 
+    {/*
     useEffect(() => {
         const fetchData = async () => {
             setLoading(true);
-            const response = await axios.get("");
+            const response = await axios.get("/estimates/");
             setPosts(response.data);
             setLoading(false);
         };
         fetchData();
     }, []);
     */}
+
 
     const indexOfLast = currentPage * postsPerPage;
     const indexOfFirst = indexOfLast - postsPerPage;
