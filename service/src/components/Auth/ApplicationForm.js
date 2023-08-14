@@ -27,6 +27,22 @@ const ApplicationForm = () => {
                 <button className="ApplicationBtn" onClick={() => navigate("/EstimatePage")}>
                     녹취록 의뢰합니다.
                 </button>
+                <br/>
+                <button className="ApplicationBtn" onClick={() => navigate("/EstimatePage")}>
+                    온라인 방송 통역 구합니다!
+                </button>
+                <br/>
+                <button className="ApplicationBtn" onClick={() => navigate("/EstimatePage")}>
+                    2시간 가량의 다큐멘터리 자막 의뢰합니다.
+                </button>
+                <br/>
+                <button className="ApplicationBtn" onClick={() => navigate("/EstimatePage")}>
+                    녹취록 의뢰합니다.
+                </button>
+                <br/>
+                <br/>
+                <button className="ApplicationAddBtn" onClick={() => navigate("/EstimateRequestListPage")}>더보기...</button>
+
                 
                 <br/>
             </ContentText>  

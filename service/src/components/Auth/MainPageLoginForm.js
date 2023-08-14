@@ -14,8 +14,8 @@ const MainPageLoginForm = () => {
             <button className="LoginBtn" type="submit" onClick={() => navigate("/LoginPage")}>
                 로그인</button> {/*비밀번호 일치할 경우 메인페이지로 이동하도록 수정*/}
             <MyPage>
-                <button className="FindIdBtn" onClick={() => navigate("/SearchIdPage")}>아이디 찾기</button>
-                <button className="FindPwBtn" onClick={() => navigate("/SearchPwPage")}>비밀번호 찾기</button>
+                <button className="textBtn" onClick={() => navigate("/SearchIdPage")}>아이디 찾기</button>
+                <button className="textBtn" onClick={() => navigate("/SearchPwPage")}>비밀번호 찾기</button>
                 <button className="registerBtn" onClick={()=>navigate("/JoinPage")}>회원가입</button>
             </MyPage>
         </LoginBox>

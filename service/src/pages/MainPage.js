@@ -6,8 +6,10 @@ import Header from '../components/Header';
 import Nav from '../components/Nav';
 import Footer from '../components/Footer';
 import MainPageLoginForm from '../components/Auth/MainPageLoginForm';
-import { MyPageLogin, SideBarContatiner, ApplicationContainer } from '../styles/MainPageLoginForm.style';
+import { MyPageLogin, SideBarContatiner, ApplicationContainer, ScrollAlarm } from '../styles/MainPageLoginForm.style';
 import ApplicationForm from '../components/Auth/ApplicationForm';
+import Alarm from '../components/Auth/AlarmForm';
+import Banner from "../img/Banner.png"
 
 const MainPage = () => {
     
@@ -22,11 +24,8 @@ const MainPage = () => {
 
         <Wrapper>
             <Container>
-                
                 <NoticeContainer>
-                    <TitleText>
-                        공지사항
-                    </TitleText>
+                    <img className="img" src={Banner} alt="Banner"></img>
                 </NoticeContainer>
                 <br></br>
             <SideBarContatiner>
@@ -42,13 +41,6 @@ const MainPage = () => {
                 
             </SideBarContatiner>
             <br></br>
-           
-                <CardNewsContainer>
-                    <TitleText>
-                    배너광고 및 장애인 광고
-                    </TitleText>
-                </CardNewsContainer>
-                <br/>
 
             </Container>
         </Wrapper>

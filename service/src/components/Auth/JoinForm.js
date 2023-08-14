@@ -2,6 +2,7 @@ import React, {useCallback, useState} from "react";
 import { useEffect } from "react";
 import { SignInForm } from "../../styles/Login.styled";
 import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 
 const JoinForm = () => {
 
@@ -10,77 +11,93 @@ const JoinForm = () => {
         name:'',
         email: '',
         nickname: '',
-        password1: '',
-        password2: '',
+        pswd: '',
+        checkPswd: '',
     });
+    
     const [data, updataData] = useState(initData);
-    const [email, updataEmail] = useState(initData);
-    const [nickname, updataNickname] = useState(initData);
-    const [password1, updataPassWord] = useState(initData);
-    const [password2, setPassWordConfirm] = useState(initData);
-    //const[isPasswordConfirm, setIsPasswordConfirm] = useState<boolean>(false) //유효성 검사
+
+    const [email, updataEmail] = useState(initData.email);
+    const [nickname, updataNickname] = useState(initData.nickname);
+    const [pswd, setPswd] = useState(initData.pswd);//비밀번호
+    const [checkPswd, setCheckPswd] = useState(initData.setCheckPswd);
+
+    const [pswdMessage, setPswdMessage] = useState("");
+    const [checkPswdMessage, setCheckPswdMessage] = useState("");//비밀번호오류메세지 상태
+
+    const [isPswd, setIsPswd] = useState(false);
+    const [isCheckPswd, setIsCheckPswd] = useState(false);//비밀번호 유효성 검사
     const [color, updataColor] = useState("#b8e8ff")
 
     useEffect(() => {
         if( data.name.length > 0 && data.email.length > 0 &&
-            data.nickname.length > 0 && data.password1.length > 0 &&
-            data.password2.length > 0) {
+            data.nickname.length > 0 && data.pswd.length > 0 &&
+            data.checkPswd.length > 0) {
             updataColor("#95DDFF");
         } else {
             updataColor("#b8e8ff");
         }
     }, [data])
 
-    /*const onSubmit = useCallback(
-        async () => {
+    const onChangePwConfirm = (e) => {
+        const currentPw = e.target.value;
+        setCheckPswd(currentPw);
+
+        //checkPswd에 값 넣어주기
+        updataData({
+            ...data, "checkPswd" : e.target.value
+        })
+        
+        console.log("pswd : " + data.pswd)
+        console.log("curretPw: " + currentPw)
+        if(currentPw.length >= 1){
+            if(data.pswd !== currentPw) {
+                setCheckPswdMessage("비밀번호가 일치하지 않습니다.");
+                setIsCheckPswd(false);
+                console.log(isCheckPswd)
+            } else {
+                setCheckPswdMessage("비밀번호가 일치합니다.");
+                setIsCheckPswd(true);
+            }
+        }       
+    }
+    {/*const onSubmit = useCallback(
+        async (e) => {
             e.preventDefault();
             try {
                 await axios
-                    .post(REGISTER_USERS_URL ,{
-                        "user_name": "string",
-                        "email": "useaar@example.com",
-                        "id": "string",
-                        "password": "string",
+                    .post('/users',{
+                        user_name: data.name,
+                        email: data.email,
+                        id: data.nickname,
+                        password: data.password1
                     })
-                    .then( (res)=> {
+                    .then((res)=> {
                         console.log('response:', res)
-                        if(res.status === 200) {
-                            Router.push('/LoginPage');
-                        }
+                        // if(res.status === 200) {
+                        //     Router.push('/LoginPage');
+                        // }
                     })
             } catch (err) {
                 console.error(err)
             }
-        }, [email, nickname, password1, password2]
-    )
+        }, [email, nickname, checkPswd, pswd]
+    )*/}
 
-    const onChangePasswordConfirm = useCallback(
-        () => {
-            const PassWordConfirmCurrent = e.target.value
-            setPassWordConfirm(PassWordConfirmCurrent)
-
-            if(password1 === PassWordConfirmCurrent) {
-                setPasswordConfirm("비밀번호가 일치합니다.")
-                setIsPasswordConfirm(true)
-                } else {
-                    setPassWordConfirm('비밀번호가 일치하지 않습니다.')
-                    setIsPasswordConfirm(false)
-                }
-        }, [password1]
-    )*/
-
-    const handleChange = e => {
+    
+    const handleChange = (e) => {
         console.log(e.target.value);
+        
         updataData({
-            ...data, [e.target.name]: e.target.value.trim()
+            ...data, [e.target.name] : e.target.value
         })
+ 
     }
-
+    
     const handleSubmit = e => {
         e.preventDefault(); //새로고침방지
         console.log(e.target.value);
     }
-
 
 
     return (
@@ -106,30 +123,30 @@ const JoinForm = () => {
              value={data.nickname}
              required 
              onChange={handleChange}/>
-            <input
+            
+             <input
              type="password" 
-             name="password1" 
-             placeholder="비밀번호" 
-             value={data.password1}
-             required 
-             onChange={handleChange}/>
+             name="pswd" 
+             placeholder="비밀번호"
+             onChange={handleChange} 
+             value={data.pswd}
+             required/>
+
              
              <input
              type="password" 
-             name="password2" 
+             name="checkPswd" 
              placeholder="비밀번호 확인" 
-             value={data.password2}
-             required 
-             onChange={handleChange}
-            />
-             {/*{password2.length > 0 && (
-            <span className={`message ${isPasswordConfirm ? 'success' : 'error'}`}>{passwordConfirmMessage}</span>
-                )}
-             */}
-            <button className="submitBtn" type="submit" onClick={handleSubmit => navigate("/")}>회원가입</button>
+             value={data.checkPswd}
+             onChange={onChangePwConfirm}
+             required/>
+             <p>{checkPswdMessage}</p>
+             {/*비밀번호확인 입력안됨*/}
+
+            <button className="submitBtn" type="submit" onClick={()=>navigate("/LoginPage")}>회원가입</button>
+            {/* handleSubmit => navigate("/") */}
         </SignInForm>
     );
 }
 
 export default JoinForm;
-
