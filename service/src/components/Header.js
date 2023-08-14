@@ -35,14 +35,12 @@ const StyledSearch = styled.div`
     display: flex;
     align-items: center;
     font-size: 2rem;
-    display: inline;
 `;
 const StyledSearchButton = styled.button`
-    padding-left: 1px;
     background-color: #95DDFF;
-    border: none;
+    border: 1px solid #95DDFF;
     width: 50px;
-    height: 35px;
+    height: 37px;
     font-size: 15px;
     font-weight: bold;
 `;

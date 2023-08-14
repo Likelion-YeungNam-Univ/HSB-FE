@@ -1,5 +1,6 @@
 import {Link} from "react-router-dom";
 import styled from "styled-components";
+import { axios } from "axios";
 
 const StyledListTitle = styled.div`
     display: flex;
@@ -40,6 +41,20 @@ const StyledListDate = styled.h6`
 
 const EstimateRequestList = ({posts, loading}) => {
 
+    {/*
+    axiois.get("estimates").then((res) => {
+        console.log(res);
+    })
+
+     axios.post("users", {"id": "id", "pw": "pw"}).then((res) => {
+         console.log(res);
+     })
+    
+    axios.get("users/").then((res) => {
+        console.log(res);
+    })
+    */}
+
     return (
         <>
 
@@ -68,86 +83,6 @@ const EstimateRequestList = ({posts, loading}) => {
             </StyledListLine>
             </StyledCenter>
 
-            <StyledCenter>
-            <StyledListLine>
-                <StyledListNum>2</StyledListNum>
-                <StyledListLink to="/EstimatePage">온라인 방송 통역 구합니다!</StyledListLink>
-                <StyledListAuthor>나문희</StyledListAuthor>
-                <StyledListDate>2023-08-25</StyledListDate>
-            </StyledListLine>
-            </StyledCenter>
-
-            <StyledCenter>
-            <StyledListLine>
-                <StyledListNum>1</StyledListNum>
-                <StyledListLink to="/EstimatePage">온라인 방송 통역 구합니다!</StyledListLink>
-                <StyledListAuthor>나문희</StyledListAuthor>
-                <StyledListDate>2023-08-25</StyledListDate>
-            </StyledListLine>
-            </StyledCenter>
-
-            <StyledCenter>
-            <StyledListLine>
-                <StyledListNum>1</StyledListNum>
-                <StyledListLink to="/EstimatePage">온라인 방송 통역 구합니다!</StyledListLink>
-                <StyledListAuthor>나문희</StyledListAuthor>
-                <StyledListDate>2023-08-25</StyledListDate>
-            </StyledListLine>
-            </StyledCenter>
-
-            <StyledCenter>
-            <StyledListLine>
-                <StyledListNum>1</StyledListNum>
-                <StyledListLink to="/EstimatePage">온라인 방송 통역 구합니다!</StyledListLink>
-                <StyledListAuthor>나문희</StyledListAuthor>
-                <StyledListDate>2023-08-25</StyledListDate>
-            </StyledListLine>
-            </StyledCenter>
-
-            <StyledCenter>
-            <StyledListLine>
-                <StyledListNum>1</StyledListNum>
-                <StyledListLink to="/EstimatePage">온라인 방송 통역 구합니다!</StyledListLink>
-                <StyledListAuthor>나문희</StyledListAuthor>
-                <StyledListDate>2023-08-25</StyledListDate>
-            </StyledListLine>
-            </StyledCenter>
-
-            <StyledCenter>
-            <StyledListLine>
-                <StyledListNum>1</StyledListNum>
-                <StyledListLink to="/EstimatePage">온라인 방송 통역 구합니다!</StyledListLink>
-                <StyledListAuthor>나문희</StyledListAuthor>
-                <StyledListDate>2023-08-25</StyledListDate>
-            </StyledListLine>
-            </StyledCenter>
-
-            <StyledCenter>
-            <StyledListLine>
-                <StyledListNum>1</StyledListNum>
-                <StyledListLink to="/EstimatePage">온라인 방송 통역 구합니다!</StyledListLink>
-                <StyledListAuthor>나문희</StyledListAuthor>
-                <StyledListDate>2023-08-25</StyledListDate>
-            </StyledListLine>
-            </StyledCenter>
-
-            <StyledCenter>
-            <StyledListLine>
-                <StyledListNum>1</StyledListNum>
-                <StyledListLink to="/EstimatePage">온라인 방송 통역 구합니다!</StyledListLink>
-                <StyledListAuthor>나문희</StyledListAuthor>
-                <StyledListDate>2023-08-25</StyledListDate>
-            </StyledListLine>
-            </StyledCenter>
-
-            <StyledCenter>
-            <StyledListLine>
-                <StyledListNum>1</StyledListNum>
-                <StyledListLink to="/EstimatePage">온라인 방송 통역 구합니다!</StyledListLink>
-                <StyledListAuthor>나문희</StyledListAuthor>
-                <StyledListDate>2023-08-25</StyledListDate>
-            </StyledListLine>
-            </StyledCenter>
             
         </>
     )
