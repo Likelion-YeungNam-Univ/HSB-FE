@@ -51,10 +51,11 @@ const EstimatePage = () =>{
                 <EstimateHead/>
                 <EstimateBody/>
             </StyledBody>
-
+            
             <BidList requests={requests}/>
+            
             <OfferBid onInsert={onInsert}/>
-
+            
             
         </StyledEstimatePage>
             <Footer/>

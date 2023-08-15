@@ -4,6 +4,7 @@ import {AiOutlineSend} from "react-icons/ai"
 import {BsBookmark, BsBookmarkFill} from "react-icons/bs"
 import styled from "styled-components"
 import { useNavigate } from "react-router-dom";
+import StateBox from "./StateBox";
 
 const StyledBody = styled.div`
     border: 1px solid;
@@ -11,9 +12,9 @@ const StyledBody = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-left: 50px;
+    margin-left: 20px;
     padding: 20px;
-    width: 350px;
+    width: 450px;
 `;
 const StyledTags = styled.div`
     display: flex;
@@ -36,6 +37,12 @@ const EstimateBody = () => {
     const navigateToNote = () => {
         navigate('/sendNotePage');
     };
+
+    const states = [
+        {id: 0, current: "진행중"},
+        {id: 1, current: "계약 진행중"},
+        {id: 2, current: "견적 종료"}
+    ];
 
     const [bookmark, setBookmark] = useState(false);
 
@@ -63,7 +70,7 @@ const EstimateBody = () => {
         <StyledBody>
             <StyledTags>
                 <div>
-                    <button>계약 진행중</button>
+                    <StateBox states={states}/>
                     <button>#실시간</button>
                     <button>#문자</button>
                     <button>#한글</button>

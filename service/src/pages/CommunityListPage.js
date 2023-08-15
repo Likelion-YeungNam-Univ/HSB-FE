@@ -1,17 +1,16 @@
-import {useState, useEffect} from "react";
-import axios from "axios";
+import { useState } from "react";
 import styled from "styled-components";
-import EstimateRequestList from "../components/Estimates/EstimateRequestList";
-import EstimateRequestListNumbers from "../components/Estimates/EstimateRequestListNumbers";
 import Header from "../components/Header";
 import Nav from "../components/Nav";
+import EstimateRequestList from "../components/Estimates/EstimateRequestList";
+import EstimateRequestListNumbers from "../components/Estimates/EstimateRequestListNumbers";
 import Footer from "../components/Footer";
 
 const StyledCenter = styled.div`
     display: flex;
     justify-content: center;
 `;
-const StyledEstimateRequestListPage = styled.div`
+const StyledCommunityListPage = styled.div`
     width: 940px;
     display: flex;
     flex-direction: column;
@@ -43,33 +42,12 @@ const StyledListNumbersWidth = styled.div`
     margin-top: 20px;
 `;
 
-const EstimateRequestListPage = () => {
+const CommunityListPage = () => {
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage, setPostsPerPage] = useState(10);
     
-    
-    axios.get("/estimates/")
-    .then((res) => {
-        console.log(res);
-    })
-    .catch((err)=>{
-        console.log(err);
-    })
-
-    {/*
-    useEffect(() => {
-        const fetchData = async () => {
-            setLoading(true);
-            const response = await axios.get("/estimates/");
-            setPosts(response.data);
-            setLoading(false);
-        };
-        fetchData();
-    }, []);
-    */}
-
 
     const indexOfLast = currentPage * postsPerPage;
     const indexOfFirst = indexOfLast - postsPerPage;
@@ -79,16 +57,17 @@ const EstimateRequestListPage = () => {
         return currentPosts;
     };
 
+
     return (
         <>
             <Header/>
             <Nav/>
 
             <StyledCenter>
-                <StyledEstimateRequestListPage>
+                <StyledCommunityListPage>
 
                     <StyledLine>
-                        <StyledButton>견적 작성</StyledButton>
+                        <StyledButton>글쓰기</StyledButton>
                     </StyledLine>
 
                     <StyledWidth>
@@ -99,7 +78,7 @@ const EstimateRequestListPage = () => {
                         <EstimateRequestListNumbers postsPerPage={postsPerPage} totalPosts={posts.length} paginate={setCurrentPage}/>
                     </StyledListNumbersWidth>
                 
-                </StyledEstimateRequestListPage>
+                </StyledCommunityListPage>
             </StyledCenter>
 
             <Footer/>
@@ -107,4 +86,4 @@ const EstimateRequestListPage = () => {
     )
 }
 
-export default EstimateRequestListPage;
+export default CommunityListPage;

@@ -18,6 +18,8 @@ import SendNotePage from "./pages/SendNotePage";
 import AfterLoginPage from "./pages/AfterLoginPage";
 import FindIdPage from "./pages/FindIdPage";
 import EstimateRequestListPage from "./pages/EstimateRequestListPage";
+import SearchPage from "./pages/SearchPage";
+import CommunityListPage from "./pages/CommunityListPage";
 
 function App() {
   
@@ -42,8 +44,10 @@ function App() {
           <Route path="/SearchPwPage" element={<SearchPwPage/>}></Route>
           <Route path="/ResetPwPage" element={<ResetPwPage/>}></Route>
           <Route path="/JoinPage" element={<JoinPage/>}></Route>
+          <Route path="/SearchPage" element={<SearchPage/>}></Route>
           <Route path="/EstimateRequestListPage" element={<EstimateRequestListPage/>}></Route>
           <Route path="/EstimatePage" element={<EstimatePage/>}></Route>
+          <Route path="/CommunityListPage" element={<CommunityListPage/>}></Route>
           <Route path="/FindIdPage" element={<FindIdPage/>}></Route>
           <Route path="/BidProposalMemberInfoPage" element={<BidProposalMemberInfoPage/>}></Route>
           <Route path="/ProfileAndContractsPage" element={<ProfileAndContractsPage/>}></Route> 

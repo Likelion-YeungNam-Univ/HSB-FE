@@ -1,11 +1,11 @@
-import {useState, useEffect} from "react";
-import axios from "axios";
+import { useState } from "react";
 import styled from "styled-components";
-import EstimateRequestList from "../components/Estimates/EstimateRequestList";
-import EstimateRequestListNumbers from "../components/Estimates/EstimateRequestListNumbers";
 import Header from "../components/Header";
 import Nav from "../components/Nav";
+import EstimateRequestList from "../components/Estimates/EstimateRequestList";
+import EstimateRequestListNumbers from "../components/Estimates/EstimateRequestListNumbers";
 import Footer from "../components/Footer";
+import StateBox from "../components/Estimates/StateBox";
 
 const StyledCenter = styled.div`
     display: flex;
@@ -19,10 +19,9 @@ const StyledEstimateRequestListPage = styled.div`
 const StyledLine = styled.div`
     width: 940px;
     display: flex;
-    justify-content: flex-end;
     margin-bottom: 20px;
 `;
-const StyledButton = styled.button`
+const StyledBox = styled.div`
     background-color: #95DDFF;
     border: 1px solid #95DDFF;
     border-radius: 5px;
@@ -43,33 +42,12 @@ const StyledListNumbersWidth = styled.div`
     margin-top: 20px;
 `;
 
-const EstimateRequestListPage = () => {
+const SearchPage = () => {
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage, setPostsPerPage] = useState(10);
     
-    
-    axios.get("/estimates/")
-    .then((res) => {
-        console.log(res);
-    })
-    .catch((err)=>{
-        console.log(err);
-    })
-
-    {/*
-    useEffect(() => {
-        const fetchData = async () => {
-            setLoading(true);
-            const response = await axios.get("/estimates/");
-            setPosts(response.data);
-            setLoading(false);
-        };
-        fetchData();
-    }, []);
-    */}
-
 
     const indexOfLast = currentPage * postsPerPage;
     const indexOfFirst = indexOfLast - postsPerPage;
@@ -78,6 +56,14 @@ const EstimateRequestListPage = () => {
         currentPosts = posts.slice(indexOfFirst, indexOfLast);
         return currentPosts;
     };
+
+
+    const states = [
+        {id: 0, current: "진행중"},
+        {id: 1, current: "계약 진행중"},
+        {id: 2, current: "견적 종료"}
+    ];
+
 
     return (
         <>
@@ -88,7 +74,8 @@ const EstimateRequestListPage = () => {
                 <StyledEstimateRequestListPage>
 
                     <StyledLine>
-                        <StyledButton>견적 작성</StyledButton>
+                        <StateBox states={states}/>
+                        <StateBox states={states}/>
                     </StyledLine>
 
                     <StyledWidth>
@@ -107,4 +94,4 @@ const EstimateRequestListPage = () => {
     )
 }
 
-export default EstimateRequestListPage;
+export default SearchPage;

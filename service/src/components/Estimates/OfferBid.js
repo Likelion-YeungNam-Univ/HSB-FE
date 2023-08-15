@@ -1,9 +1,16 @@
 import { useCallback, useState } from "react";
 import styled from "styled-components";
 
+const StyledCenter = styled.div`
+    display: flex;
+    justify-content: center;
+`;
+const StyledDirection = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
 const StyledTitle = styled.p`
     font-size: 1.35rem;
-    padding-left:395px;
     margin: 20px 0px 0px 0px;
 `;
 const StyledBodys = styled.div`   
@@ -13,7 +20,7 @@ const StyledBodys = styled.div`
 `;
 const StyledBody = styled.div`
     border: 1px solid;
-    width: 720px;   
+    width: 940px;   
     display: flex;
     flex-direction: column;
     padding: 15px 20px 20px 20px;
@@ -38,8 +45,8 @@ const StyledContent = styled.div`
 `;
 const StyledTextareaContent = styled.textarea`
     font-size: 1.2rem;
-    width: 605px;
-    height: 70px;
+    width: 850px;
+    height: 100px;
     margin-left: 10px;
     resize: none;
 `;
@@ -91,6 +98,9 @@ const OfferBid = ({onInsert}) => {
 
     return(
         <>
+        <StyledCenter>
+        <StyledDirection>
+
             <StyledTitle>입찰 제안서 작성하기</StyledTitle>
 
             <StyledBodys>
@@ -116,6 +126,9 @@ const OfferBid = ({onInsert}) => {
 
                 </StyledBody>
             </StyledBodys>
+            
+        </StyledDirection>
+        </StyledCenter>
         </>
     )
 }
