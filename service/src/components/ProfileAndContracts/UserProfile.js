@@ -48,10 +48,10 @@ const UserProfile = ({ avatar, userInfo, level }) => {
 
   const handleEditClick = () => {
     // 내 정보 수정 페이지로 이동
-    navigate("/InformationModificationPage"); // 원하는 페이지 경로로 수정
+    navigate("/InformationModificationPage"); 
   };
 
-  const { name = "이름 없음", username = "아이디 없음", bio = "자기소개 없음" } = userInfo || "";
+  const { name = "이름 없음", username = "아이디 없음", bio = "자기소개 없음"} = userInfo || "";
   const avatarSrc = avatar || "";
 
   return (
@@ -70,7 +70,7 @@ const UserProfile = ({ avatar, userInfo, level }) => {
       <SavedPosts />
       <div onClick={handleEditClick}>내 정보 수정</div>
     </UserProfileContainer>
-  );
-};
+  )
+}
 
 export default UserProfile;
