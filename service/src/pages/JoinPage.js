@@ -6,7 +6,7 @@ import axios from "axios";
 
 const JoinPage = () => {
     const navigate = useNavigate();
-    axios("/users",{
+    /*axios("/users",{
 
         "user_name": "string",
         "email": "useaar@example.com",
@@ -20,31 +20,8 @@ const JoinPage = () => {
     })
     .catch(err => {//요청 실패 했을 경우
         console.log(err);
-    })
+    })*/
 
-    const SignUpDB = () => {//회원가입 api 호출
-        axios("/users",{
-
-            "user_name": "string",
-            "email": "useaar@example.com",
-            "id": "string",
-            "password": "string"
-        })
-        .then(res => { //요청 성공했을 때
-            console.log(res.data.user_name);
-            console.log(res.data.email);
-            console.log(res.data.id);
-            if(res.data.success) {
-                navigate("/LoginPage");
-            } else {
-                alert("다시 입력해주세요.")
-            }
-        })
-        .catch(err => {//요청 실패 했을 경우
-            console.log(err);
-            alert("다시 입력해주세요");
-        })
-    }
 
     return (
         <SignInBox>

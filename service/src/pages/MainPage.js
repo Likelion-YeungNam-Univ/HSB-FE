@@ -1,6 +1,5 @@
 import {Link, useNavigate} from 'react-router-dom';
 import React, {useState} from 'react';
-import styled from "styled-components";
 import { Wrapper, Container, NoticeContainer,TitleText, CardNewsContainer, MyPage } from '../styles/Login.styled';
 import Header from '../components/Header';
 import Nav from '../components/Nav';
@@ -8,7 +7,6 @@ import Footer from '../components/Footer';
 import MainPageLoginForm from '../components/Auth/MainPageLoginForm';
 import { MyPageLogin, SideBarContatiner, ApplicationContainer, ScrollAlarm } from '../styles/MainPageLoginForm.style';
 import ApplicationForm from '../components/Auth/ApplicationForm';
-import Alarm from '../components/Auth/AlarmForm';
 import Banner from "../img/Banner.png"
 
 const MainPage = () => {

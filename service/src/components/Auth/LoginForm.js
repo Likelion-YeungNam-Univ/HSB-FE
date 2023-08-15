@@ -30,13 +30,14 @@ const LoginForm = () => {
             "password": "qwer1234"  
         })
         .then(res => {//요청 성공했을 경우
+            //window.alert(res.data.result);
             console.log(res.data.refresh);
             console.log(res.data.access);
-            if(res.data.code === 200) {
+            //console.log(res.data.code);
+            if(res.success) {
+                //console.log(res);
                 navigate('/MainPage');
-            } else {
-                alert("회원정보를 다시 입력해주세요.");
-            }
+            } 
         })
         .catch(err => {//요청 실패했을 경우
             console.log(err);

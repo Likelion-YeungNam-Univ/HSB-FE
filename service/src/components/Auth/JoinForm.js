@@ -7,6 +7,7 @@ import axios from 'axios';
 const JoinForm = () => {
 
     const navigate = useNavigate();
+
     const initData = Object.freeze({// freeze-객체를 동결하기 위해서
         name:'',
         email: '',
@@ -16,6 +17,7 @@ const JoinForm = () => {
     });
     
     const [data, updataData] = useState(initData);
+    const [name, updataName] = useState(initData.name);
 
     const [email, updataEmail] = useState(initData.email);
     const [nickname, updataNickname] = useState(initData.nickname);
@@ -39,6 +41,30 @@ const JoinForm = () => {
         }
     }, [data])
 
+
+    const SignUpDB = (user_name, email, id, password) => {//회원가입 api 호출
+        
+        axios("/users",{
+            "user_name": "string",
+            "email": "useaar@example.com",
+            "id": "string",
+            "password": "string"
+        })
+        .then((res) => { //요청 성공했을 때
+            console.log(res.data.user_name);
+            console.log(res.data.email);
+            console.log(res.data.id);
+            if(res.status === 200) {
+                alert("환영합니다!");
+                navigate("/LoginPage");
+            }
+        })
+        .catch(err => {//요청 실패 했을 경우
+            console.log(err);
+            alert("다시 입력해주세요");
+        })
+    }
+
     const onChangePwConfirm = (e) => {
         const currentPw = e.target.value;
         setCheckPswd(currentPw);
@@ -61,28 +87,31 @@ const JoinForm = () => {
             }
         }       
     }
-    {/*const onSubmit = useCallback(
+    /*const onSubmit = useCallback( //오류남
         async (e) => {
             e.preventDefault();
-            try {
-                await axios
-                    .post('/users',{
-                        user_name: data.name,
-                        email: data.email,
-                        id: data.nickname,
-                        password: data.password1
+                axios.post("/users",{
+                    "user_name": "string",
+                    "email": "useaar@example.com",
+                    "id": "string",
+                    "password": "string"
                     })
                     .then((res)=> {
-                        console.log('response:', res)
-                        // if(res.status === 200) {
-                        //     Router.push('/LoginPage');
-                        // }
+                        console.log(res.data.user_name);
+                        console.log(res.data.email);
+                        console.log(res.data.id);
+                        //console.log('response:', res)
+                        if(res.status === 200) {
+                            alert("환영합니다!");
+                            navigate("/LoginPage");
+                        //  Router.push('/LoginPage');
+                        } 
+                    }) 
+                    .catch((err)=> {
+                        console.error(err);
+                        alert("회원정보가 일치하지 않습니다.");
                     })
-            } catch (err) {
-                console.error(err)
-            }
-        }, [email, nickname, checkPswd, pswd]
-    )*/}
+            }, []);*/
 
     
     const handleChange = (e) => {
@@ -143,7 +172,7 @@ const JoinForm = () => {
              <p>{checkPswdMessage}</p>
              {/*비밀번호확인 입력안됨*/}
 
-            <button className="submitBtn" type="submit" onClick={()=>navigate("/LoginPage")}>회원가입</button>
+            <button className="submitBtn" type="submit" onClick={(SignUpDB)}>회원가입</button>
             {/* handleSubmit => navigate("/") */}
         </SignInForm>
     );

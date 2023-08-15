@@ -14,7 +14,7 @@ const AfterLoginForm = () => {
             <p>sleepless@icloud.com</p>
             <button type="submit" className="textBtn" onClick={() => navigate("/ProfileAndContractsPage")}>마이페이지</button>
 
-            <button type="submit" class="btn btn-outline-secondary btn-sm" onClick={() => navigate("/")}>로그아웃</button>
+            <button type="submit" className="btn btn-outline-secondary btn-sm" onClick={() => navigate("/")}>로그아웃</button>
 
         </MyPage>
         </LoginBox>
