@@ -72,7 +72,7 @@ const Wrapper = styled.div`
 `;
 
 const Container = styled.div`
-    width: 915px;
+    width: 940px;
     & > * {
         :not(:last-child) {
             margin-top: 16px;
@@ -83,10 +83,11 @@ const Container = styled.div`
 
 const NoticeContainer = styled.div`
     padding: 10px 0px;
-    width: 913px;
+    width: 940px;
     height: 193px;
+    border: 1px solid balck;
     .img {
-        width: 913px;
+        width: 940px;
         height: 193px;
         background-size: contain;
         margin:-10px 0px 10px 0px;
