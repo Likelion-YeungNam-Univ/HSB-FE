@@ -45,10 +45,10 @@ const JoinForm = () => {
     const SignUpDB = (user_name, email, id, password) => {//회원가입 api 호출
         
         axios("/users",{
-            "user_name": "string",
-            "email": "useaar@example.com",
-            "id": "string",
-            "password": "string"
+            "user_name": data.name,
+            "email": data.email,
+            "id": data.id,
+            "password": data.pswd
         })
         .then((res) => { //요청 성공했을 때
             console.log(res.data.user_name);
@@ -87,7 +87,8 @@ const JoinForm = () => {
             }
         }       
     }
-    /*const onSubmit = useCallback( //오류남
+    /*
+    const onSubmit = useCallback( //오류남
         async (e) => {
             e.preventDefault();
                 axios.post("/users",{
@@ -111,7 +112,8 @@ const JoinForm = () => {
                         console.error(err);
                         alert("회원정보가 일치하지 않습니다.");
                     })
-            }, []);*/
+            }, []);
+            */
 
     
     const handleChange = (e) => {

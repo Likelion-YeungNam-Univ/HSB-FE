@@ -20,17 +20,12 @@ import FindIdPage from "./pages/FindIdPage";
 import EstimateRequestListPage from "./pages/EstimateRequestListPage";
 import SearchPage from "./pages/SearchPage";
 import CommunityListPage from "./pages/CommunityListPage";
+import ServiceNamePage from "./pages/ServiceNamePage";
 
 function App() {
   
   const StyledApp = styled.div`
-{/*
-    display: flex;
-    flex-direction: column;
-    justify-contents: center;
-    align-items: center;
-*/}
-    width: max-content;
+  min-width: 1300px;
   `;
 
   return (
@@ -45,6 +40,7 @@ function App() {
           <Route path="/ResetPwPage" element={<ResetPwPage/>}></Route>
           <Route path="/JoinPage" element={<JoinPage/>}></Route>
           <Route path="/SearchPage" element={<SearchPage/>}></Route>
+          <Route path="/ServiceNamePage" element={<ServiceNamePage/>}></Route>
           <Route path="/EstimateRequestListPage" element={<EstimateRequestListPage/>}></Route>
           <Route path="/EstimatePage" element={<EstimatePage/>}></Route>
           <Route path="/CommunityListPage" element={<CommunityListPage/>}></Route>

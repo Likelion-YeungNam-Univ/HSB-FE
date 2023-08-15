@@ -34,7 +34,8 @@ const AfterLoginPage = () => {
 
                 <MyPageLogin>
                     <AfterLoginForm/> 
-                    <Alarm/>       
+                    <Alarm/>
+                    
                 </MyPageLogin>
                 
             </SideBarContatiner>

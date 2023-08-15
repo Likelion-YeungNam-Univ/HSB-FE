@@ -44,6 +44,8 @@ const ScrollAlarmContainer = styled.div`
     height: 317px; 
     border-top: 1px solid lightgrey;   
     padding: 0px 10px 3px;
+    overflow-y: auto;
+
     .MainContent {
         font-weight: bold;
         font-size:18px;
