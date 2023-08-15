@@ -5,7 +5,7 @@ import { useCallback, useState } from "react";
 
 const StyledList = styled.div`
     border: 1px solid;
-    width: 720px;   
+    width: 940px;   
     display: flex;
     flex-direction: column;
 `;

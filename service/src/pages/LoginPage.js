@@ -10,6 +10,19 @@ const LoginPage = () => {
     const [password, setpassword] = React.useState("");
 
 
+    axios.post("/users/login/tokens/", {
+        "id": "qwer1234",
+        "password": "qwer1234" 
+    })
+    .then((res) => {//요청 성공했을 경우
+        console.log(res);
+        console.log(res.data.access);
+        console.log(res.data.refresh);
+    })
+    .catch(err => {//요청 실패했을 경우
+        console.log(err);
+    })
+
     const navigate = useNavigate();
     const JWT_EXPIRY_TIME = 24 * 3600 * 1000;//토큰 만료 시간
 
@@ -18,7 +31,8 @@ const LoginPage = () => {
             "id": "qwer1234",
             "password": "qwer1234" 
         })
-        .then(res => {//요청 성공했을 경우
+        .then((res) => {//요청 성공했을 경우
+            console.log(res);
             console.log(res.data.access);
             console.log(res.data.refresh);
         })

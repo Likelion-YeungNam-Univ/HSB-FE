@@ -74,6 +74,9 @@ const Header = () => {
     const navigateToMain = () => {
         navigate('/');
     };
+    const navigateToSearch = () => {
+        navigate('/SearchPage');
+    }
 
 
     const [search, setSearch] = useState('');
@@ -95,7 +98,7 @@ const Header = () => {
                 
                 <StyledSearch>
                     <StyledInput type="text" placeholder="검색어를 입력해주세요">{/*value={search} onChange={onChange}*/}</StyledInput>
-                    <StyledSearchButton>검색</StyledSearchButton>
+                    <StyledSearchButton onClick={navigateToSearch}>검색</StyledSearchButton>
                 </StyledSearch>
 
                 <StyledIconButtons>

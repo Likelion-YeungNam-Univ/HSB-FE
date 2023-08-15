@@ -4,7 +4,8 @@ const EstimateHead = () => {
     const StyledHead = styled.div` 
         display: flex;
         flex-direction: column;
-        margin-right: 50px;
+        margin-right: 20px;
+        width: 450px;
     `;
     const StyledTitle = styled.div`
         font-size: 1.5rem;
@@ -19,7 +20,7 @@ const EstimateHead = () => {
 
     return(
         <StyledHead>
-            {/* 데이터 받아와야함 */}
+
             <StyledTitle>
                 <StyledDetail>온라인 방송 통역 구합니다.</StyledDetail>
             </StyledTitle>
@@ -27,9 +28,10 @@ const EstimateHead = () => {
                 <StyledDetail>작성자: 나문희</StyledDetail>
                 <StyledDetail>작성일: 2023-08-25</StyledDetail>
             </StyledDetails>
-            <video width="360" height="220" controls="controls">
+            <video width="430" height="250" controls="controls">
                 <source src={require("../../videos/ex.mp4")}/>
             </video>
+
         </StyledHead>
     )
 }

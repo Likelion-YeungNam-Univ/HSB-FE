@@ -1,9 +1,16 @@
 import styled from "styled-components";
 import BidListItem from "./BidListItem";
 
+const StyledCenter = styled.div`
+    display: flex;
+    justify-content: center;
+`;
+const StyledDirection = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
 const StyledTitle = styled.p`
     font-size: 1.35rem;
-    padding-left:395px;
     margin: 20px 0px 0px 0px;
 `;
 const StyledBidList = styled.div`
@@ -16,6 +23,9 @@ const BidList = ({requests}) => {
     
     return(
         <>
+        <StyledCenter>
+        <StyledDirection>
+        
             <StyledTitle>입찰 제안 목록</StyledTitle>
             
             <StyledBidList>
@@ -24,6 +34,9 @@ const BidList = ({requests}) => {
                     <BidListItem id={request.id}/>
                 )})}
             </StyledBidList>
+
+        </StyledDirection>
+        </StyledCenter>
         </>
     )
 }
