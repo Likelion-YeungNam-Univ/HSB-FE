@@ -1,7 +1,7 @@
 import React from "react";
 import {useNavigate} from 'react-router-dom';
 import LoginForm from "../components/Auth/LoginForm";
-import { SignInBox, MyPage } from "../styles/Login.styled";
+import { SignInBox, MyPage, Container } from "../styles/Login.styled";
 import axios from "axios";
 
 
@@ -13,26 +13,24 @@ const LoginPage = () => {
     const navigate = useNavigate();
     const JWT_EXPIRY_TIME = 24 * 3600 * 1000;//토큰 만료 시간
 
-    const loginDB = (id, password) => {
-        const data = {
-            id:"string",
-            password:"string",
-        };
-        axios.post('http://127.0.0.1:8000/api/estimates/').then(response => {
-            const {accessToken} = response.data;
-            //api요청하는 콜마다 헤더에 accesstoken을 담아 보내도록 설정
-            axios.defaults.headers.common['Authorization']=`Bearer ${accessToken}`;
-
-        }).catch(error => {
-            //에러처리
-        });
+    const loginDB = (id, password) => { //로그인 api 호출
+        axios.post("/users/login/tokens/", {
+            "id": "qwer1234",
+            "password": "qwer1234" 
+        })
+        .then(res => {//요청 성공했을 경우
+            console.log(res.data.access);
+            console.log(res.data.refresh);
+        })
+        .catch(err => {//요청 실패했을 경우
+            console.log(err);
+        })
     }
 
-    const onSilentRefresh = () => {
+    /*const onSilentRefresh = () => {
         axios.post('/silent-refresh')
         .then(onLoginSuccess)
         .catch(error => {
-
         });
     }
 
@@ -44,9 +42,10 @@ const LoginPage = () => {
 
         // accessToken 만료하기 1분 전에 로그인 연장
         setTimeout(onSilentRefresh, JWT_EXPIRY_TIME - 60000);
-    }
+    }*/
 
     return (
+       
         <SignInBox>
             <h3 className="title">HEAR AND SCRIBE</h3>
             <LoginForm/>
@@ -74,6 +73,7 @@ const LoginPage = () => {
             </div>
                  
         </SignInBox>
+        
     );
 }
 
