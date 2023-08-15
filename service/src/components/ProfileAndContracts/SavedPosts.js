@@ -3,18 +3,22 @@ import styled from "styled-components";
 
 const SavedPostsContainer = styled.div`
   width: 100%;
-  border: 1px solid #BCBCBC;
-  padding: 20px;
+
 `;
 
 const Title = styled.h3`
   font-size: 18px;
   margin-bottom: 10px;
+  border: 
 `;
 
 const PostList = styled.ul`
-  list-style: none;
   padding: 0;
+  max-width: 300px; 
+  height: 170px; 
+  border: 1px solid #BCBCBC;
+  padding: 20px;
+  overflow-y: auto; 
 `;
 
 const PostItem = styled.li`
@@ -23,7 +27,6 @@ const PostItem = styled.li`
 `;
 
 const SavedPosts = ({ savedPosts }) => {
-  // savedPosts 배열이 정의되지 않았을 경우 빈 배열로 초기화
   const postsToDisplay = savedPosts || [];
 
   return (
@@ -35,7 +38,7 @@ const SavedPosts = ({ savedPosts }) => {
         ))}
       </PostList>
     </SavedPostsContainer>
-  );
+  )
 }
 
 export default SavedPosts;

@@ -1,49 +1,76 @@
 import React from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 import SavedPosts from "../ProfileAndContracts/SavedPosts";
 
-
 const UserProfileContainer = styled.div`
-  width: 387px;
+  width: 300px;
   height: 667px;
   border: 1px solid #BCBCBC;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 
 const ProfileInfo = styled.div`
   padding: 20px;
+  text-align: center;
 `;
 
 const ProfilePicture = styled.img`
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   margin-bottom: 10px;
 `;
 
-const UserProfile = ({ avatar, userInfo }) => {
-  // avatar가 존재하지 않는 경우에 대한 처리
-  const avatarSrc = avatar ? avatar : ""; 
+const NoProfilePicture = styled.div`
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: #CCCCCC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: white;
+`;
 
-  // userInfo의 속성이 존재하지 않는 경우에 대한 처리
-  const { name, username, bio } = userInfo || {};
+const LevelText = styled.p`
+  font-weight: bold;
+  margin-top: 10px; /* Adjust the margin to give space between bio and level */
+`;
+
+const UserProfile = ({ avatar, userInfo, level }) => {
+  const navigate = useNavigate();
+
+  const handleEditClick = () => {
+    // 내 정보 수정 페이지로 이동
+    navigate("/InformationModificationPage"); // 원하는 페이지 경로로 수정
+  };
+
+  const { name = "이름 없음", username = "아이디 없음", bio = "자기소개 없음" } = userInfo || "";
+  const avatarSrc = avatar || "";
 
   return (
     <UserProfileContainer>
-      <ProfilePicture src={avatarSrc} alt="Profile Picture" />
+      {avatarSrc ? (
+        <ProfilePicture src={avatarSrc} alt="프로필 사진" />
+      ) : (
+        <NoProfilePicture>👤</NoProfilePicture>
+      )}
       <ProfileInfo>
-        <h2>{name ? name : "이름 없음"}</h2>
-        <p>아이디: {username ? username : "아이디 없음"}</p>
-        <p>자기소개: {bio ? bio : "자기소개 없음"}</p>
+        <p>{name}</p>
+        <p>아이디: {username}</p>
+        <p>자기소개: {bio}</p>
+        {level && <LevelText>레벨: {level}</LevelText>}
       </ProfileInfo>
-      <SavedPosts/>
-      내 정보 수정 자리
+      <SavedPosts />
+      <div onClick={handleEditClick}>내 정보 수정</div>
     </UserProfileContainer>
-  )
-}
+  );
+};
 
 export default UserProfile;
-
-
-
-
-

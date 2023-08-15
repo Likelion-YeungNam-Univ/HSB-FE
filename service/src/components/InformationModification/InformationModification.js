@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 const InformationModification = ({ userAvatar, onAvatarChange }) => {
-  // 이렇게 만들어도 괜찮은 걸까요
   const [name, setName] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [bio, setBio] = useState("");
+  const [passwordMismatch, setPasswordMismatch] = useState(false);
 
   const handleNameChange = (event) => {
     setName(event.target.value);
@@ -19,22 +19,52 @@ const InformationModification = ({ userAvatar, onAvatarChange }) => {
 
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
+    setPasswordMismatch(false);
   };
 
   const handleConfirmPasswordChange = (event) => {
     setConfirmPassword(event.target.value);
+    setPasswordMismatch(false);
   };
 
   const handleBioChange = (event) => {
     setBio(event.target.value);
   };
 
-  const handleSaveChanges = () => {
-     // API 호출 (이 부분에 백엔드 통신 코드 추가)
+  const handleSaveChanges = async () => {
+    if (password !== confirmPassword) {
+      setPasswordMismatch(true);
+      return;
+    }
+
+    // API 호출 (이 부분에 백엔드 통신 코드 추가)
+    try {
+      const response = await fetch("API_URL_HERE", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          username,
+          password,
+          bio,
+        }),
+      });
+
+      if (response.ok) {
+        console.log("Changes saved successfully");
+        // 여기에서 원하는 동작 수행 (예: 정보 업데이트, 페이지 이동 등)
+      } else {
+        console.error("Failed to save changes");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
+
   const handleAvatarClick = () => {
-    
     document.getElementById("profilePictureInput").click();
   };
 
@@ -62,8 +92,16 @@ const InformationModification = ({ userAvatar, onAvatarChange }) => {
         </Row>
         <Row>
           <Label htmlFor="password">비밀번호</Label>
-          <Input type="password" id="password" value={password} onChange={handlePasswordChange} />
+          <Input 
+          type="password" 
+          id="password" 
+          value={password} 
+          onChange={handlePasswordChange} 
+          />
         </Row>
+        {passwordMismatch && (
+          <MismatchMessage>비밀번호가 일치하지 않습니다.</MismatchMessage>
+        )}
         <Row>
           <Label htmlFor="confirmPassword">비밀번호 확인</Label>
           <Input
@@ -84,8 +122,8 @@ const InformationModification = ({ userAvatar, onAvatarChange }) => {
 }
 
 const Container = styled.div`
-  max-width: 1199px;
-  max-height: 720px;
+  max-width: 940px;
+  max-height: 725px;
   margin: 20px auto;
   padding: 20px;
   border: 1px solid #BCBCBC;
@@ -98,8 +136,7 @@ const Form = styled.form`
  flex-direction: column;
  align-items: center;
  justify-content: center;
- width: 100%; 
- height: 100%;
+ align-items: center; 
 `;
 
 const Row = styled.div`
@@ -165,29 +202,31 @@ const ProfilePicture = styled.img`
 `;
 
 const FloatingSaveButton = styled.button`
- display: block;
- width: 100%;
- padding: 10px;
- background-color: #95DDFF;
- color: #212121;
- border: none;
- border-radius: 5px;
- cursor: pointer;
- max-width: 170px;
- max-height: 40px;
- margin-top: 10px;
- margin-left: auto;
- margin-right: auto;
- display: block;
- float: right;
- position: absolute;
- right: 200px; 
- bottom: 7px;
+  width: 100%;
+  padding: 10px;
+  background-color: #95DDFF;
+  color: #212121;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  max-width: 170px;
+  max-height: 40px;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: 50px;
+  margin-bottom: 7px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+`;
 
-  &:hover {
-  background-color: #0056b3;
- }
-
+const MismatchMessage = styled.p`
+  color: red;
+  font-size: 14px;
+  margin-top: -10px;
+  margin-bottom: -5px;
 `;
 
 export default InformationModification;
+
+//api호출코드 추가 후 실제로 변경사항을 서버에 저장하는 로직을 구현

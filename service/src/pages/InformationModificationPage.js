@@ -15,20 +15,20 @@ const InformationModificationPage = () => {
   });
 
   const Container = styled.div`
-    max-width: 1199px;
+    max-width: 940px;
     max-height: 720px;
     margin: 20px auto;
     padding: 20px;
     border: 1px solid #FFFFFF;
     border-radius: 0;
     position: relative;
+    min-height: 75vh;
   `;
 
   const Title = styled.h1`
     font-size: 30px;
     color: #95DDFF;
-    text-align: center;
-    margin-right: 950px;
+    margin-right: 0px;
   `;
 
   const handleAvatarChange = (avatar) => {
@@ -57,8 +57,9 @@ const InformationModificationPage = () => {
     </Container>
     
     <Footer/>
-    </>
+   </>
   )
 }
+
 
 export default InformationModificationPage;

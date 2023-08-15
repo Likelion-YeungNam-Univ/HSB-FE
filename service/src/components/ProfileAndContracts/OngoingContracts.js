@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const OngoingContractsContainer = styled.div`
- width: 387px;
+ width: 300px;
  height: 667px;
  border: 1px solid #BCBCBC;
  display: flex;

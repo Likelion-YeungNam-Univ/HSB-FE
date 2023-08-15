@@ -15,7 +15,7 @@ const ContractsContainer = styled.div`
   display: flex;
   gap: 20px;
   justify-content: center;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 `;
 
 const Title = styled.h1`
@@ -28,7 +28,9 @@ const Title = styled.h1`
 const TitleContainer = styled.div`
   display: flex;
   align-items: flex-start; 
-  margin-left: 535px;
+  margin-left: 290px;
+  margin-top: 10px;
+  margin-bottom: 5px;
 `;
 
 const ProfileAndContractsPage = () =>{
