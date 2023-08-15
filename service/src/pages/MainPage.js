@@ -7,7 +7,7 @@ import Footer from '../components/Footer';
 import MainPageLoginForm from '../components/Auth/MainPageLoginForm';
 import { MyPageLogin, SideBarContatiner, ApplicationContainer, ScrollAlarm } from '../styles/MainPageLoginForm.style';
 import ApplicationForm from '../components/Auth/ApplicationForm';
-import Banner from "../img/Banner.png"
+import Banner1 from "../img/Banner1.png"
 
 const MainPage = () => {
     
@@ -23,7 +23,7 @@ const MainPage = () => {
         <Wrapper>
             <Container>
                 <NoticeContainer>
-                    <img className="img" src={Banner} alt="Banner"></img>
+                    <img className="img" src={Banner1} alt="Banner1"></img>
                 </NoticeContainer>
                 <br></br>
             <SideBarContatiner>

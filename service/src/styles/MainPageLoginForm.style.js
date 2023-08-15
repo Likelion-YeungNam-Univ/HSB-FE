@@ -31,7 +31,7 @@ flex-direction: column;
     `;
 
 const MyPageLogin = styled.div`
-    width: 345px;
+    width: 360px;
     height: 505px;
     float: right;
     border: 1px solid grey;
@@ -77,7 +77,7 @@ const Scrollbar = styled.div`
 `;
 
 const ApplicationContainer = styled.div`
-    width: 75vh;
+    width: 550px;
     height: 505px;
     float: left;
     margin: 20px 15px 15px 0px;

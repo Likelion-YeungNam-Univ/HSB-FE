@@ -8,7 +8,7 @@ import Footer from '../components/Footer';
 import ApplicationForm from '../components/Auth/ApplicationForm';
 import AfterLoginForm from '../components/Auth/AfterLoginForm';
 import Alarm from '../components/Auth/AlarmForm';
-import Banner from '../img/Banner.png';
+import Banner1 from '../img/Banner1.png';
 
 const AfterLoginPage = () => {
     
@@ -23,7 +23,7 @@ const AfterLoginPage = () => {
         <Wrapper>
             <Container>
                 <NoticeContainer>
-                <img className="img" src={Banner} alt="Banner"></img>
+                <img className="img" src={Banner1} alt="Banner1"></img>
                 </NoticeContainer>
                 <br></br>
             <SideBarContatiner>
