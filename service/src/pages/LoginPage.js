@@ -9,23 +9,24 @@ const LoginPage = () => {
     const [id, setId] = React.useState("");
     const [password, setpassword] = React.useState("");
 
+    axios.post("/users/login/tokens/", {
+
+        "id": "qwer1234",
+        "password": "qwer1234"  
+    })
+    .then(res => {//요청 성공했을 경우
+        console.log(res.data.refresh);
+        console.log(res.data.access);
+        
+    })
+    .catch(err => {//요청 실패했을 경우
+        console.log(err);
+    })
 
     const navigate = useNavigate();
     const JWT_EXPIRY_TIME = 24 * 3600 * 1000;//토큰 만료 시간
 
-    const loginDB = (id, password) => { //로그인 api 호출
-        axios.post("/users/login/tokens/", {
-            "id": "qwer1234",
-            "password": "qwer1234" 
-        })
-        .then(res => {//요청 성공했을 경우
-            console.log(res.data.access);
-            console.log(res.data.refresh);
-        })
-        .catch(err => {//요청 실패했을 경우
-            console.log(err);
-        })
-    }
+    
 
     /*const onSilentRefresh = () => {
         axios.post('/silent-refresh')
@@ -45,7 +46,6 @@ const LoginPage = () => {
     }*/
 
     return (
-       
         <SignInBox>
             <h3 className="title">HEAR AND SCRIBE</h3>
             <LoginForm/>

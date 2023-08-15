@@ -8,13 +8,14 @@ const SearchIdForm = () => {
     const navigate = useNavigate();
     
     const initData = Object.freeze({// freeze-객체를 동결하기 위해서
-        email: '',
+        email: ''
     });
+
     const [data, updataData] = useState(initData);
     const [color, updataColor] = useState("#b8e8ff")
 
     useEffect(() => {
-        if(data.email.length > 0 ) {
+        if(data.email.length > 0) {
             updataColor("#94ddff");
         } else {
             updataColor("#b8e8ff");
@@ -36,7 +37,7 @@ const SearchIdForm = () => {
 
     return (
         <SignInForm color={color}>
-            <input
+             <input
              type="text" 
              name="email" 
              placeholder="이메일" 
