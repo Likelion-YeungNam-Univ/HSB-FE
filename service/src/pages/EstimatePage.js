@@ -43,6 +43,7 @@ const EstimatePage = () =>{
         [requests],
     );
 
+    /*
     const fetchData = useEffect(()=>{
         axios.get('/estimates',   
             {headers: {
@@ -56,7 +57,15 @@ const EstimatePage = () =>{
         })
     
     }, []);
+    */
     //console.log(fetchData);
+    axios.get("/estimates/10/")
+    .then((res) => {
+        console.log(res);
+    })
+    .catch((err) => {
+        console.log(err);
+    })
 
     return(
         <>

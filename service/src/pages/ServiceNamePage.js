@@ -8,6 +8,11 @@ const StyledCenter = styled.div`
     display: flex;
     justify-content: center;
 `;
+const StyledImg = styled.img`
+    height: 1700px;
+    width: 940px;
+    background-size: contain;
+`;
 
 const ServiceNamePage = (props) => {
 
@@ -18,9 +23,9 @@ const ServiceNamePage = (props) => {
         <Header/>
         <Nav/>
 
-        <div>
-            <img src={img} alt="서비스 설명"></img>
-        </div>
+        <StyledCenter>
+            <StyledImg src={img} alt="서비스 설명"/>
+        </StyledCenter>
 
         <Footer/>
         </>
