@@ -10,14 +10,12 @@ const LoginPage = () => {
     const [password, setpassword] = React.useState("");
 
     axios.post("/users/login/tokens/", {
-
         "id": "qwer1234",
         "password": "qwer1234"  
     })
     .then(res => {//요청 성공했을 경우
         console.log(res.data.refresh);
         console.log(res.data.access);
-        
     })
     .catch(err => {//요청 실패했을 경우
         console.log(err);
