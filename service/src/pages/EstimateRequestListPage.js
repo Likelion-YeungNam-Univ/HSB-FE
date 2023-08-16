@@ -6,6 +6,7 @@ import EstimateRequestListNumbers from "../components/Estimates/EstimateRequestL
 import Header from "../components/Header";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
+import { getCookie } from "../Cookies";
 
 const StyledCenter = styled.div`
     display: flex;
@@ -49,14 +50,6 @@ const EstimateRequestListPage = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage, setPostsPerPage] = useState(10);
     
-    
-    axios.get("/estimates/")
-    .then((res) => {
-        console.log(res);
-    })
-    .catch((err)=>{
-        console.log(err);
-    })
 
     {/*
     useEffect(() => {
@@ -70,7 +63,6 @@ const EstimateRequestListPage = () => {
     }, []);
     */}
 
-
     const indexOfLast = currentPage * postsPerPage;
     const indexOfFirst = indexOfLast - postsPerPage;
     const currentPosts = (posts) => {
@@ -78,6 +70,21 @@ const EstimateRequestListPage = () => {
         currentPosts = posts.slice(indexOfFirst, indexOfLast);
         return currentPosts;
     };
+
+
+    const fetchData = () => {
+        axios.get("/estimates/", {/*{headers: {authorization: `Bearer ${getCookie("ACCESS_TOKEN")}`,}}*/})
+        .then((res) => {
+            console.log(res);
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    };
+    useEffect(() => {
+        fetchData();
+    }, []);
+
 
     return (
         <>

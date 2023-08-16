@@ -9,14 +9,12 @@ const StyledCenter = styled.div`
     justify-content: center;
 `;
 const StyledImg = styled.img`
-    height: 1700px;
+    height: 1850px;
     width: 940px;
     background-size: contain;
 `;
 
-const ServiceNamePage = (props) => {
-
-
+const ServiceNamePage = () => {
 
     return (
         <>

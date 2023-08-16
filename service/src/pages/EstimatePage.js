@@ -20,14 +20,25 @@ const StyledBody = styled.div`
 `;
 
 const EstimatePage = () =>{
-    
 
-    const [requests, setrequests] = useState([
-        {id: 1, level: 15, name: "나문희", price: 30000, status: "미정", content: "", },
-    ]);
+    const [requestDatas, setrequestDatas] = useState([{
+        estimate_id: 1,
+        user_info: {
+            user_id: 0,
+            user_name: "나문희",
+            level: 0
+        },
+        title: "string",
+        created_at: "time",
+        video: "string",
+        content: "string",
+        dead_line: "string",
+        status: 0
+    }]);
 
     const nextId = useRef(1);
 
+    
     const onInsert = useCallback(
         (price, content) => {
             const request = {
@@ -37,35 +48,42 @@ const EstimatePage = () =>{
             };
             console.log(price);
             console.log(content);
-
-            setrequests(requests => requests.concat(request));
+            setrequestDatas(requests => requests.concat(request));
         },
-        [requests],
+        [requestDatas],
     );
-
-    /*
-    const fetchData = useEffect(()=>{
-        axios.get('/estimates',   
-            {headers: {
-                authorization: `Bearer ${getCookie("ACCESS_TOKEN")}`,
-            }}
-            ).then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error) {
-            console.log(error);
-        })
     
+
+
+    const estimatesRequest = () => {
+        axios.get("/estimates/10/",)
+        .then((res) => {
+            const requestData = {
+                estimate_id: 1,
+                user_info: {
+                    user_id: 0,
+                    user_name: "나문희",
+                    level: 0
+                },
+                title: "string",
+                created_at: "time",
+                video: "string",
+                content: "string",
+                dead_line: "string",
+                status: 0
+            };
+            console.log(res.data);
+            setrequestDatas((requestDatas) => requestDatas.concat(requestData));
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    };
+    useEffect(() => {
+        estimatesRequest();
     }, []);
-    */
-    //console.log(fetchData);
-    axios.get("/estimates/10/")
-    .then((res) => {
-        console.log(res);
-    })
-    .catch((err) => {
-        console.log(err);
-    })
+
+    
 
     return(
         <>
@@ -78,7 +96,7 @@ const EstimatePage = () =>{
                 <EstimateBody/>
             </StyledBody>
             
-            <BidList requests={requests}/>
+            <BidList requests={requestDatas}/>
             
             <OfferBid onInsert={onInsert}/>
             
