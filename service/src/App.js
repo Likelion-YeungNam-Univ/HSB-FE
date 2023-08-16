@@ -20,7 +20,8 @@ import FindIdPage from "./pages/FindIdPage";
 import EstimateRequestListPage from "./pages/EstimateRequestListPage";
 import SearchPage from "./pages/SearchPage";
 import CommunityListPage from "./pages/CommunityListPage";
-import ReceivedNotePage from "./pages/ReceivedNotePage";;
+import ReceivedNotePage from "./pages/ReceivedNotePage";
+import QuoteCreationPage from "./pages/QuoteCreationPage";
 
 function App() {
   
@@ -55,6 +56,7 @@ function App() {
           <Route path="/InformationModificationPage" element={<InformationModificationPage/>}></Route>
           <Route path="/SendNotePage" element={<SendNotePage/>}></Route>
           <Route path="/ReceivedNotePage" element={<ReceivedNotePage/>}></Route>
+          <Route path="/QuoteCreationPage" element={<QuoteCreationPage/>}></Route>
         </Routes>
       </BrowserRouter>
     </StyledApp>
