@@ -38,7 +38,6 @@ const EstimatePage = () =>{
 
     const nextId = useRef(1);
 
-    
     const onInsert = useCallback(
         (price, content) => {
             const request = {
@@ -54,15 +53,9 @@ const EstimatePage = () =>{
     );
 
 
-    // axios.get("/estimates/10/")
-    // .then((res) => {
-    //     console.log(res);
-    // });
-
 
     const estimatesRequest = () => {
-        axios.get("/estimates/10", {headers: {authorization: `Bearer ${getCookie("ACCESS_TOKEN")}`, 'ngrok-skip-browser-warning': '69420', 
-        'Content-Type': 'application/json'}})
+        axios.get("/estimates/10")
         .then((res) => {
             const requestData = {
                 estimate_id: res.data.estimate_id,

@@ -49,7 +49,6 @@ const EstimateRequestListPage = () => {
     const [loading, setLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage, setPostsPerPage] = useState(10);
-    
 
     {/*
     useEffect(() => {
@@ -71,38 +70,7 @@ const EstimateRequestListPage = () => {
         return currentPosts;
     };
 
-    //{headers: {authorization: `Bearer ${getCookie("ACCESS_TOKEN")}`,}}
-    /*
-    const fetchData = () => {
-        axios.get("/estimates/")
-        .then((res) => {
-            console.log(res);
-        })
-        .catch((err) => {
-            console.log(err);
-        })
-    };
-    useEffect(() => {
-        fetchData();
-    }, []);
-    */
-
-    const fetchData = async () => {
-        try {
-          const {data: response} = await axios.get("/estimates/", { headers : {
-        withCredentials: true,
-        'Content-Type': `application/json`,
-        'ngrok-skip-browser-warning': '69420',
-    }});
-          console.log(response);
-        } catch (err) {
-           console.log(err.data);
-        }    
-    };
     
-    useEffect(() => {
-        fetchData()
-    });
 
     // const fetchData = useEffect(() => {
     //     axios.get("/estimates/")
@@ -113,6 +81,16 @@ const EstimateRequestListPage = () => {
     //         console.log(err);
     //     })
     // }, []);
+
+    const fetchData = useEffect(()=>{
+        axios.get('/estimates/')
+        .then((response) => {
+                console.log(response);
+            })
+        .catch((error)=>{
+            console.log(error);
+        })
+    }, []);
 
 
     return (
