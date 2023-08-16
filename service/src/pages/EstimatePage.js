@@ -34,7 +34,7 @@ const EstimatePage = () =>{
         content: "string",
         dead_line: "string",
         status: 0
-    }]);
+    }], );
 
     const nextId = useRef(1);
 
@@ -52,25 +52,31 @@ const EstimatePage = () =>{
         },
         [requestDatas],
     );
-    
+
+
+    // axios.get("/estimates/10/")
+    // .then((res) => {
+    //     console.log(res);
+    // });
 
 
     const estimatesRequest = () => {
-        axios.get("/estimates/10/",)
+        axios.get("/estimates/10", {headers: {authorization: `Bearer ${getCookie("ACCESS_TOKEN")}`, 'ngrok-skip-browser-warning': '69420', 
+        'Content-Type': 'application/json'}})
         .then((res) => {
             const requestData = {
-                estimate_id: 1,
+                estimate_id: res.data.estimate_id,
                 user_info: {
-                    user_id: 0,
-                    user_name: "나문희",
-                    level: 0
+                    user_id: res.data.user_id,
+                    user_name: res.data.user_name,
+                    level: res.data.level
                 },
-                title: "string",
-                created_at: "time",
-                video: "string",
-                content: "string",
-                dead_line: "string",
-                status: 0
+                title: res.data.title,
+                created_at: res.data.created_at,
+                video: res.data.video,
+                content: res.data.content,
+                dead_line: res.data.dead_line,
+                status: res.data.status
             };
             console.log(res.data);
             setrequestDatas((requestDatas) => requestDatas.concat(requestData));

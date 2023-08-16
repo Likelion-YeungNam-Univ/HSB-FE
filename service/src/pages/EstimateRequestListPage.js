@@ -71,9 +71,10 @@ const EstimateRequestListPage = () => {
         return currentPosts;
     };
 
-
+    //{headers: {authorization: `Bearer ${getCookie("ACCESS_TOKEN")}`,}}
+    /*
     const fetchData = () => {
-        axios.get("/estimates/", {/*{headers: {authorization: `Bearer ${getCookie("ACCESS_TOKEN")}`,}}*/})
+        axios.get("/estimates/")
         .then((res) => {
             console.log(res);
         })
@@ -84,6 +85,34 @@ const EstimateRequestListPage = () => {
     useEffect(() => {
         fetchData();
     }, []);
+    */
+
+    const fetchData = async () => {
+        try {
+          const {data: response} = await axios.get("/estimates/", { headers : {
+        withCredentials: true,
+        'Content-Type': `application/json`,
+        'ngrok-skip-browser-warning': '69420',
+    }});
+          console.log(response);
+        } catch (err) {
+           console.log(err.data);
+        }    
+    };
+    
+    useEffect(() => {
+        fetchData()
+    });
+
+    // const fetchData = useEffect(() => {
+    //     axios.get("/estimates/")
+    //     .then((res) => {
+    //         console.log(res);
+    //     })
+    //     .catch((err) => {
+    //         console.log(err);
+    //     })
+    // }, []);
 
 
     return (
