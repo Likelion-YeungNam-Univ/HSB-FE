@@ -1,4 +1,6 @@
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
+import axios from "axios";
+import { getCookie } from "../Cookies";
 import styled from "styled-components"
 import EstimateHead from "../components/Estimates/EstimateHead";
 import EstimateBody from "../components/Estimates/EstimateBody";
@@ -40,6 +42,21 @@ const EstimatePage = () =>{
         },
         [requests],
     );
+
+    const fetchData = useEffect(()=>{
+        axios.get('/estimates',   
+            {headers: {
+                authorization: `Bearer ${getCookie("ACCESS_TOKEN")}`,
+            }}
+            ).then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+            console.log(error);
+        })
+    
+    }, []);
+    //console.log(fetchData);
 
     return(
         <>
