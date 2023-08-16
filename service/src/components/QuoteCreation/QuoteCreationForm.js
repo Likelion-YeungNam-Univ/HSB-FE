@@ -73,12 +73,12 @@ function QuoteCreationForm({ onSubmit }) {
           />
         </div>
         <div style={{ width: '100%', position: 'relative', marginBottom: '16px' }}>
-          <div style={{ display: 'flex', justifyContent: 'flex-end', position: 'absolute', bottom: '30px', right: '25px' }}>
+          <div style={{ backgroundColor: '#007088', opacity: '0.02', width: '100%', height: '100px' }}></div>
+          <div style={{ display: 'flex', justifyContent: 'flex-end', position: 'absolute', bottom: '30px', right: '20px' }}>
             <button type="submit" style={{ padding: '8px 20px', backgroundColor: '#95DDFF', color: '#212121', borderRadius: '4px', border: 'none' }}>
               완료
             </button>
           </div>
-          <div style={{ backgroundColor: '#007088', opacity: '0.03', width: '100%', height: '100px' }}></div>
         </div>
       </form>
     </div>
