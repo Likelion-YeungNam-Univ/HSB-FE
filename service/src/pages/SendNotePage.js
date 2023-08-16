@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import SendNote from "../components/SendNote/SendNote"; 
+import SendNote from "../components/SendNote/SendNote";
 
 const SendNotePageContainer = styled.div`
   max-width: 1000px;
@@ -19,14 +19,14 @@ const PageTitle = styled.h1`
 const SendNotePage = () => {
   return (
     <>
-    <Header />
+      <Header />
 
-    <SendNotePageContainer>
-      <PageTitle>쪽지쓰기</PageTitle>
-      <SendNote /> 
-    </SendNotePageContainer>
+      <SendNotePageContainer>
+        <PageTitle>쪽지쓰기</PageTitle>
+        <SendNote />
+      </SendNotePageContainer>
 
-    <Footer />
+      <Footer />
     </>
   )
 }
