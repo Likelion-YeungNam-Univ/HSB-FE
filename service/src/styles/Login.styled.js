@@ -63,6 +63,7 @@ const MyPage = styled.div`
 `;
 
 const Wrapper = styled.div`
+    width: 1550px;
     padding: 16px;
     display: flex;
     flex-direction: column;

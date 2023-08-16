@@ -1,5 +1,5 @@
 import {Link, useNavigate} from 'react-router-dom';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { Wrapper, Container, NoticeContainer,TitleText, CardNewsContainer, MyPage } from '../styles/Login.styled';
 import Header from '../components/Header';
 import Nav from '../components/Nav';
@@ -8,11 +8,25 @@ import MainPageLoginForm from '../components/Auth/MainPageLoginForm';
 import { MyPageLogin, SideBarContatiner, ApplicationContainer, ScrollAlarm } from '../styles/MainPageLoginForm.style';
 import ApplicationForm from '../components/Auth/ApplicationForm';
 import Banner1 from "../img/Banner1.png"
+import AfterLoginPage from './AfterLoginPage';
+import AfterLoginForm from '../components/Auth/AfterLoginForm';
+import Alarm from '../components/Auth/AlarmForm';
+import {useLocation} from 'react-router-dom';
 
 const MainPage = () => {
     
     const navigate = useNavigate();
+    const [check, setCheck] = useState(false);
+    const [name, setName] = useState("");
 
+    const location = useLocation();
+
+    useEffect(() => {
+        if (location.state && location.state.check !== undefined) {
+            setCheck(location.state.check);
+            setName(location.state.name);
+        }
+    }, [location.state]);
 
     const [comment, setComment] = useState("");
     return (
@@ -33,6 +47,18 @@ const MainPage = () => {
                 <br></br>
 
                 <MyPageLogin>
+                    {check ?
+                    <>
+                    <AfterLoginForm/>
+                    <hr/>
+                    <Alarm/>
+                    </>
+                    :
+                    <>
+                    <MainPageLoginForm/>
+                    <hr/>
+                    </>
+                    }
                     <MainPageLoginForm/>                    
                     <hr></hr>
                 </MyPageLogin>
