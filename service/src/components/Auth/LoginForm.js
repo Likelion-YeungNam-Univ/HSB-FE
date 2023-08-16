@@ -10,24 +10,27 @@ const LoginForm = () => {
     const navigate = useNavigate();
 
     const initData = Object.freeze({// freeze-객체를 동결하기 위해서
-        nickname: '',
+        id: '',
         password: '',
     });
     const [data, updataData] = useState(initData);
     const [color, updataColor] = useState("#b8e8ff")
 
     useEffect(() => {
-        if(data.nickname.length > 0 && data.password.length > 0) {
+        if(data.id.length > 0 && data.password.length > 0) {
             updataColor("#95ddff");
         } else {
             updataColor("#b8e8ff");
         }
     }, [data])
 
-    const loginDB = (id, password) => { //로그인 api 호출
+
+    const loginDB = (e) => { //로그인 api 호출
+        e.preventDefault();
+
         axios.post("/users/login/tokens/", {
-            "id": "qwer1234",
-            "password": "qwer1234" 
+            "id": data.id,
+            "password": data.password 
         })      
         .then(res => {//요청 성공했을 경우
             const accessToken = res.data.access
@@ -35,11 +38,19 @@ const LoginForm = () => {
 
             setCookie("ACCESS_TOKEN", `${accessToken}`); 
             console.log(res.data.access);
-            return navigate("/AfterLoginPage")
+            console.log(res.data.refresh);
+            
+            alert("로그인 되었습니다.");
+            return navigate("/AfterLoginPage");
         })
         .catch(err => {//요청 실패했을 경우
             console.log(err);
+            alert("회원정보가 없습니다.");
         })
+    }
+
+    const estimateLogin = e => {
+
     }
 
     const handleChange = e => {
@@ -59,9 +70,9 @@ const LoginForm = () => {
         <SignInForm color={color}>
             <input 
              type="text" 
-             name="nickname" 
+             name="id" 
              placeholder="아이디" 
-             value={data.nickname}
+             value={data.id}
              required 
              onChange={handleChange}/>
             <input

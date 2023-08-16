@@ -11,7 +11,7 @@ const JoinForm = () => {
     const initData = Object.freeze({// freeze-객체를 동결하기 위해서
         name:'',
         email: '',
-        nickname: '',
+        id: '',
         pswd: '',
         checkPswd: '',
     });
@@ -20,7 +20,7 @@ const JoinForm = () => {
     const [name, updataName] = useState(initData.name);
 
     const [email, updataEmail] = useState(initData.email);
-    const [nickname, updataNickname] = useState(initData.nickname);
+    const [id, updataId] = useState(initData.id);
     const [pswd, setPswd] = useState(initData.pswd);//비밀번호
     const [checkPswd, setCheckPswd] = useState(initData.setCheckPswd);
 
@@ -33,7 +33,7 @@ const JoinForm = () => {
 
     useEffect(() => {
         if( data.name.length > 0 && data.email.length > 0 &&
-            data.nickname.length > 0 && data.pswd.length > 0 &&
+            data.id.length > 0 && data.pswd.length > 0 &&
             data.checkPswd.length > 0) {
             updataColor("#95DDFF");
         } else {
@@ -42,9 +42,11 @@ const JoinForm = () => {
     }, [data])
 
 
-    const SignUpDB = (user_name, email, id, password) => {//회원가입 api 호출
-        
-        axios("/users",{
+    const SignUpDB = (e) => {//회원가입 api 호출
+        e.preventDefault();
+
+        axios.post("/users/",{
+            
             "user_name": data.name,
             "email": data.email,
             "id": data.id,
@@ -54,13 +56,14 @@ const JoinForm = () => {
             console.log(res.data.user_name);
             console.log(res.data.email);
             console.log(res.data.id);
+            localStorage.setItem("Token", res.headers.authorization);
             if(res.status === 200) {
                 alert("환영합니다!");
                 navigate("/LoginPage");
             }
         })
-        .catch(err => {//요청 실패 했을 경우
-            console.log(err);
+        .catch((res) => {//요청 실패 했을 경우
+            console.log("My error:" + res);
             alert("다시 입력해주세요");
         })
     }
@@ -87,33 +90,6 @@ const JoinForm = () => {
             }
         }       
     }
-    /*
-    const onSubmit = useCallback( //오류남
-        async (e) => {
-            e.preventDefault();
-                axios.post("/users",{
-                    "user_name": "string",
-                    "email": "useaar@example.com",
-                    "id": "string",
-                    "password": "string"
-                    })
-                    .then((res)=> {
-                        console.log(res.data.user_name);
-                        console.log(res.data.email);
-                        console.log(res.data.id);
-                        //console.log('response:', res)
-                        if(res.status === 200) {
-                            alert("환영합니다!");
-                            navigate("/LoginPage");
-                        //  Router.push('/LoginPage');
-                        } 
-                    }) 
-                    .catch((err)=> {
-                        console.error(err);
-                        alert("회원정보가 일치하지 않습니다.");
-                    })
-            }, []);
-            */
 
     
     const handleChange = (e) => {
@@ -149,9 +125,9 @@ const JoinForm = () => {
              onChange={handleChange}/>
             <input 
              type="text" 
-             name="nickname" 
+             name="id" 
              placeholder="아이디" 
-             value={data.nickname}
+             value={data.id}
              required 
              onChange={handleChange}/>
             
