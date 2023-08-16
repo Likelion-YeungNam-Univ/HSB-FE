@@ -41,7 +41,13 @@ const LoginForm = () => {
             console.log(res.data.refresh);
             
             alert("로그인 되었습니다.");
-            return navigate("/AfterLoginPage");
+            return navigate("/", {
+                state: {
+                    check: true,
+                    id: "aaa",
+                    name: "aaa",
+                }
+            });
         })
         .catch(err => {//요청 실패했을 경우
             console.log(err);
@@ -50,7 +56,22 @@ const LoginForm = () => {
     }
 
     const estimateLogin = e => {
+        axios.post("/estimates/", {
+            "title": "세번째 게시글입니다!",
+            "content": "저 자막필요해요~~~",
+            "dead_line": "2023-08-20T13:36:30.413Z",
+            "status": 0 },
+        { 
+            headers: {
+                
+            }
+        })
+        .then(res => {
 
+        })
+        .catch(err => {
+
+        })
     }
 
     const handleChange = e => {

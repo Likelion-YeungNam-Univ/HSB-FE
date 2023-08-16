@@ -2,7 +2,8 @@ import React from "react";
 import { LoginBox } from "../../styles/MainPageLoginForm.style";
 import { useNavigate } from "react-router-dom";
 import { MyPage } from "../../styles/Login.styled";
-import User from "../../img/User.png";
+
+
 const AfterLoginForm = () => {
     const navigate = useNavigate();
 
@@ -10,7 +11,7 @@ const AfterLoginForm = () => {
         <LoginBox>
             <MyPage>   
             
-            <h3>나문희님</h3>
+            <h3>{/*data.id*/}</h3>
             <p>sleepless@icloud.com</p>
             <button type="submit" className="textBtn" onClick={() => navigate("/ProfileAndContractsPage")}>마이페이지</button>
 

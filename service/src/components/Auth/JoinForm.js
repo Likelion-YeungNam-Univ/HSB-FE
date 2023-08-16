@@ -45,27 +45,37 @@ const JoinForm = () => {
     const SignUpDB = (e) => {//회원가입 api 호출
         e.preventDefault();
 
-        axios.post("/users/",{
+        axios.post("/users/", {
+
+            /*"user_name": "aaa",
+            "email": "aaa@email.com",
+            "id": "aaa",
+            "password": "aaa123"*/
             
             "user_name": data.name,
             "email": data.email,
             "id": data.id,
             "password": data.pswd
+              
         })
         .then((res) => { //요청 성공했을 때
-            console.log(res.data.user_name);
-            console.log(res.data.email);
-            console.log(res.data.id);
-            localStorage.setItem("Token", res.headers.authorization);
-            if(res.status === 200) {
+            console.log(res.data)
+            //localStorage.setItem("Token", res.headers.authorization);
+            if(res.status === 201) {
                 alert("환영합니다!");
                 navigate("/LoginPage");
             }
         })
-        .catch((res) => {//요청 실패 했을 경우
-            console.log("My error:" + res);
-            alert("다시 입력해주세요");
-        })
+
+        .catch((error) => { // 에러 핸들링 부분 수정
+            if (error.response) {
+                console.log("Error status:", error.response.status);
+                console.log("Error data:", error.response.data);
+                alert("다시 입력해주세요");
+            } else {
+                console.log("Error:", error.message);
+            }
+        });
     }
 
     const onChangePwConfirm = (e) => {
