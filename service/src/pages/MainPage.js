@@ -12,6 +12,8 @@ import AfterLoginPage from './AfterLoginPage';
 import AfterLoginForm from '../components/Auth/AfterLoginForm';
 import Alarm from '../components/Auth/AlarmForm';
 import {useLocation} from 'react-router-dom';
+import axios from 'axios';
+import { getCookie } from '../Cookies';
 
 const MainPage = () => {
     
@@ -27,6 +29,24 @@ const MainPage = () => {
             setName(location.state.name);
         }
     }, [location.state]);
+
+
+    const fetchData = useEffect(()=>{
+        axios.get('/users/login/auth/',
+            {
+                headers: {
+                authorization: `Bearer ${getCookie("ACCESS_TOKEN")}`,
+                }
+            })
+            .then((response) => {
+                console.log(response);
+                
+            })
+            .catch((error)=>{
+            console.log(error);
+        })
+
+    }, []);
 
     const [comment, setComment] = useState("");
     return (

@@ -71,26 +71,30 @@ const EstimateRequestListPage = () => {
     };
 
     
-
-    // const fetchData = useEffect(() => {
-    //     axios.get("/estimates/")
-    //     .then((res) => {
-    //         console.log(res);
-    //     })
-    //     .catch((err) => {
-    //         console.log(err);
-    //     })
-    // }, []);
-
-    const fetchData = useEffect(()=>{
-        axios.get('/estimates/')
-        .then((response) => {
-                console.log(response);
-            })
-        .catch((error)=>{
-            console.log(error);
+    const fetchData = useEffect(() => {
+        axios.get("/estimates/")
+        .then((res) => {
+            console.log(res);
+        })
+        .catch((err) => {
+            console.log(err);
         })
     }, []);
+
+    /*
+    const fetchData = () => {
+        axios.get("/estimates/")
+        .then((res) => {
+            console.log(res);
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    };
+    useEffect(() => {
+        fetchData();
+    }, []);
+    */
 
 
     return (

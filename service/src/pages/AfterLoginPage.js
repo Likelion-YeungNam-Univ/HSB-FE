@@ -1,5 +1,6 @@
 import {Link, useNavigate} from 'react-router-dom';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
+import axios from 'axios';
 import { Wrapper, Container, NoticeContainer,TitleText, CardNewsContainer, MyPage } from '../styles/Login.styled';
 import { MyPageLogin, SideBarContatiner, ApplicationContainer } from '../styles/MainPageLoginForm.style';
 import Header from '../components/Header';
@@ -9,12 +10,15 @@ import ApplicationForm from '../components/Auth/ApplicationForm';
 import AfterLoginForm from '../components/Auth/AfterLoginForm';
 import Alarm from '../components/Auth/AlarmForm';
 import Banner1 from '../img/Banner1.png';
+import { getCookie } from '../Cookies';
 
 const AfterLoginPage = () => {
     
     const navigate = useNavigate();
 
     const [comment, setComment] = useState("");
+
+
     return (
         <>
         <Header/>

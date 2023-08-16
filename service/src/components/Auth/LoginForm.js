@@ -14,7 +14,7 @@ const LoginForm = () => {
         password: '',
     });
     const [data, updataData] = useState(initData);
-    const [color, updataColor] = useState("#b8e8ff")
+    const [color, updataColor] = useState("#b8e8ff");
 
     useEffect(() => {
         if(data.id.length > 0 && data.password.length > 0) {
