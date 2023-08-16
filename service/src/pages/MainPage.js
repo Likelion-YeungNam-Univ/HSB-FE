@@ -50,7 +50,6 @@ const MainPage = () => {
                     {check ?
                     <>
                     <AfterLoginForm/>
-                    <hr/>
                     <Alarm/>
                     </>
                     :
@@ -59,8 +58,6 @@ const MainPage = () => {
                     <hr/>
                     </>
                     }
-                    <MainPageLoginForm/>                    
-                    <hr></hr>
                 </MyPageLogin>
                 
             </SideBarContatiner>
