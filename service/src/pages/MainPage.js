@@ -49,6 +49,8 @@ const MainPage = () => {
     }, []);
 
     const [comment, setComment] = useState("");
+
+    
     return (
         <>
         <Header/>
