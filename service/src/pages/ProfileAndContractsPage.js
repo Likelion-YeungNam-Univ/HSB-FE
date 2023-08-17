@@ -22,13 +22,12 @@ const Title = styled.h1`
  font-size: 30px;
  color: #95DDFF;
  text-align: center;
- margin-left:390px;
 `;
 
 const TitleContainer = styled.div`
   display: flex;
   align-items: flex-start; 
-  margin-left: 290px;
+  margin-left: 100px;
   margin-top: 10px;
   margin-bottom: 5px;
 `;
