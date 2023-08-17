@@ -51,7 +51,7 @@ const StyledSendIcon = styled.button`
 `;
 
 
-const BidListItem = ({id}) => {
+const BidListItem = ({estimate_id}) => {
     {/*const [id, price, content] = request;*/}
 
     const navigate = useNavigate();
@@ -70,7 +70,7 @@ const BidListItem = ({id}) => {
                             <AiOutlineSmile/>
                         </StyledIcon>
                         <StyledUser>
-                            <Link to="/BidProposalMemberInfoPage">Level.15 나문희{id}</Link>
+                            <Link to="/BidProposalMemberInfoPage">Level.15 나문희{estimate_id}</Link>
                             <p>입찰 제안 가격: {'price'}원</p>
                         </StyledUser>
                     </StyledDiv>

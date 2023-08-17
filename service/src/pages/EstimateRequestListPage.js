@@ -46,21 +46,8 @@ const StyledListNumbersWidth = styled.div`
 
 const EstimateRequestListPage = () => {
     const [posts, setPosts] = useState([]);
-    const [loading, setLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage, setPostsPerPage] = useState(10);
-
-    {/*
-    useEffect(() => {
-        const fetchData = async () => {
-            setLoading(true);
-            const response = await axios.get("/estimates/");
-            setPosts(response.data);
-            setLoading(false);
-        };
-        fetchData();
-    }, []);
-    */}
 
     const indexOfLast = currentPage * postsPerPage;
     const indexOfFirst = indexOfLast - postsPerPage;
@@ -71,19 +58,12 @@ const EstimateRequestListPage = () => {
     };
 
     
-    const headers = {
-        'Content-Type': `application/json`,
-        'ngrok-skip-browser-warning': '69420',
-    }
 
     const fetchData = useEffect(() => {
-        axios.get("/estimates/",{
-            headers,
-            withCredentials: true,
-            }
-        )
+        axios.get("/estimates/")
         .then((res) => {
             console.log(res);
+            setPosts(res.data);
         })
         .catch((err) => {
             console.log(err);
@@ -119,7 +99,7 @@ const EstimateRequestListPage = () => {
                     </StyledLine>
 
                     <StyledWidth>
-                        <EstimateRequestList posts={posts} loading={loading}/>
+                        <EstimateRequestList posts={posts}/>
                     </StyledWidth>
 
                     <StyledListNumbersWidth>

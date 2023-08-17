@@ -26,49 +26,28 @@ const StyledListTitleDate = styled.h5`
     flex: 4;
 `;
 
-const EstimateRequestList = ({posts, loading}) => {
-
-    {/*
-    axiois.get("estimates").then((res) => {
-        console.log(res);
-    })
-
-     axios.post("users", {"id": "id", "pw": "pw"}).then((res) => {
-         console.log(res);
-     })
-    
-    axios.get("users/").then((res) => {
-        console.log(res);
-    })
-    */}
+const EstimateRequestList = ({posts}) => {
+    console.log("post");
+    console.log(posts);
 
     return (
         <>
-
-            {/* 
-            <ul>
-                {posts.map((post) => (
-                    <li key={post.id}>{post.title}</li>
-                ))}
-            </ul>
-            */}
-
             <StyledDirection>
 
-            <StyledListTitle> {/*display: flex, 가중치 매겨주기 */}
+            <StyledListTitle>
                 <StyledListTitleNum>번호</StyledListTitleNum>
                 <StyledListTitleTitle>제목</StyledListTitleTitle>
                 <StyledListTitleAuthor>작성자</StyledListTitleAuthor>
                 <StyledListTitleDate>작성일</StyledListTitleDate>
             </StyledListTitle>
 
-
-            <EstimateRequestListItem/>
+            {posts.map((post) => {
+                return (
+                <EstimateRequestListItem estimate_id={post.estimate_id} title={post.title} created_at={post.created_at} user_name={post.user_info.user_name}/>
+            )})}
             
             
             </StyledDirection>
-
-            
         </>
     )
 }

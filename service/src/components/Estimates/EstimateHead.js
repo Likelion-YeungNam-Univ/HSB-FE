@@ -22,7 +22,7 @@ const EstimateHead = ({title}) => {
         <StyledHead>
 
             <StyledTitle>
-                <StyledDetail>온라인 방송 통역 구합니다.</StyledDetail>
+                <StyledDetail>온라인 방송 통역 구합니다.{title}</StyledDetail>
             </StyledTitle>
             <StyledDetails>
                 <StyledDetail>작성자: 나문희</StyledDetail>
