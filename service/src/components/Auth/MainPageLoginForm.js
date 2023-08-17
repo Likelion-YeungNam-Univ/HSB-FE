@@ -19,11 +19,6 @@ const MainPageLoginForm = () => {
                 <button className="registerBtn" onClick={()=>navigate("/JoinPage")}>회원가입</button>
             </MyPage>
         </LoginBox>
-        
-                
-                
-        
-        
 
     );
 

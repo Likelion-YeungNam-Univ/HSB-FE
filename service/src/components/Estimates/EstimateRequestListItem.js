@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {Link} from "react-router-dom";
 import styled from "styled-components";
 import { axios } from "axios";
@@ -24,66 +25,18 @@ const StyledListDate = styled.h6`
     flex: 4;
 `;
 
-const EstimateRequestListItem = () => {
-
+const EstimateRequestListItem = ({estimate_id, title, created_at, user_name}) => {
     
+    const modifiedTime = created_at.substring(0,10);
 
     return (
         <>
             
             <StyledListLine>
-                <StyledListNum>3</StyledListNum>
-                <StyledListLink to="/EstimatePage">온라인 방송 통역 구합니다!</StyledListLink>
-                <StyledListAuthor>나문희</StyledListAuthor>
-                <StyledListDate>2023-08-25</StyledListDate>
-            </StyledListLine>
-            <StyledListLine>
-                <StyledListNum>3</StyledListNum>
-                <StyledListLink to="/EstimatePage">온라인 방송 통역 구합니다!</StyledListLink>
-                <StyledListAuthor>나문희</StyledListAuthor>
-                <StyledListDate>2023-08-25</StyledListDate>
-            </StyledListLine>
-            <StyledListLine>
-                <StyledListNum>3</StyledListNum>
-                <StyledListLink to="/EstimatePage">온라인 방송 통역 구합니다!</StyledListLink>
-                <StyledListAuthor>나문희</StyledListAuthor>
-                <StyledListDate>2023-08-25</StyledListDate>
-            </StyledListLine>
-            <StyledListLine>
-                <StyledListNum>3</StyledListNum>
-                <StyledListLink to="/EstimatePage">온라인 방송 통역 구합니다!</StyledListLink>
-                <StyledListAuthor>나문희</StyledListAuthor>
-                <StyledListDate>2023-08-25</StyledListDate>
-            </StyledListLine>
-            <StyledListLine>
-                <StyledListNum>3</StyledListNum>
-                <StyledListLink to="/EstimatePage">온라인 방송 통역 구합니다!</StyledListLink>
-                <StyledListAuthor>나문희</StyledListAuthor>
-                <StyledListDate>2023-08-25</StyledListDate>
-            </StyledListLine>
-            <StyledListLine>
-                <StyledListNum>3</StyledListNum>
-                <StyledListLink to="/EstimatePage">온라인 방송 통역 구합니다!</StyledListLink>
-                <StyledListAuthor>나문희</StyledListAuthor>
-                <StyledListDate>2023-08-25</StyledListDate>
-            </StyledListLine>
-            <StyledListLine>
-                <StyledListNum>3</StyledListNum>
-                <StyledListLink to="/EstimatePage">온라인 방송 통역 구합니다!</StyledListLink>
-                <StyledListAuthor>나문희</StyledListAuthor>
-                <StyledListDate>2023-08-25</StyledListDate>
-            </StyledListLine>
-            <StyledListLine>
-                <StyledListNum>3</StyledListNum>
-                <StyledListLink to="/EstimatePage">온라인 방송 통역 구합니다!</StyledListLink>
-                <StyledListAuthor>나문희</StyledListAuthor>
-                <StyledListDate>2023-08-25</StyledListDate>
-            </StyledListLine>
-            <StyledListLine>
-                <StyledListNum>3</StyledListNum>
-                <StyledListLink to="/EstimatePage">온라인 방송 통역 구합니다!</StyledListLink>
-                <StyledListAuthor>나문희</StyledListAuthor>
-                <StyledListDate>2023-08-25</StyledListDate>
+                <StyledListNum>{estimate_id}</StyledListNum>
+                <StyledListLink to="/EstimatePage">{title}</StyledListLink>
+                <StyledListAuthor>{user_name}</StyledListAuthor>
+                <StyledListDate>{modifiedTime}</StyledListDate>
             </StyledListLine>
             
             

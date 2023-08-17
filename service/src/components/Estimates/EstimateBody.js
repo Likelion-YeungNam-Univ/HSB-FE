@@ -71,9 +71,6 @@ const EstimateBody = () => {
             <StyledTags>
                 <div>
                     <StateBox states={states}/>
-                    <button>#실시간</button>
-                    <button>#문자</button>
-                    <button>#한글</button>
                 </div>
 
                 <div>

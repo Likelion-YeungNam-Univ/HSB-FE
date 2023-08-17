@@ -20,7 +20,6 @@ const MainPage = () => {
     const navigate = useNavigate();
     const [check, setCheck] = useState(false);
     const [name, setName] = useState("");
-
     const location = useLocation();
 
     useEffect(() => {
@@ -30,23 +29,7 @@ const MainPage = () => {
         }
     }, [location.state]);
 
-
-    const fetchData = useEffect(()=>{
-        axios.get('/users/login/auth/',
-            {
-                headers: {
-                Authorization: `Bearer ${getCookie("ACCESS_TOKEN")}`,
-                }
-            })
-            .then((response) => {
-                console.log(response);
-                
-            })
-            .catch((error)=>{
-            console.log(error);
-        })
-
-    }, []);
+    
 
     const [comment, setComment] = useState("");
 

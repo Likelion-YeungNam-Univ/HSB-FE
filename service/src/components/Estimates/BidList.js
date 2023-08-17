@@ -21,6 +21,8 @@ const StyledBidList = styled.div`
 
 const BidList = ({requests}) => {
     
+{/* 이거 사용자가 쓰는 데이터인데?? estimate_id={request.estimate_id} level = {request.user_info.level} user_name={request.user_info.user_name}*/}
+
     return(
         <>
         <StyledCenter>
@@ -31,7 +33,7 @@ const BidList = ({requests}) => {
             <StyledBidList>
                 {requests.map((request) => {
                     return (
-                    <BidListItem id={request.id}/>
+                    <BidListItem estimate_id={request.estimate_id}/>
                 )})}
             </StyledBidList>
 

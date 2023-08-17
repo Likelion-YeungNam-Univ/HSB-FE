@@ -46,11 +46,6 @@ const JoinForm = () => {
         e.preventDefault();
 
         axios.post("/users/", {
-
-            /*"user_name": "aaa",
-            "email": "aaa@email.com",
-            "id": "aaa",
-            "password": "aaa123"*/
             
             "user_name": data.name,
             "email": data.email,
@@ -149,7 +144,6 @@ const JoinForm = () => {
              value={data.pswd}
              required/>
 
-             
              <input
              type="password" 
              name="checkPswd" 
