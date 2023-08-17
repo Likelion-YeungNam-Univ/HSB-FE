@@ -19,7 +19,7 @@ const StyledBody = styled.div`
     justify-content: center;
 `;
 
-const EstimatePage = () =>{
+const EstimatePage = ({estimate_id}) =>{
 
     const [requestDatas, setrequestDatas] = useState([{
         estimate_id: 1,
@@ -35,6 +35,15 @@ const EstimatePage = () =>{
         dead_line: "string",
         status: 0
     }], );
+    const test = {title: "string"};
+    console.log(test.title);
+    const [title, setTitle] = useState("");
+    const handleTitle = (title) => {
+        console.log(requestDatas.dead_line);
+        setTitle(title);
+    }
+
+
 
     const nextId = useRef(1);
 
@@ -55,7 +64,7 @@ const EstimatePage = () =>{
 
 
     const estimatesRequest = () => {
-        axios.get("/estimates/10")
+        axios.get("/estimates/10/")
         .then((res) => {
             const requestData = {
                 estimate_id: res.data.estimate_id,
@@ -73,6 +82,8 @@ const EstimatePage = () =>{
             };
             console.log(res.data);
             setrequestDatas((requestDatas) => requestDatas.concat(requestData));
+            console.log(requestData.dead_line);
+            handleTitle(requestData.title);
         })
         .catch((err) => {
             console.log(err);
@@ -91,7 +102,7 @@ const EstimatePage = () =>{
         <StyledEstimatePage>
 
             <StyledBody>
-                <EstimateHead/>
+                <EstimateHead title={title}/>
                 <EstimateBody/>
             </StyledBody>
             

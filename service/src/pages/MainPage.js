@@ -36,6 +36,7 @@ const MainPage = () => {
             {
                 headers: {
                 authorization: `Bearer ${getCookie("ACCESS_TOKEN")}`,
+                'ngrok-skip-browser-warning': '69420',
                 }
             })
             .then((response) => {
@@ -49,6 +50,8 @@ const MainPage = () => {
     }, []);
 
     const [comment, setComment] = useState("");
+
+    
     return (
         <>
         <Header/>
