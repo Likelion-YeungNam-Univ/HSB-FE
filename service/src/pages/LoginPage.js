@@ -9,27 +9,7 @@ const LoginPage = () => {
     //const [id, setId] = React.useState("");
     //const [password, setpassword] = React.useState("");
     
-
     const navigate = useNavigate();
-    const JWT_EXPIRY_TIME = 24 * 3600 * 1000;//토큰 만료 시간
-
-
-    /*const onSilentRefresh = () => {
-        axios.post('/silent-refresh')
-        .then(onLoginSuccess)
-        .catch(error => {
-        });
-    }
-
-    const onLoginSuccess = response => {
-        const {accessToken} = response.data;
-
-        // accessToken 설정
-        axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
-
-        // accessToken 만료하기 1분 전에 로그인 연장
-        setTimeout(onSilentRefresh, JWT_EXPIRY_TIME - 60000);
-    }*/
 
     return (
         <SignInBox>

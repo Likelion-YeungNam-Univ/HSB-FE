@@ -35,7 +35,7 @@ const MainPage = () => {
         axios.get('/users/login/auth/',
             {
                 headers: {
-                authorization: `Bearer ${getCookie("ACCESS_TOKEN")}`,
+                Authorization: `Bearer ${getCookie("ACCESS_TOKEN")}`,
                 }
             })
             .then((response) => {
