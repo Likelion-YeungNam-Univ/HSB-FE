@@ -20,6 +20,7 @@ const MainPage = () => {
     const navigate = useNavigate();
     const [check, setCheck] = useState(false);
     const [name, setName] = useState("");
+    const [users, setUsers] = useState([]);
 
     const location = useLocation();
 
@@ -30,7 +31,6 @@ const MainPage = () => {
         }
     }, [location.state]);
 
-
     const fetchData = useEffect(()=>{
         axios.get('/users/login/auth/',
             {
@@ -38,8 +38,9 @@ const MainPage = () => {
                 Authorization: `Bearer ${getCookie("ACCESS_TOKEN")}`,
                 }
             })
-            .then((response) => {
-                console.log(response);
+            .then((res) => {
+                console.log(res);
+                setUsers(res.data); //받아온 데이터 저장
                 
             })
             .catch((error)=>{

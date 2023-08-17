@@ -18,7 +18,6 @@ const AfterLoginPage = () => {
 
     const [comment, setComment] = useState("");
 
-
     return (
         <>
         <Header/>
