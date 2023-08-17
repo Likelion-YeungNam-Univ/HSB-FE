@@ -63,7 +63,7 @@ const MyPage = styled.div`
 `;
 
 const Wrapper = styled.div`
-    width: 1550px;
+    width: 100%;
     padding: 16px;
     display: flex;
     flex-direction: column;
@@ -144,3 +144,4 @@ const SignInForm = styled.form`
     `;
 
 export {Wrapper, Container, NoticeContainer, CardNewsContainer, TitleText, ContentText, SignInBox, MyPage, SignInForm};
+

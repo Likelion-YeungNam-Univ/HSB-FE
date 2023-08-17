@@ -35,8 +35,7 @@ const MainPage = () => {
         axios.get('/users/login/auth/',
             {
                 headers: {
-                authorization: `Bearer ${getCookie("ACCESS_TOKEN")}`,
-                'ngrok-skip-browser-warning': '69420',
+                Authorization: `Bearer ${getCookie("ACCESS_TOKEN")}`,
                 }
             })
             .then((response) => {
@@ -91,7 +90,7 @@ const MainPage = () => {
 
         <Footer/>
         </>
-    );
-};
+    )
+}
 
 export default MainPage;

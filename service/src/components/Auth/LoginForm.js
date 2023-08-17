@@ -8,6 +8,7 @@ import { setCookie } from "../../Cookies";
 const LoginForm = () => {
 
     const navigate = useNavigate();
+    //const JWT_EXPIRY_TIME = 24 * 3600 * 1000;//토큰 만료 시간
 
     const initData = Object.freeze({// freeze-객체를 동결하기 위해서
         id: '',
@@ -36,6 +37,7 @@ const LoginForm = () => {
             const accessToken = res.data.access
             console.log(accessToken);
 
+            //setCookie("id", id);
             setCookie("ACCESS_TOKEN", `${accessToken}`); 
             console.log(res.data.access);
             console.log(res.data.refresh);
@@ -67,10 +69,8 @@ const LoginForm = () => {
             }
         })
         .then(res => {
-
         })
         .catch(err => {
-
         })
     }
 
