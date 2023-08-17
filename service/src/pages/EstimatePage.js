@@ -20,9 +20,8 @@ const StyledBody = styled.div`
 `;
 
 const EstimatePage = ({estimate_id}) =>{
-
-    const [requestDatas, setrequestDatas] = useState([{
-        estimate_id: 1,
+    const [requestData, setrequestData] = useState({
+        estimate_id: 10,
         user_info: {
             user_id: 0,
             user_name: "나문희",
@@ -34,39 +33,39 @@ const EstimatePage = ({estimate_id}) =>{
         content: "string",
         dead_line: "string",
         status: 0
-    }], );
-    const test = {title: "string"};
-    console.log(test.title);
-    const [title, setTitle] = useState("");
-    const handleTitle = (title) => {
-        console.log(requestDatas.dead_line);
-        setTitle(title);
-    }
-
-
-
-    const nextId = useRef(1);
-
-    const onInsert = useCallback(
-        (price, content) => {
-            const request = {
-                id: nextId.current + 1,
-                price,
-                content,
-            };
-            console.log(price);
-            console.log(content);
-            setrequestDatas(requests => requests.concat(request));
+    });
+    const [bidDatas, setBidDatas] = useState([
+        {
+          offer_id: 1,
+          user: {
+            user_id: 14,
+            user_name: "나문희"
+          },
+          content: "반갑습니다! 50000원에 하시죠!ㅋ",
+          price: 50000,
+          status: 0
         },
-        [requestDatas],
-    );
+        {
+          offer_id: 2,
+          user: {
+            user_id: 13,
+            user_name: ""
+          },
+          content: "string",
+          price: 0,
+          status: 0
+        }
+      ]);
 
+    // const [title, setTitle] = useState("");
+    
+     const nextId = useRef(1);
 
 
     const estimatesRequest = () => {
         axios.get("/estimates/10/")
         .then((res) => {
-            const requestData = {
+            const data = {
                 estimate_id: res.data.estimate_id,
                 user_info: {
                     user_id: res.data.user_id,
@@ -81,9 +80,7 @@ const EstimatePage = ({estimate_id}) =>{
                 status: res.data.status
             };
             console.log(res.data);
-            setrequestDatas((requestDatas) => requestDatas.concat(requestData));
-            console.log(requestData.dead_line);
-            handleTitle(requestData.title);
+            setrequestData(data);
         })
         .catch((err) => {
             console.log(err);
@@ -93,7 +90,46 @@ const EstimatePage = ({estimate_id}) =>{
         estimatesRequest();
     }, []);
 
+    const offerBid = () => {
+        axios.get("/estimates/offers/10/")
+        .then((res) => {
+            const bidData = {
+                offer_id: 1,
+                user: {
+                  user_id: 14,
+                  user_name: "나문희"
+                },
+                content: "반갑습니다! 50000원에 하시죠!ㅋ",
+                price: 50000,
+                status: 0
+              };
+            console.log(res.data);
+            setBidDatas((bidDatas) => bidDatas.concat(bidData));
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    };
+    useEffect(() => {
+        offerBid();
+    }, []);
+
     
+    const onInsert = useCallback(
+        (price, content) => {
+            const request = {
+                id: nextId.current + 1,
+                price,
+                content,
+            };
+            console.log(price);
+            console.log(content);
+            setBidDatas(requests => requests.concat(request));
+        },
+        [bidDatas],
+    );
+
+
 
     return(
         <>
@@ -102,11 +138,11 @@ const EstimatePage = ({estimate_id}) =>{
         <StyledEstimatePage>
 
             <StyledBody>
-                <EstimateHead title={title}/>
+                <EstimateHead title={requestData.title}/>
                 <EstimateBody/>
             </StyledBody>
             
-            <BidList requests={requestDatas}/>
+            <BidList requests={requestData}/>
             
             <OfferBid onInsert={onInsert}/>
             
