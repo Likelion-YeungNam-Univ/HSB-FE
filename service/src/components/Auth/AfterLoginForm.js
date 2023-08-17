@@ -12,26 +12,6 @@ const AfterLoginForm = () => {
 
     const [users, setUsers] = useState();
 
-
-    /*const logout = () => {
-        axios.delete('/users/<user_id>')
-        .then(res => {
-                alert("로그아웃 완료되었습니다.");
-                return navigate("/LoginPage", {
-                    state: {
-                        check: false
-                    }
-                });
-            
-            
-                //console.log(props.history);
-                //props.history.push('/login')
-            }
-        )
-        .catch(err => {
-            alert("err");
-        })
-    }*/
     useEffect(()=>{
         axios.get('/users/login/auth/',
             {
