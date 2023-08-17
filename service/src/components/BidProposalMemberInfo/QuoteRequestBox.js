@@ -79,7 +79,7 @@ const QuoteRequestBox = () => {
       <HeartIconBackground>
       <HeartIcon />
       </HeartIconBackground>
-      <Link to="/MainPage">
+      <Link to="/QuoteCreationPage">
         <RequestButton>견적요청</RequestButton>
         </Link>
         </ButtonWrapper>
