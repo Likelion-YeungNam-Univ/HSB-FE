@@ -31,7 +31,7 @@ const AfterLoginForm = () => {
         <LoginBox>
             <MyPage>   
             
-            <h3>{/*data.id*/}</h3>
+            <h3>나문희</h3>
             <p>sleepless@icloud.com</p>
             <button type="submit" className="textBtn" onClick={() => navigate("/ProfileAndContractsPage")}>마이페이지</button>
 
