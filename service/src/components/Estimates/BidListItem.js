@@ -51,8 +51,13 @@ const StyledSendIcon = styled.button`
 `;
 
 
-const BidListItem = ({estimate_id}) => {
-    {/*const [id, price, content] = request;*/}
+const BidListItem = ({offer_id, user_id, user_name, price, content, status}) => {
+
+    const state = [
+        "미정",
+        "계약 진행중",
+        "견적 종료"
+    ]
 
     const navigate = useNavigate();
 
@@ -70,8 +75,8 @@ const BidListItem = ({estimate_id}) => {
                             <AiOutlineSmile/>
                         </StyledIcon>
                         <StyledUser>
-                            <Link to="/BidProposalMemberInfoPage">Level.15 나문희{estimate_id}</Link>
-                            <p>입찰 제안 가격: {'price'}원</p>
+                            <Link to="/BidProposalMemberInfoPage">Level.{user_id} {user_name}</Link>
+                            <p>입찰 제안 가격: {price}원</p>
                         </StyledUser>
                     </StyledDiv>
 
@@ -79,15 +84,15 @@ const BidListItem = ({estimate_id}) => {
                     <StyledDiv>
                         <StyledBidState>
                             <StyledBidStateP>계약 현황</StyledBidStateP>
-                            <button>미정</button>
+                            <button>
+                                {state[status]}</button>
                         </StyledBidState>
                         <StyledSendIcon onClick={navigateToNote}><AiOutlineSend/></StyledSendIcon>
                     </StyledDiv>
                 </StyledListHead>
 
 
-                <StyledBody>안녕하세요 나문희입니다. 온라인 방송 통역은 이러한 기술과 이러한 서비스를 제공하기 때문에 입찰 제안 가격을 30,000
-                    원으로 책정하였습니다. 믿고 맡겨 주세요!{'content'}</StyledBody>
+                <StyledBody>{content}</StyledBody>
 
 
             </StyledList>

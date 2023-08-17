@@ -31,7 +31,9 @@ const StyledSendIcon = styled.button`
     font-size: 1.8rem;
 `;
 
-const EstimateBody = () => {
+const EstimateBody = ({status, content, dead_line}) => {
+    const modifiedTime = dead_line.substring(0,10);
+
     const navigate = useNavigate();
 
     const navigateToNote = () => {
@@ -50,21 +52,6 @@ const EstimateBody = () => {
         setBookmark(!bookmark);
     }
 
-    {/* 북마크 DB 연결
-    useEffect(async () =>{
-        const fetchData = async () => {
-            const res = await axios.get(...)
-            if(res.data.type === '...') setBookmark(true);
-        }
-        fetchData()
-    }, []);
-
-    const toggleBookmark = async (e) => {
-        const res = await axios.post(...)
-        setBookmark(!bookmark);
-    }
-    */}
-
 
     return(
         <StyledBody>
@@ -79,10 +66,7 @@ const EstimateBody = () => {
             </StyledTags>
 
             <div>
-                <p>안녕하세요.<br/>
-                온라인 방송 통역 구합니다.<br/>
-                한글로 통역 원합니다.<br/>
-                많은 입찰 제안 부탁드려요!</p>
+                {content}
             </div>
 
             <StyledTerms>
@@ -90,7 +74,7 @@ const EstimateBody = () => {
                     {bookmark ? ( <BsBookmarkFill/>) : ( <BsBookmark/>)} {bookmark ? 4:3}
                 </div>
                 <div>
-                    <p>기한: 2023-12-01까지</p>
+                    <p>기한: {modifiedTime}까지</p>
                 </div>
             </StyledTerms>
             

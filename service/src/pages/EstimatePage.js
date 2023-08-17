@@ -9,6 +9,7 @@ import OfferBid from "../components/Estimates/OfferBid";
 import Header from "../components/Header";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
+import { useParams } from "react-router-dom";
 
 const StyledEstimatePage = styled.div`
     display: flex;
@@ -19,7 +20,11 @@ const StyledBody = styled.div`
     justify-content: center;
 `;
 
-const EstimatePage = ({estimate_id}) =>{
+const EstimatePage = () =>{
+
+
+    const [array, setArray] = useState([]);
+
     const [requestData, setrequestData] = useState({
         estimate_id: 10,
         user_info: {
@@ -56,21 +61,20 @@ const EstimatePage = ({estimate_id}) =>{
           status: 0
         }
       ]);
-
-    // const [title, setTitle] = useState("");
     
-     const nextId = useRef(1);
+    const nextId = useRef(1);
 
+    const{id} =useParams();
 
     const estimatesRequest = () => {
-        axios.get("/estimates/10/")
+        axios.get(`/estimates/${id}`)
         .then((res) => {
             const data = {
                 estimate_id: res.data.estimate_id,
                 user_info: {
-                    user_id: res.data.user_id,
-                    user_name: res.data.user_name,
-                    level: res.data.level
+                    user_id: res.data.user_info.user_id,
+                    user_name: res.data.user_info.user_name,
+                    level: res.data.user_info.level
                 },
                 title: res.data.title,
                 created_at: res.data.created_at,
@@ -91,8 +95,8 @@ const EstimatePage = ({estimate_id}) =>{
     }, []);
 
     const offerBid = () => {
-        axios.get("/estimates/offers/10/")
-        .then((res) => {
+        axios.get("/offers/10")
+        .then(({data}) => {
             const bidData = {
                 offer_id: 1,
                 user: {
@@ -103,18 +107,21 @@ const EstimatePage = ({estimate_id}) =>{
                 price: 50000,
                 status: 0
               };
-            console.log(res.data);
+            console.log(data);
             setBidDatas((bidDatas) => bidDatas.concat(bidData));
+            console.log(bidData);
+            setArray({data});
         })
         .catch((err) => {
             console.log(err);
         })
     };
+    console.log(array)
     useEffect(() => {
         offerBid();
     }, []);
 
-    
+
     const onInsert = useCallback(
         (price, content) => {
             const request = {
@@ -138,11 +145,11 @@ const EstimatePage = ({estimate_id}) =>{
         <StyledEstimatePage>
 
             <StyledBody>
-                <EstimateHead title={requestData.title}/>
-                <EstimateBody/>
+                <EstimateHead title={requestData.title} created_at={requestData.created_at} user_name={requestData.user_info.user_name}/>
+                <EstimateBody status={requestData.status} content={requestData.content} dead_line={requestData.dead_line}/>
             </StyledBody>
             
-            <BidList requests={requestData}/>
+            <BidList requests={bidDatas}/>
             
             <OfferBid onInsert={onInsert}/>
             

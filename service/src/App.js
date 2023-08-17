@@ -44,7 +44,7 @@ function App() {
           <Route path="/SearchPage" element={<SearchPage/>}></Route>
           <Route path="/ServiceNamePage" element={<ServiceNamePage/>}></Route>
           <Route path="/EstimateRequestListPage" element={<EstimateRequestListPage/>}></Route>
-          <Route path="/EstimatePage" element={<EstimatePage/>}></Route>
+          <Route path="/EstimatePage/:id" element={<EstimatePage/>}></Route>
           <Route path="/CommunityListPage" element={<CommunityListPage/>}></Route>
           <Route path="/FindIdPage" element={<FindIdPage/>}></Route>
           <Route path="/BidProposalMemberInfoPage" element={<BidProposalMemberInfoPage/>}></Route>

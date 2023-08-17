@@ -110,6 +110,7 @@ const ContentText = styled.p`
     font-size: 17px;
     line-height: normal;
     white-space: pre-wrap;
+    overflow: hidden;
 `;
 
 const SignInForm = styled.form`
