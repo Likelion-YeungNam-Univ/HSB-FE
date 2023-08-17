@@ -1,13 +1,42 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'; 
 import Header from "../components/Header";
 import QuoteCreationForm from "../components/QuoteCreation/QuoteCreationForm";
+import axios from 'axios';
+import { getCookie } from '../Cookies';
 
 const QuoteCreationPage = () => {
-    const handleSubmit = ({ title, content }) => {
-        // 여기에 견적 요청 제출 로직을 추가하세요.
-        // 서버로 데이터를 보내거나, 로컬 스토리지에 저장할 수 있습니다.
+    const navigate = useNavigate(); 
 
-        alert("견적요청이 제출되었습니다!");
+    const handleSubmit = async (formData) => {
+        try {
+            const { year, month, day, ...rest } = formData;
+            const dead_line = new Date(`${year}-${month}-${day}`).toISOString();
+
+            const updatedFormData = { ...rest, dead_line };
+            console.log(updatedFormData);
+            // const validated_data = {
+            //     title : "aaa" ,
+            //     content: "aaa",                
+            //     dead_line: "2000-01-01T00:00:00.000Z",
+            //     status: 0
+                
+            // }
+
+            await axios.post('estimates/',  updatedFormData,{
+                headers: {
+                Authorization: `Bearer ${getCookie("ACCESS_TOKEN")}`,
+                },
+                }
+            );
+
+            alert("견적요청이 제출되었습니다!");
+            
+            // useNavigate를 사용하여 EstimateRequestListPage로 이동 
+            navigate(`/estimate-requests?title=${rest.title}&content=${rest.content}&dead_line=${dead_line}&status=0`);
+        } catch (error) {
+            console.error("견적 제출 중 오류:", error.response.data);
+        }
     };
 
     return (
@@ -21,3 +50,4 @@ const QuoteCreationPage = () => {
 }
 
 export default QuoteCreationPage;
+
