@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import styled from "styled-components";
 import Header from "../components/Header";
 import Nav from "../components/Nav";
@@ -47,7 +48,6 @@ const SearchPage = () => {
     const [loading, setLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage, setPostsPerPage] = useState(10);
-    
 
     const indexOfLast = currentPage * postsPerPage;
     const indexOfFirst = indexOfLast - postsPerPage;
@@ -58,11 +58,28 @@ const SearchPage = () => {
     };
 
 
-    const states = [
-        {id: 0, current: "진행중"},
-        {id: 1, current: "계약 진행중"},
-        {id: 2, current: "견적 종료"}
+    const titles = [
+        {id: 0, current: "제목"},
+        {id: 1, current: "게시글"},
+        {id: 2, current: "글작성자"}
     ];
+    const estimates = [
+        {id: 0, current: "견적요청"},
+        {id: 1, current: "커뮤니티"},
+        {id: 2, current: "FAQ"}
+    ];
+
+
+    const fetchData = useEffect(() => {
+        axios.get("/estimates/")
+        .then((res) => {
+            console.log(res);
+            setPosts(res.data);
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    }, []);
 
 
     return (
@@ -74,12 +91,12 @@ const SearchPage = () => {
                 <StyledEstimateRequestListPage>
 
                     <StyledLine>
-                        <StateBox states={states}/>
-                        <StateBox states={states}/>
+                        <StateBox states={titles}/>
+                        <StateBox states={estimates}/>
                     </StyledLine>
 
                     <StyledWidth>
-                        <EstimateRequestList posts={posts} loading={loading}/>
+                        <EstimateRequestList posts={posts}/>
                     </StyledWidth>
 
                     <StyledListNumbersWidth>
