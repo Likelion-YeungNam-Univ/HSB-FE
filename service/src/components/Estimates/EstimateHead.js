@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const EstimateHead = () => {
+const EstimateHead = ({title}) => {
     const StyledHead = styled.div` 
         display: flex;
         flex-direction: column;

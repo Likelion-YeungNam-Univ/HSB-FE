@@ -22,7 +22,7 @@ const Title = styled.h1`
  font-size: 30px;
  color: #95DDFF;
  text-align: center;
- margin-right: 10px;
+ margin-left:390px;
 `;
 
 const TitleContainer = styled.div`

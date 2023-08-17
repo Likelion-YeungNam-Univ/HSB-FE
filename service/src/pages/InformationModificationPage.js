@@ -15,8 +15,8 @@ const InformationModificationPage = () => {
   });
 
   const Container = styled.div`
-    max-width: 940px;
-    max-height: 720px;
+    max-width: 100%;
+    max-height: 100%;
     margin: 20px auto;
     padding: 20px;
     border: 1px solid #FFFFFF;
@@ -28,7 +28,7 @@ const InformationModificationPage = () => {
   const Title = styled.h1`
     font-size: 30px;
     color: #95DDFF;
-    margin-right: 0px;
+    margin-left: 525px;
   `;
 
   const handleAvatarChange = (avatar) => {

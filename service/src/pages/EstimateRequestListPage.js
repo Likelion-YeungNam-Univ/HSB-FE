@@ -71,8 +71,17 @@ const EstimateRequestListPage = () => {
     };
 
     
+    const headers = {
+        'Content-Type': `application/json`,
+        'ngrok-skip-browser-warning': '69420',
+    }
+
     const fetchData = useEffect(() => {
-        axios.get("/estimates/")
+        axios.get("/estimates/",{
+            headers,
+            withCredentials: true,
+            }
+        )
         .then((res) => {
             console.log(res);
         })
