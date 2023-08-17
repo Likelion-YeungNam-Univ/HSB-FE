@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 import styled from "styled-components";
 import Header from "../components/Header";
 import Nav from "../components/Nav";
@@ -57,6 +58,17 @@ const CommunityListPage = () => {
         return currentPosts;
     };
 
+
+    const fetchData = useEffect(() => {
+        axios.get("/estimates/")
+        .then((res) => {
+            console.log(res);
+            setPosts(res.data);
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    }, []);
 
     return (
         <>

@@ -33,7 +33,7 @@ const QuoteCreationPage = () => {
             alert("견적요청이 제출되었습니다!");
             
             // useNavigate를 사용하여 EstimateRequestListPage로 이동 
-            navigate(`/estimate-requests?title=${rest.title}&content=${rest.content}&dead_line=${dead_line}&status=0`);
+            navigate("/EstimateRequestListPage");
         } catch (error) {
             console.error("견적 제출 중 오류:", error.response.data);
         }
