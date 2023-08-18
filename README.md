@@ -6,6 +6,9 @@
 [링크]: https://develop--comfy-semifreddo-320d68.netlify.app/ 
 [링크][]
 
+[링크](https://develop--comfy-semifreddo-320d68.netlify.app/){: target="_blank"}
+<https://develop--comfy-semifreddo-320d68.netlify.app/>{: target="_blank"}
+
 ### 📌 Commit Convention
 | emoji | message | description |
 | --- | --- | --- |
