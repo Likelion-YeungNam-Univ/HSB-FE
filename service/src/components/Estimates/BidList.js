@@ -21,7 +21,6 @@ const StyledBidList = styled.div`
 
 const BidList = ({requests}) => {
     
-
     return(
         <>
         <StyledCenter>

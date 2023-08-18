@@ -68,7 +68,7 @@ const EstimateRequestListPage = () => {
     const fetchData = useEffect(() => {
         axios.get("/estimates/")
         .then((res) => {
-            console.log(res);
+            //console.log(res);
             setPosts(res.data);
         })
         .catch((err) => {

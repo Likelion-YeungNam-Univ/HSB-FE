@@ -45,7 +45,6 @@ const StyledListNumbersWidth = styled.div`
 
 const CommunityListPage = () => {
     const [posts, setPosts] = useState([]);
-    const [loading, setLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage, setPostsPerPage] = useState(10);
     
@@ -62,7 +61,7 @@ const CommunityListPage = () => {
     const fetchData = useEffect(() => {
         axios.get("/estimates/")
         .then((res) => {
-            console.log(res);
+            //console.log(res);
             setPosts(res.data);
         })
         .catch((err) => {
@@ -83,7 +82,7 @@ const CommunityListPage = () => {
                     </StyledLine>
 
                     <StyledWidth>
-                        <EstimateRequestList posts={posts} loading={loading}/>
+                        <EstimateRequestList posts={posts}/>
                     </StyledWidth>
 
                     <StyledListNumbersWidth>

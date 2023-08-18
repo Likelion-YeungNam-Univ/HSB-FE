@@ -23,8 +23,8 @@ flex-direction: column;
 const ApplicationForm = ({posts}) => {
     const navigate = useNavigate();
 
-    console.log("post");
-    console.log(posts);
+    // console.log("post");
+    // console.log(posts);
     const [cnt, setCnt] = useState(0);
     
     return (

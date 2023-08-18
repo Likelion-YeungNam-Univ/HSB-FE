@@ -22,49 +22,25 @@ const StyledBody = styled.div`
 
 const EstimatePage = () =>{
 
-
-    const [array, setArray] = useState([]);
-
     const [requestData, setrequestData] = useState({
         estimate_id: 10,
         user_info: {
             user_id: 0,
-            user_name: "나문희",
+            user_name: "",
             level: 0
         },
-        title: "string",
-        created_at: "time",
-        video: "string",
-        content: "string",
-        dead_line: "string",
+        title: "",
+        created_at: "",
+        video: "",
+        content: "",
+        dead_line: "",
         status: 0
     });
-    const [bidDatas, setBidDatas] = useState([
-        {
-          offer_id: 1,
-          user: {
-            user_id: 14,
-            user_name: "나문희"
-          },
-          content: "반갑습니다! 50000원에 하시죠!ㅋ",
-          price: 50000,
-          status: 0
-        },
-        {
-          offer_id: 2,
-          user: {
-            user_id: 13,
-            user_name: ""
-          },
-          content: "string",
-          price: 0,
-          status: 0
-        }
-      ]);
+    const [bidDatas, setBidDatas] = useState([]);
     
     const nextId = useRef(1);
 
-    const{id} =useParams();
+    const {id} =useParams();
 
     const estimatesRequest = () => {
         axios.get(`/estimates/${id}`)
@@ -83,7 +59,7 @@ const EstimatePage = () =>{
                 dead_line: res.data.dead_line,
                 status: res.data.status
             };
-            console.log(res.data);
+            //console.log(res.data);
             setrequestData(data);
         })
         .catch((err) => {
@@ -95,28 +71,27 @@ const EstimatePage = () =>{
     }, []);
 
     const offerBid = () => {
-        axios.get("/offers/10")
-        .then(({data}) => {
-            const bidData = {
-                offer_id: 1,
+        axios.get(`/offers/${id}`)
+        .then((res) => {
+            const bidData = res.data.map(item => ({
+                offer_id: item.offer_id,
                 user: {
-                  user_id: 14,
-                  user_name: "나문희"
+                    user_id: item.user.user_id,
+                    user_name: item.user.user_name,
+                    level: item.user.level
                 },
-                content: "반갑습니다! 50000원에 하시죠!ㅋ",
-                price: 50000,
-                status: 0
-              };
-            console.log(data);
-            setBidDatas((bidDatas) => bidDatas.concat(bidData));
-            console.log(bidData);
-            setArray({data});
+                content: item.content,
+                price: item.price,
+                status: item.status
+            }));
+
+            setBidDatas((prevBidDatas) => [...prevBidDatas, ...bidData]);
+            //console.log(bidData);
         })
         .catch((err) => {
             console.log(err);
         })
     };
-    console.log(array)
     useEffect(() => {
         offerBid();
     }, []);
@@ -128,9 +103,10 @@ const EstimatePage = () =>{
                 id: nextId.current + 1,
                 price,
                 content,
+
             };
-            console.log(price);
-            console.log(content);
+            //console.log(price);
+            //console.log(content);
             setBidDatas(requests => requests.concat(request));
         },
         [bidDatas],
