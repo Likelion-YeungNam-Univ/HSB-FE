@@ -59,6 +59,8 @@ const JoinForm = () => {
             if(res.status === 201) {
                 alert("환영합니다!");
                 navigate("/LoginPage");
+            } else if(res.status === 500) {
+                alert("해당하는 정보의 사용자가 이미 존재합니다.")
             }
         })
 
