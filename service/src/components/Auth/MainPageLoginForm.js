@@ -1,12 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { MyPage } from "../../styles/Login.styled";
-import { LoginBox, MyPageLogin } from "../../styles/MainPageLoginForm.style";
+import { LoginBox, MyPageLogin, } from "../../styles/MainPageLoginForm.style";
 
 const MainPageLoginForm = () => {
 
     const navigate = useNavigate();
-
 
     return (
         <LoginBox>
