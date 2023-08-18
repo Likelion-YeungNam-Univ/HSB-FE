@@ -27,8 +27,8 @@ const StyledListTitleDate = styled.h5`
 `;
 
 const EstimateRequestList = ({posts}) => {
-    console.log("post");
-    console.log(posts);
+    //console.log("post");
+    //console.log(posts);
 
     return (
         <>
