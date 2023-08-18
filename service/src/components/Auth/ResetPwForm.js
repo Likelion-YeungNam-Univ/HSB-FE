@@ -2,6 +2,9 @@ import React, {useState} from "react";
 import { useEffect } from "react";
 import { SignInForm } from "../../styles/Login.styled";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { setCookie } from "../../Cookies";
+import { getCookie } from "../../Cookies";
 
 const ResetPwForm = () => {
 
@@ -10,29 +13,87 @@ const ResetPwForm = () => {
         password1: '',
         password2: '',
     });
+
     const [data, updataData] = useState(initData);
     const [color, updataColor] = useState("#b8e8ff")
+    const [isCheckPswd, setIsCheckPswd] = useState(false);//비밀번호 유효성 검사
+    const [checkPswdMessage, setCheckPswdMessage] = useState("");//비밀번호오류메세지 상태
+    const [checkPswd, setCheckPswd] = useState(initData.setCheckPswd);
+
+    const [users, setUsers] = useState();
+
+    useEffect(()=>{
+        axios.get('/users/login/auth/',
+            {
+                headers: {
+                Authorization: `Bearer ${getCookie("ACCESS_TOKEN")}`,
+                }
+            })
+            .then((response) => {
+                console.log(response.data);
+                setUsers(response.data); //받아온 데이터 저장
+            })
+            .catch((error)=>{
+            console.log(error);
+        })
+
+    }, []);
 
     useEffect(() => {
         if(data.password1.length > 0 && data.password2.length > 0) {
-            updataColor("95DDFF");
+            updataColor("95ddff");
         } else {
             updataColor("#b8e8ff");
         }
     }, [data])
 
     const handleChange = e => {
-        console.log(e.target.value);
+        console.log("[Info] : handleChange : " + e.target.value);
         updataData({
             ...data, [e.target.name]: e.target.value.trim()
         })
     }
 
-    const handleSubmit = e => {
-        e.preventDefault(); //새로고침방지
-        console.log(e.target.value);
-    }
+    const ResetPw = (e) => {
 
+        const currentPw = e.target.value;
+        setCheckPswd(currentPw);
+
+        //checkPswd에 값 넣어주기
+        updataData({
+            ...data, "password2" : e.target.value
+        })
+        
+        //console.log("password1 : " + data.password1)
+        //console.log("password2: " + data.password2)
+
+        if(currentPw.length >= 1){
+            if(data.password1!== currentPw) {
+                alert("비밀번호가 일치하지 않습니다.");
+                setIsCheckPswd(false);
+                console.log("[Info] : ResetPw : " + isCheckPswd)
+            } else {
+                setCheckPswdMessage("비밀번호가 일치합니다.");
+                setIsCheckPswd(true);
+
+                axios.post("/users/recover/password/modifications/", {
+                    "user_id" : users.user_id,
+                    "password" : data.password2
+                })
+                .then(res => {
+                    alert("비밀번호가 성공적으로 변경되었습니다.")
+                    console.log("[Info] : ResetPw data : " + res.data)
+                    return navigate("/LoginPage")
+                })
+                .catch(err => {
+                    console.log("[Error] : ResetPw : " + err.response.data);
+                    console.log(err.message)
+                    alert("err")
+                })
+            }
+        }
+    }
+    
     return (
         <SignInForm color={color}>
             <input 
@@ -49,7 +110,7 @@ const ResetPwForm = () => {
              value={data.password2}
              required 
              onChange={handleChange}/>
-            <button className="submitBtn" type="submit" onClick={(_handleSubmit) => navigate("/LoginPage")}>로그인하기</button>
+            <button className="submitBtn" type="submit" onClick={ResetPw}>로그인하기</button>
         </SignInForm>
     );
 }

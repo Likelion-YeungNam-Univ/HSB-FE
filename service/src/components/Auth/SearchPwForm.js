@@ -23,22 +23,34 @@ const SearchPwForm = () => {
         }
     }, [data])
 
-    axios.post("/users/recover/password",{
-        "email": data.email,
-        "id": data.nickname
-    })
-    
-    .then(res => { //요청 성공했을 때
-        console.log(res.data.user_name);
-        console.log(res.data.email);
-        console.log(res.data.id);
-    })
-    .catch(err => {//요청 실패 했을 경우
-        console.log(err);
-    })
+    const FindPw = e => {
+        e.preventDefault();
 
+        axios.post("/users/recover/password/",{
+            "user_email": data.email,
+            "id": data.nickname
+        })
+        .then(res => {
+            console.log(res.data)
+            if(res.status === 200) {
+                alert("비밀번호 변경 창으로 넘어가겠습니다.") 
+                console.log(res.data.email);
+                console.log(res.data.id);
+                return navigate("/ResetPwPage")
+            } else if(res.status === 400) {
+                alert("사용자 정보가 없습니다.")
+            }
+            
+        })
+        .catch(err => {
+            console.log(err);
+            console.log("Error status:", err.response.status);
+                console.log("Error data:", err.response.data);
+            alert("정보가 일치하지 않습니다.");
+        })
 
-    
+    }
+
 
     const handleChange = e => {
         console.log(e.target.value);
@@ -68,7 +80,7 @@ const SearchPwForm = () => {
              value={data.email}
              required 
              onChange={handleChange}/>
-            <button className="submitBtn" type="submit" onClick={handleSubmit => navigate("/ResetPwPage")}>다음</button>
+            <button className="submitBtn" type="submit" onClick={FindPw}>다음</button>
         </SignInForm>
     );
 }

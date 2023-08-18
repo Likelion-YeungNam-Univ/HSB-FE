@@ -80,11 +80,6 @@ const LoginForm = () => {
         })
     }
 
-    const handleSubmit = e => {
-        e.preventDefault(); //새로고침방지
-        console.log(e.target.value);
-        
-    }
 
     return (
         <SignInForm color={color}>
