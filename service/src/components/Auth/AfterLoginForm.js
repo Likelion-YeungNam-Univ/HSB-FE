@@ -24,10 +24,17 @@ const ProfileDetails = styled.div`
 `;
 
 const ButtonSection = styled.div`
-display: flex;
-align-items: center;
-margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    margin-bottom:10px;
 `;
+
+const LogoutBtn = styled.div`
+    width: 90px;
+    height: 35px;
+    justify-content: right;
+`
 
 const AfterLoginForm = () => {
     const navigate = useNavigate();
@@ -66,11 +73,14 @@ const AfterLoginForm = () => {
                 <ProfileDetails>
                     <h3>{users?.id}</h3>
                     <p>{users?.email}</p>
+                    
                 </ProfileDetails>
             </ProfileSection>
             <ButtonSection>
+                <div>
                 <button type="submit" className="textBtn" onClick={() => navigate("/ProfileAndContractsPage")}>마이페이지</button>
                 <button type="submit" className="btn btn-outline-secondary btn-sm" onClick={() => { navigate('/LoginPage') }}>로그아웃</button>
+                </div>
             </ButtonSection>
         </MyPage>
     </LoginBox>
