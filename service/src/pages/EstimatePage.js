@@ -9,6 +9,7 @@ import OfferBid from "../components/Estimates/OfferBid";
 import Header from "../components/Header";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
+import { useParams } from "react-router-dom";
 
 const StyledEstimatePage = styled.div`
     display: flex;
@@ -19,58 +20,37 @@ const StyledBody = styled.div`
     justify-content: center;
 `;
 
-const EstimatePage = ({estimate_id}) =>{
+const EstimatePage = () =>{
+
     const [requestData, setrequestData] = useState({
         estimate_id: 10,
         user_info: {
             user_id: 0,
-            user_name: "나문희",
+            user_name: "",
             level: 0
         },
-        title: "string",
-        created_at: "time",
-        video: "string",
-        content: "string",
-        dead_line: "string",
+        title: "",
+        created_at: "",
+        video: "",
+        content: "",
+        dead_line: "",
         status: 0
     });
-    const [bidDatas, setBidDatas] = useState([
-        {
-          offer_id: 1,
-          user: {
-            user_id: 14,
-            user_name: "나문희"
-          },
-          content: "반갑습니다! 50000원에 하시죠!ㅋ",
-          price: 50000,
-          status: 0
-        },
-        {
-          offer_id: 2,
-          user: {
-            user_id: 13,
-            user_name: ""
-          },
-          content: "string",
-          price: 0,
-          status: 0
-        }
-      ]);
-
-    // const [title, setTitle] = useState("");
+    const [bidDatas, setBidDatas] = useState([]);
     
-     const nextId = useRef(1);
+    const nextId = useRef(1);
 
+    const {id} =useParams();
 
     const estimatesRequest = () => {
-        axios.get("/estimates/10/")
+        axios.get(`/estimates/${id}`)
         .then((res) => {
             const data = {
                 estimate_id: res.data.estimate_id,
                 user_info: {
-                    user_id: res.data.user_id,
-                    user_name: res.data.user_name,
-                    level: res.data.level
+                    user_id: res.data.user_info.user_id,
+                    user_name: res.data.user_info.user_name,
+                    level: res.data.user_info.level
                 },
                 title: res.data.title,
                 created_at: res.data.created_at,
@@ -79,7 +59,7 @@ const EstimatePage = ({estimate_id}) =>{
                 dead_line: res.data.dead_line,
                 status: res.data.status
             };
-            console.log(res.data);
+            //console.log(res.data);
             setrequestData(data);
         })
         .catch((err) => {
@@ -91,20 +71,22 @@ const EstimatePage = ({estimate_id}) =>{
     }, []);
 
     const offerBid = () => {
-        axios.get("/estimates/offers/10/")
+        axios.get(`/offers/${id}`)
         .then((res) => {
-            const bidData = {
-                offer_id: 1,
+            const bidData = res.data.map(item => ({
+                offer_id: item.offer_id,
                 user: {
-                  user_id: 14,
-                  user_name: "나문희"
+                    user_id: item.user.user_id,
+                    user_name: item.user.user_name,
+                    level: item.user.level
                 },
-                content: "반갑습니다! 50000원에 하시죠!ㅋ",
-                price: 50000,
-                status: 0
-              };
-            console.log(res.data);
-            setBidDatas((bidDatas) => bidDatas.concat(bidData));
+                content: item.content,
+                price: item.price,
+                status: item.status
+            }));
+
+            setBidDatas((prevBidDatas) => [...prevBidDatas, ...bidData]);
+            //console.log(bidData);
         })
         .catch((err) => {
             console.log(err);
@@ -114,16 +96,17 @@ const EstimatePage = ({estimate_id}) =>{
         offerBid();
     }, []);
 
-    
+
     const onInsert = useCallback(
         (price, content) => {
             const request = {
                 id: nextId.current + 1,
                 price,
                 content,
+
             };
-            console.log(price);
-            console.log(content);
+            //console.log(price);
+            //console.log(content);
             setBidDatas(requests => requests.concat(request));
         },
         [bidDatas],
@@ -138,11 +121,11 @@ const EstimatePage = ({estimate_id}) =>{
         <StyledEstimatePage>
 
             <StyledBody>
-                <EstimateHead title={requestData.title}/>
-                <EstimateBody/>
+                <EstimateHead title={requestData.title} created_at={requestData.created_at} user_name={requestData.user_info.user_name}/>
+                <EstimateBody status={requestData.status} content={requestData.content} dead_line={requestData.dead_line}/>
             </StyledBody>
             
-            <BidList requests={requestData}/>
+            <BidList requests={bidDatas}/>
             
             <OfferBid onInsert={onInsert}/>
             

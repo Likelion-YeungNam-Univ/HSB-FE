@@ -1,32 +1,34 @@
 import styled from "styled-components";
 
-const EstimateHead = ({title}) => {
-    const StyledHead = styled.div` 
-        display: flex;
-        flex-direction: column;
-        margin-right: 20px;
-        width: 450px;
-    `;
-    const StyledTitle = styled.div`
-        font-size: 1.5rem;
-    `;
-    const StyledDetails = styled.div`
-        display: flex;
-    `;
-    const StyledDetail = styled.p`
-        margin: 0px 30px 10px 0px;
-        padding: 0px;
-    `;
+const StyledHead = styled.div` 
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+    width: 450px;
+`;
+const StyledTitle = styled.div`
+    font-size: 1.5rem;
+`;
+const StyledDetails = styled.div`
+    display: flex;
+`;
+const StyledDetail = styled.p`
+    margin: 0px 30px 10px 0px;
+    padding: 0px;
+`;
+
+const EstimateHead = ({title, created_at, user_name}) => {
+    const modifiedTime = created_at.substring(0,10);
 
     return(
         <StyledHead>
 
             <StyledTitle>
-                <StyledDetail>온라인 방송 통역 구합니다.{title}</StyledDetail>
+                <StyledDetail>{title}</StyledDetail>
             </StyledTitle>
             <StyledDetails>
-                <StyledDetail>작성자: 나문희</StyledDetail>
-                <StyledDetail>작성일: 2023-08-25</StyledDetail>
+                <StyledDetail>작성자: {user_name}</StyledDetail>
+                <StyledDetail>작성일: {modifiedTime}</StyledDetail>
             </StyledDetails>
             <video width="430" height="250" controls="controls">
                 <source src={require("../../videos/ex.mp4")}/>

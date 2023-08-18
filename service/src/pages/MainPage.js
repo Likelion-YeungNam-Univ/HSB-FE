@@ -33,6 +33,20 @@ const MainPage = () => {
 
     const [comment, setComment] = useState("");
 
+
+    const [posts, setPosts] = useState([]);
+
+    const estimateData = useEffect(() => {
+        axios.get("/estimates/")
+        .then((res) => {
+            //console.log(res);
+            setPosts(res.data);
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+    }, []);
+
     
     return (
         <>
@@ -47,7 +61,7 @@ const MainPage = () => {
                 <br></br>
             <SideBarContatiner>
                 <ApplicationContainer> 
-                    <ApplicationForm/>
+                    <ApplicationForm posts={posts}/>
                 </ApplicationContainer>
                 <br></br>
 

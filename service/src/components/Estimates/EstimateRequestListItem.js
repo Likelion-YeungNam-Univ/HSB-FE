@@ -34,7 +34,7 @@ const EstimateRequestListItem = ({estimate_id, title, created_at, user_name}) =>
             
             <StyledListLine>
                 <StyledListNum>{estimate_id}</StyledListNum>
-                <StyledListLink to="/EstimatePage">{title}</StyledListLink>
+                <StyledListLink to={`/EstimatePage/${estimate_id}`}>{title}</StyledListLink>
                 <StyledListAuthor>{user_name}</StyledListAuthor>
                 <StyledListDate>{modifiedTime}</StyledListDate>
             </StyledListLine>

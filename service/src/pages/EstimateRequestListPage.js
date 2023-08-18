@@ -1,4 +1,5 @@
 import {useState, useEffect} from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
 import EstimateRequestList from "../components/Estimates/EstimateRequestList";
@@ -49,6 +50,11 @@ const EstimateRequestListPage = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage, setPostsPerPage] = useState(10);
 
+    const navigate = useNavigate();
+    const navigateToQuote = () => {
+        navigate('/QuoteCreationPage');
+    };
+
     const indexOfLast = currentPage * postsPerPage;
     const indexOfFirst = indexOfLast - postsPerPage;
     const currentPosts = (posts) => {
@@ -62,7 +68,7 @@ const EstimateRequestListPage = () => {
     const fetchData = useEffect(() => {
         axios.get("/estimates/")
         .then((res) => {
-            console.log(res);
+            //console.log(res);
             setPosts(res.data);
         })
         .catch((err) => {
@@ -95,7 +101,7 @@ const EstimateRequestListPage = () => {
                 <StyledEstimateRequestListPage>
 
                     <StyledLine>
-                        <StyledButton>견적 작성</StyledButton>
+                        <StyledButton onClick={navigateToQuote}>견적 작성</StyledButton>
                     </StyledLine>
 
                     <StyledWidth>

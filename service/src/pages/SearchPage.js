@@ -45,7 +45,6 @@ const StyledListNumbersWidth = styled.div`
 
 const SearchPage = () => {
     const [posts, setPosts] = useState([]);
-    const [loading, setLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage, setPostsPerPage] = useState(10);
 
@@ -73,7 +72,7 @@ const SearchPage = () => {
     const fetchData = useEffect(() => {
         axios.get("/estimates/")
         .then((res) => {
-            console.log(res);
+            //console.log(res);
             setPosts(res.data);
         })
         .catch((err) => {

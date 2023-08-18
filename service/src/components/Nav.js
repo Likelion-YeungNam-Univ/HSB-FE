@@ -29,7 +29,7 @@ const Nav = () =>{
                 <StyledLink to="/ServiceNamePage">HSB란?</StyledLink>
                 <StyledLink to="/EstimateRequestListPage">견적요청</StyledLink>
                 <StyledLink to="/CommunityListPage">커뮤니티</StyledLink>
-                <StyledLink to="/EstimatePage">FAQ</StyledLink>
+                <StyledLink to="/BidProposalMemberInfoPage">FAQ</StyledLink>
                 
             </StyledNav>
         </StyledCenter>

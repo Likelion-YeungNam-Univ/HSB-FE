@@ -9,6 +9,11 @@ function QuoteCreationForm({ onSubmit }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (!year || !month || !day) {
+      alert("기간을 설정해주세요.");
+      return;
+    }
+
     onSubmit({ title, content, year, month, day });
   };
 
@@ -86,4 +91,3 @@ function QuoteCreationForm({ onSubmit }) {
 }
 
 export default QuoteCreationForm;
-
