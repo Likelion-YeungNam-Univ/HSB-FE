@@ -23,7 +23,6 @@ const SearchPwForm = () => {
     }, [data])
 
     axios("/users/recover/password",{
-
         "user_name": "string",
         "email": "useaar@example.com",
         "id": "string",
