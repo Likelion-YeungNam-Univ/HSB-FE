@@ -84,8 +84,7 @@ const BidListItem = ({offer_id, user_id, user_name, price, content, status}) => 
                     <StyledDiv>
                         <StyledBidState>
                             <StyledBidStateP>계약 현황</StyledBidStateP>
-                            <button>
-                                {state[status]}</button>
+                            <button>{state[status]}</button>
                         </StyledBidState>
                         <StyledSendIcon onClick={navigateToNote}><AiOutlineSend/></StyledSendIcon>
                     </StyledDiv>
