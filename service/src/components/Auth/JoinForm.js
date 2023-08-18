@@ -17,17 +17,17 @@ const JoinForm = () => {
     });
     
     const [data, updataData] = useState(initData);
-    const [name, updataName] = useState(initData.name);
+    //const [name, updataName] = useState(initData.name);
 
-    const [email, updataEmail] = useState(initData.email);
-    const [id, updataId] = useState(initData.id);
-    const [pswd, setPswd] = useState(initData.pswd);//비밀번호
+    //const [email, updataEmail] = useState(initData.email);
+    //const [id, updataId] = useState(initData.id);
+    //const [pswd, setPswd] = useState(initData.pswd);//비밀번호
     const [checkPswd, setCheckPswd] = useState(initData.setCheckPswd);
 
-    const [pswdMessage, setPswdMessage] = useState("");
+    //const [pswdMessage, setPswdMessage] = useState("");
     const [checkPswdMessage, setCheckPswdMessage] = useState("");//비밀번호오류메세지 상태
 
-    const [isPswd, setIsPswd] = useState(false);
+    //const [isPswd, setIsPswd] = useState(false);
     const [isCheckPswd, setIsCheckPswd] = useState(false);//비밀번호 유효성 검사
     const [color, updataColor] = useState("#b8e8ff")
 
