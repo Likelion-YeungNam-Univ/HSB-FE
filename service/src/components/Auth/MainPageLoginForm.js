@@ -13,7 +13,6 @@ const MainPageLoginForm = () => {
 
     const navigate = useNavigate();
 
-
     return (
         <LoginBox>
             <StyledP> HSB를 통해서 원하는 영상의 소리를 볼 수 있습니다.</StyledP>

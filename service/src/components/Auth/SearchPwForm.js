@@ -23,12 +23,11 @@ const SearchPwForm = () => {
         }
     }, [data])
 
-    axios("/users/recover/password",{
-        "user_name": "string",
-        "email": "useaar@example.com",
-        "id": "string",
-        "password": "string"
+    axios.post("/users/recover/password",{
+        "email": data.email,
+        "id": data.nickname
     })
+    
     .then(res => { //요청 성공했을 때
         console.log(res.data.user_name);
         console.log(res.data.email);

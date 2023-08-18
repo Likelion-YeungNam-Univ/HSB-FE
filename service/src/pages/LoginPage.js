@@ -2,12 +2,9 @@ import React from "react";
 import {useNavigate} from 'react-router-dom';
 import LoginForm from "../components/Auth/LoginForm";
 import { SignInBox, MyPage, Container } from "../styles/Login.styled";
-import axios from "axios";
 
 
 const LoginPage = () => {
-    //const [id, setId] = React.useState("");
-    //const [password, setpassword] = React.useState("");
     
     const navigate = useNavigate();
 

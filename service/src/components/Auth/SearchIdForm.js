@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import { useEffect } from "react";
 import { SignInForm } from "../../styles/Login.styled";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const SearchIdForm = () => {
 
@@ -22,6 +23,16 @@ const SearchIdForm = () => {
         }
     }, [data])
 
+    axios.post("/users/recover/id/", {
+        "email" : data.email
+    })
+    .then(res => {
+        console.log(res.data.email);
+    })
+    .catch(err => {
+        console.log(err);
+    })
+
     const handleChange = e => {
         console.log(e.target.value);
         updataData({
@@ -29,11 +40,6 @@ const SearchIdForm = () => {
         })
     }
 
-    const handleSubmit = e => {
-        e.preventDefault(); //새로고침방지
-        console.log(e.target.value);
-        
-    }
 
     return (
         <SignInForm color={color}>
@@ -44,7 +50,7 @@ const SearchIdForm = () => {
              value={data.email}
              required 
              onChange={handleChange}/>
-            <button className="submitBtn" type="submit" onClick={handleSubmit => navigate("/FindIdPage")}>로그인하기</button>
+            <button className="submitBtn" type="submit" onClick={() => navigate("/FindIdPage")}>로그인하기</button>
         </SignInForm>
     );
 }

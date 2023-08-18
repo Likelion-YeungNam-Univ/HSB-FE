@@ -37,7 +37,6 @@ const LoginForm = () => {
             const accessToken = res.data.access
             console.log(accessToken);
 
-            //setCookie("id", id);
             setCookie("ACCESS_TOKEN", `${accessToken}`); 
             console.log(res.data.access);
             console.log(res.data.refresh);
