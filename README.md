@@ -1,7 +1,7 @@
 # HSB-FE
 
 ### 배포 링크
-<https://develop--comfy-semifreddo-320d68.netlify.app/>
+<a href="https://develop--comfy-semifreddo-320d68.netlify.app/" target="_blank">링크</a>
 
 ### 📌 Commit Convention
 | emoji | message | description |
