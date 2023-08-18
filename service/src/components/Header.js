@@ -77,6 +77,9 @@ const Header = () => {
     const navigateToSearch = () => {
         navigate('/SearchPage');
     }
+    const navigateToNote = () => {
+        navigate('/SendNotePage');
+    }
 
 
     const [search, setSearch] = useState('');
@@ -103,7 +106,7 @@ const Header = () => {
 
                 <StyledIconButtons>
                     <StyledIcons><AiOutlineBell/></StyledIcons>
-                    <StyledIcons><AiOutlineSend/></StyledIcons>
+                    <StyledIcons onClick={navigateToNote}><AiOutlineSend/></StyledIcons>
                     <StyledIcons><AiOutlineDown/></StyledIcons>
                 </StyledIconButtons>
                 
