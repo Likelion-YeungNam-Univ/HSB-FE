@@ -10,6 +10,7 @@ import Header from "../components/Header";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import { useParams } from "react-router-dom";
+import { Location } from "react-router-dom";
 
 const StyledEstimatePage = styled.div`
     display: flex;
@@ -97,21 +98,52 @@ const EstimatePage = () =>{
     }, []);
 
 
-    const onInsert = useCallback(
-        (price, content) => {
+
+    /*
+        const onInsert = useCallback((price, content) => {
             const request = {
                 id: nextId.current + 1,
                 price,
-                content,
-
+                content
             };
             //console.log(price);
             //console.log(content);
-            setBidDatas(requests => requests.concat(request));
+            setBidDatas((requests) => requests.concat(request));
+            console.log(bidDatas);
         },
         [bidDatas],
     );
+    */
 
+    const onInsert = useCallback(
+        async (price, content) => {
+            const request = {
+                id: nextId.current + 1,
+                price,
+                content
+            };
+            
+            try {
+                const response = await axios.post(`/offers/${id}/`, request, {
+                    headers: {
+                        Authorization: `Bearer ${getCookie("ACCESS_TOKEN")}`,
+                    }
+                });
+
+                if (response.status === 201) {
+                    const responseData = response.data;
+                    setBidDatas(requests => requests.concat(responseData));
+                    window.location.replace(`/EstimatePage/${id}/`);
+                } else {
+                    console.error('Failed');
+                }
+            } catch (err) {
+                console.error(err);
+            }
+        },
+        [bidDatas],
+    );
+    
 
 
     return(

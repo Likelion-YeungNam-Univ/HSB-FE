@@ -57,7 +57,6 @@ const StyledButton = styled.button`
 
 const OfferBid = ({onInsert}) => {
     
-
     const [value, setValue] = useState({
         price: '',
         content: '',

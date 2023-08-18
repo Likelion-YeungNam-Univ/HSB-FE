@@ -88,5 +88,30 @@ const SideBarContatiner = styled.div`
     width:100%;
     height:75vh;
     `;
+    
+const ProfilePicture = styled.div`
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+    border: 2px solid #ccc;
+    box-sizing: border-box;
 
-export {LoginBox, MyPageLogin, SideBarContatiner, ApplicationContainer,ScrollAlarmContainer, Scrollbar};
+    .profile-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .profile-icon {
+        font-size: 36px;
+        color: #ccc;
+    }
+`;
+
+
+export {LoginBox, MyPageLogin, SideBarContatiner, ApplicationContainer,ScrollAlarmContainer, Scrollbar, ProfilePicture};

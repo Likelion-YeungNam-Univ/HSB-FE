@@ -21,7 +21,6 @@ flex-direction: column;
 
 
 const ApplicationForm = ({posts}) => {
-    const navigate = useNavigate();
 
     // console.log("post");
     // console.log(posts);

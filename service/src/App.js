@@ -24,11 +24,10 @@ import ServiceNamePage from "./pages/ServiceNamePage";
 import ReceivedNotePage from "./pages/ReceivedNotePage";
 import QuoteCreationPage from "./pages/QuoteCreationPage";
 
-function App() {
-  
-  const StyledApp = styled.div`
+const StyledApp = styled.div`
   min-width: 1300px;
-  `;
+`;
+function App() {
 
   return (
     <StyledApp>
