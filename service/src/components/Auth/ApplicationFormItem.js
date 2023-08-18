@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 
 const ApplicationFormItem = ({estimate_id, title}) => {
     const navigate = useNavigate();
-
     
     return (
         <>

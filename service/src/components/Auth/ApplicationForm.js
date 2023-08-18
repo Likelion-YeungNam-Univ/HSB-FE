@@ -10,13 +10,12 @@ const StyledDiv = styled.div`
 
 `;
 const StyledText = styled.div`
-flex-direction: row;
-
+    flex-direction: row;
 `;
 
 const StyledWrap = styled.div`
-display: flex;
-flex-direction: column;
+    display: flex;
+    flex-direction: column;
 `;
 
 
