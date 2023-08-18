@@ -3,10 +3,8 @@
 ### 배포 링크
 <a href="https://develop--comfy-semifreddo-320d68.netlify.app/" target="_blank">링크</a>
 
-[Google][]
-
-# link define
-[Google]: https://develop--comfy-semifreddo-320d68.netlify.app/ 
+[링크]: https://develop--comfy-semifreddo-320d68.netlify.app/ 
+[링크][]
 
 ### 📌 Commit Convention
 | emoji | message | description |
