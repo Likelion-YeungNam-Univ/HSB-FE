@@ -8,7 +8,5 @@ axios.defaults.withCredentials = true; //refreshToken cookie를 주고받기 위
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
     <App />
-  </React.StrictMode>
 );
